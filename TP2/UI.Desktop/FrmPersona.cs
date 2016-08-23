@@ -226,6 +226,7 @@ namespace UI.Desktop
         {
             FrmLista_Plan vista = new FrmLista_Plan();
             vista.ShowDialog();
+            Plan(vista.par1, vista.par2);
         }
 
         private void FrmPersona_FormClosing(object sender, FormClosingEventArgs e)

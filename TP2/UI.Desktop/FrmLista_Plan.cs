@@ -14,6 +14,7 @@ namespace UI.Desktop
 {
     public partial class FrmLista_Plan : Form
     {
+        public string par1, par2;
         public FrmLista_Plan()
         {
             InitializeComponent();
@@ -70,12 +71,12 @@ namespace UI.Desktop
 
       private void dataListado_DoubleClick(object sender, EventArgs e)
       {
-          FrmPersona frpersona = FrmPersona.GetInstancia();
-          string par1, par2;
+          //FrmPersona frpersona = FrmPersona.GetInstancia();
+          
           par1 = Convert.ToString(this.dataListado.CurrentRow.Cells["Codigo"].Value);
           par2 = Convert.ToString(this.dataListado.CurrentRow.Cells["Plan"].Value);
                    
-          frpersona.Plan(par1, par2);
+          //frpersona.Plan(par1, par2);
 
           this.Hide();
       }
