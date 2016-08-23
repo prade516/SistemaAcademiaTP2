@@ -16,7 +16,7 @@ namespace Data.Database
        Adapter c = new Adapter();
        public enum gestion 
        {
-           Adminstrativo=1,
+           Adminstrador=1,
            Profesor,
            Alumno
        }
@@ -46,7 +46,7 @@ namespace Data.Database
                    opc = (int)drpersonas["tipo_persona"];
                    if (opc == 1) 
                    {
-                       per.Tipo_Persona = Convert.ToString(gestion.Adminstrativo);
+                       per.Tipo_Persona = Convert.ToString(gestion.Adminstrador);
                    }
                    else if (opc==2)
                    {
@@ -110,7 +110,7 @@ namespace Data.Database
                    opc = (int)drpersona["tipo_persona"];
                    if (opc == 1)
                    {
-                       per.Tipo_Persona = Convert.ToString(gestion.Adminstrativo);
+                       per.Tipo_Persona = Convert.ToString(gestion.Adminstrador);
                    }
                    else if (opc == 2)
                    {
@@ -157,7 +157,7 @@ namespace Data.Database
                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                opc = persona.Tipo_Persona;
 
-                   if (opc==Convert.ToString(gestion.Adminstrativo) )
+                   if (opc==Convert.ToString(gestion.Adminstrador) )
                    {
                         cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value =1;
                    }
@@ -207,7 +207,7 @@ namespace Data.Database
                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.Fecha_Nac;
                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                opc = persona.Tipo_Persona;
-               if (opc == Convert.ToString(gestion.Adminstrativo))
+               if (opc == Convert.ToString(gestion.Adminstrador))
                {
                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
                }

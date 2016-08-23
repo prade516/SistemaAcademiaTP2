@@ -42,6 +42,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtIdPlan = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.cbAcesso = new System.Windows.Forms.ComboBox();
@@ -52,7 +53,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtPlan = new System.Windows.Forms.TextBox();
             this.txtIdtrabajador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtPlan = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -244,6 +244,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trabajadores";
             // 
+            // dtFecha
+            // 
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(334, 73);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(113, 20);
+            this.dtFecha.TabIndex = 63;
+            // 
             // txtIdPlan
             // 
             this.txtIdPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -266,6 +274,7 @@
             // 
             this.cbAcesso.FormattingEnabled = true;
             this.cbAcesso.Items.AddRange(new object[] {
+            "Dar acceso",
             "Administrador",
             "Profesor",
             "Alumno"});
@@ -288,6 +297,7 @@
             // 
             this.cbsexo.FormattingEnabled = true;
             this.cbsexo.Items.AddRange(new object[] {
+            "Elegir sexo",
             "F",
             "M"});
             this.cbsexo.Location = new System.Drawing.Point(112, 67);
@@ -321,6 +331,7 @@
             this.btnEditar.TabIndex = 54;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txtLegajo
             // 
@@ -339,20 +350,12 @@
             this.label8.TabIndex = 50;
             this.label8.Text = "Apellidos";
             // 
-            // txtPlan
-            // 
-            this.txtPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPlan.Location = new System.Drawing.Point(335, 14);
-            this.txtPlan.Name = "txtPlan";
-            this.txtPlan.ReadOnly = true;
-            this.txtPlan.Size = new System.Drawing.Size(122, 20);
-            this.txtPlan.TabIndex = 16;
-            // 
             // txtIdtrabajador
             // 
             this.txtIdtrabajador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdtrabajador.Location = new System.Drawing.Point(112, 14);
             this.txtIdtrabajador.Name = "txtIdtrabajador";
+            this.txtIdtrabajador.ReadOnly = true;
             this.txtIdtrabajador.Size = new System.Drawing.Size(149, 20);
             this.txtIdtrabajador.TabIndex = 49;
             // 
@@ -461,6 +464,7 @@
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -499,13 +503,14 @@
             // 
             this.ttmensaje.IsBalloon = true;
             // 
-            // dtFecha
+            // txtPlan
             // 
-            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(334, 73);
-            this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(113, 20);
-            this.dtFecha.TabIndex = 63;
+            this.txtPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlan.Location = new System.Drawing.Point(335, 14);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.ReadOnly = true;
+            this.txtPlan.Size = new System.Drawing.Size(122, 20);
+            this.txtPlan.TabIndex = 16;
             // 
             // FrmPersona
             // 
@@ -568,12 +573,12 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPlan;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdPlan;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.TextBox txtPlan;
     }
 }

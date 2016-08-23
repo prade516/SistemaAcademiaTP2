@@ -56,7 +56,9 @@ namespace UI.Desktop
             this.txtTelefono.Text = string.Empty;
             this.txtE_mail.Text = string.Empty;
             this.txtLegajo.Text = string.Empty;
+            this.txtPlan.Text = string.Empty;
             this.cbAcesso.Text = "Dar Aceso";
+            this.cbsexo.Text = "Elegir sexo";
         }
         private void Habilitar(bool valor)
         {
@@ -67,6 +69,10 @@ namespace UI.Desktop
             this.txtTelefono.ReadOnly = !valor;
             this.txtE_mail.ReadOnly = !valor;
             this.txtLegajo.ReadOnly = !valor;
+            this.cbsexo.Enabled = valor;
+            this.cbAcesso.Enabled = valor;
+            this.dtFecha.Enabled = valor;
+            //this.txtPlan.ReadOnly = !valor;
         }
 
         private void Botones()
@@ -78,6 +84,8 @@ namespace UI.Desktop
                 this.btnGuardar.Enabled = true;
                 this.btnEditar.Enabled = false;
                 this.btnCancelar.Enabled = true;
+                this.button3.Enabled = true ;
+               
             }
             else
             {
@@ -86,6 +94,7 @@ namespace UI.Desktop
                 this.btnGuardar.Enabled = false;
                 this.btnEditar.Enabled = true;
                 this.btnCancelar.Enabled = false;
+                this.button3.Enabled = false;
             }
         }
         public void Plan(string Codigo, string Plan)
@@ -133,7 +142,7 @@ namespace UI.Desktop
             Listar();
             this.Habilitar(false);
             this.Botones();
-            //txtIdPlan.Visible = false;
+            txtIdPlan.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -151,11 +160,14 @@ namespace UI.Desktop
             try
             {
                 string resp = "";
-                Regex rgx = new Regex(@"^[a-zA-Z0-9]\d{2}[a-zA-Z0-9](-\d{3}){2}[A-Za-z0-9]$");
-                
-                if (txtNombre.Text==string.Empty || txtApellido.Text==string.Empty || txtDireccion.Text==string.Empty ||
-                    !rgx.IsMatch(txtE_mail.Text) || txtTelefono.Text == string.Empty  ||
-                    txtLegajo.Text == string.Empty  || txtIdPlan.Text == string.Empty )
+                Regex rgx = new Regex("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+                Regex rgx1 = new Regex("[0-9]");//solo numero
+                Regex rgxletra = new Regex("[a-zA-Z ]");
+                string combo = cbAcesso.SelectedItem.ToString();
+                string sexo = cbsexo.SelectedItem.ToString();
+                if (!rgxletra.IsMatch(txtNombre.Text) || !rgxletra.IsMatch(txtApellido.Text) || txtDireccion.Text == string.Empty ||
+                    !rgx.IsMatch(txtE_mail.Text) || !rgx1.IsMatch(txtTelefono.Text) || dtFecha.Value > DateTime.Now ||
+                    !rgx1.IsMatch(txtLegajo.Text) || combo == "Dar acceso" || txtIdPlan.Text == string.Empty || sexo == "Elegir sexo")
                 {
                    //&& this.dtFecha.Text == Convert.ToString(DateTime.Now)
                         MensajeError("Falta ingresar algunos datos, seran remarcados");
@@ -164,6 +176,7 @@ namespace UI.Desktop
                         errorIcono.SetError(txtDireccion, "Ingresa la Direccion");
                         errorIcono.SetError(txtE_mail, "Ingresa un email valido");
                         errorIcono.SetError(txtTelefono, "Ingresa el telefono");
+                        errorIcono.SetError(dtFecha, "Ingresa una fecha corecta");
                         //MessageBox.Show("Falta ingresar algunos datos, seran remarcados");
                                     
                 }
@@ -219,7 +232,7 @@ namespace UI.Desktop
             this.Botones();
             this.Limpiar();
             this.Habilitar(true);
-            this.txtIdtrabajador.Focus();
+            this.txtNombre.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -231,7 +244,33 @@ namespace UI.Desktop
 
         private void FrmPersona_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _instancia = null;
+            //_instancia = null;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Isnuevo = false;
+            this.IsEditar = false;
+            this.Botones();
+            this.Limpiar();
+            this.Habilitar(false);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (!this.txtIdtrabajador.Text.Equals(""))
+            {
+                this.IsEditar = true;
+                this.Botones();
+                this.Habilitar(true);
+                //llenarcomboEspecialidad();
+                //this.cbldEspecialidad.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Especialidad"].Value); ;
+
+            }
+            else
+            {
+                this.MensajeError("Debe de seleccionar primero el registro a Modificar");
+            }
         }
     }
 }
