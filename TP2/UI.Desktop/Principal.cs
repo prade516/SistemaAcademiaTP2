@@ -72,12 +72,11 @@ namespace UI.Desktop
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
+           
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,6 +115,36 @@ namespace UI.Desktop
         private void viewMenu_Click(object sender, EventArgs e)
         {
 
+        }
+        private void GestionUsuario()
+        {
+            if (Acceso=="1")
+            {
+                this.PersonaMenu.Enabled = true;
+                this.InscripcionMenu.Enabled = true;
+                this.ConsultaMenu.Enabled = true;
+                this.HerramientaMenu.Enabled = true;
+            }
+            else if (Acceso=="2")
+            {
+                this.PersonaMenu.Enabled = true;
+                this.InscripcionMenu.Enabled = true;
+                this.ConsultaMenu.Enabled = true;
+                this.HerramientaMenu.Enabled = false;
+                this.altaPersonaToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                this.PersonaMenu.Enabled = false;
+                this.InscripcionMenu.Enabled = true;
+                this.ConsultaMenu.Enabled = true;
+                this.HerramientaMenu.Enabled = false;
+            }
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            GestionUsuario();
         }
     }
 }

@@ -32,16 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.PersonaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.InscripcionMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConsultaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.HerramientaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,13 +73,13 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.editMenu,
-            this.viewMenu,
-            this.toolsMenu,
-            this.windowsMenu,
+            this.PersonaMenu,
+            this.InscripcionMenu,
+            this.ConsultaMenu,
+            this.HerramientaMenu,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.MdiWindowListItem = this.windowsMenu;
+            this.menuStrip.MdiWindowListItem = this.HerramientaMenu;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
             this.menuStrip.TabIndex = 0;
@@ -93,29 +88,11 @@
             // fileMenu
             // 
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator3,
-            this.toolStripSeparator4,
-            this.toolStripSeparator5,
             this.exitToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(123, 20);
             this.fileMenu.Text = "&Sistema Academico";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -124,55 +101,43 @@
             this.exitToolStripMenuItem.Text = "&Salir";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
-            // editMenu
+            // PersonaMenu
             // 
-            this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.toolStripSeparator7,
+            this.PersonaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaPersonaToolStripMenuItem,
             this.altaUsuarioToolStripMenuItem});
-            this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(66, 20);
-            this.editMenu.Text = "&Personas";
+            this.PersonaMenu.Name = "PersonaMenu";
+            this.PersonaMenu.Size = new System.Drawing.Size(66, 20);
+            this.PersonaMenu.Text = "&Personas";
             // 
-            // toolStripSeparator6
+            // InscripcionMenu
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(149, 6);
-            // 
-            // viewMenu
-            // 
-            this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.InscripcionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.examenToolStripMenuItem,
             this.cursarToolStripMenuItem});
-            this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(72, 20);
-            this.viewMenu.Text = "&Incripcion";
-            this.viewMenu.Click += new System.EventHandler(this.viewMenu_Click);
+            this.InscripcionMenu.Name = "InscripcionMenu";
+            this.InscripcionMenu.Size = new System.Drawing.Size(72, 20);
+            this.InscripcionMenu.Text = "&Incripcion";
+            this.InscripcionMenu.Click += new System.EventHandler(this.viewMenu_Click);
             // 
-            // toolsMenu
+            // ConsultaMenu
             // 
-            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConsultaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.notasToolStripMenuItem,
             this.historiaAcademicoToolStripMenuItem,
             this.verMateriasAprobadasToolStripMenuItem});
-            this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(70, 20);
-            this.toolsMenu.Text = "&Consultar";
+            this.ConsultaMenu.Name = "ConsultaMenu";
+            this.ConsultaMenu.Size = new System.Drawing.Size(70, 20);
+            this.ConsultaMenu.Text = "&Consultar";
             // 
-            // windowsMenu
+            // HerramientaMenu
             // 
-            this.windowsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HerramientaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarBackUpToolStripMenuItem,
             this.restaurarBackUpToolStripMenuItem});
-            this.windowsMenu.Name = "windowsMenu";
-            this.windowsMenu.Size = new System.Drawing.Size(90, 20);
-            this.windowsMenu.Text = "&Herramientas";
+            this.HerramientaMenu.Name = "HerramientaMenu";
+            this.HerramientaMenu.Size = new System.Drawing.Size(90, 20);
+            this.HerramientaMenu.Text = "&Herramientas";
             // 
             // helpMenu
             // 
@@ -386,6 +351,7 @@
             this.Name = "Principal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -404,20 +370,15 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editMenu;
-        private System.Windows.Forms.ToolStripMenuItem viewMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
-        private System.Windows.Forms.ToolStripMenuItem windowsMenu;
+        private System.Windows.Forms.ToolStripMenuItem PersonaMenu;
+        private System.Windows.Forms.ToolStripMenuItem InscripcionMenu;
+        private System.Windows.Forms.ToolStripMenuItem ConsultaMenu;
+        private System.Windows.Forms.ToolStripMenuItem HerramientaMenu;
         private System.Windows.Forms.ToolStripMenuItem helpMenu;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
