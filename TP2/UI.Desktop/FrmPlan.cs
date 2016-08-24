@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -208,9 +209,14 @@ namespace UI.Desktop
         private void llenarcomboEspecialidad()
         {
             Data.Database.Especialidad especia = new Data.Database.Especialidad();
+            _Especialidades fr = new _Especialidades();
             cbldEspecialidad.DataSource = especia.GetAll();
             cbldEspecialidad.ValueMember = "Idespecialidad";
             cbldEspecialidad.DisplayMember = "DescEspecialidad";
+            //if ( cbldEspecialidad.ValueMember==Convert.ToString(fr.Idespecialidad))
+            //{
+                
+            //}
         }
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {

@@ -28,12 +28,12 @@ namespace Business.Logic
            return PersonaData.GetAll();
        }
 
-       public Business.Entities._Personas GetOne(string id)
+       public static DataTable GetOne(string id)
        {
-           //Business.Entities._Personas espe = new Business.Entities._Personas();
-           //Data.Database.Personas especia = new Data.Database.Personas();
-           //espe.Txtbuscado = id;
-           return PersonaData.GetOne(id);
+           Business.Entities._Personas espe = new Business.Entities._Personas();
+           Data.Database.Personas especia = new Data.Database.Personas();
+           espe.Txtbuscado = id;
+           return especia.GetOne(espe);
        }
        public static string Delete(string id) 
        {
@@ -65,7 +65,7 @@ namespace Business.Logic
            Business.Entities._Personas espe = new Business.Entities._Personas();
            Data.Database.Personas especia = new Data.Database.Personas();
 
-           espe.Id_Persona = id_persona;
+           espe.Codigo = id_persona;
            espe.Nombre = nombre;
            espe.Apellido = apellido;
            espe.Direccion = direccion;

@@ -25,6 +25,7 @@ public class PlanLogic
        {
            return Plans.GetAll();
        }
+       
  public static DataTable GetOne(string desc_plan)
        {
            Business.Entities.Planes pla = new Business.Entities.Planes();

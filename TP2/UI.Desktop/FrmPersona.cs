@@ -57,6 +57,8 @@ namespace UI.Desktop
             this.txtE_mail.Text = string.Empty;
             this.txtLegajo.Text = string.Empty;
             this.txtPlan.Text = string.Empty;
+            this.txtIdPersonas.Text = string.Empty;
+            cbldEspecialidad.Text = string.Empty;
             this.cbAcesso.Text = "Dar Aceso";
             this.cbsexo.Text = "Elegir sexo";
         }
@@ -72,6 +74,7 @@ namespace UI.Desktop
             this.cbsexo.Enabled = valor;
             this.cbAcesso.Enabled = valor;
             this.dtFecha.Enabled = valor;
+            this.cbldEspecialidad.Enabled = !valor;
             //this.txtPlan.ReadOnly = !valor;
         }
 
@@ -105,7 +108,7 @@ namespace UI.Desktop
         private void Ocultarcolumna()
         {
             this.dataListado.Columns[0].Visible = false;
-            this.dataListado.Columns[1].Visible = false;
+            this.dataListado.Columns[12].Visible = false;
             this.dataListado.Columns[4].Visible = false;
             this.dataListado.Columns[10].Visible = false;
             this.dataListado.Columns[7].Visible = false;
@@ -122,7 +125,7 @@ namespace UI.Desktop
             else
             {
                 //int busca = Convert.ToInt16(this.txtBuscar.Text);
-                this.dataListado.DataSource = ul.GetOne(this.txtBuscar.Text);
+                this.dataListado.DataSource = PersonaLogic.GetOne(txtBuscar.Text);
                 //this.dataListado.DataSource = ul.GetOne( this.txtBuscar.Text);
                 //this.Ocultarcolumna();
                 lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
@@ -135,13 +138,16 @@ namespace UI.Desktop
             this.dataListado.DataSource = ul.GetAll();
             this.Ocultarcolumna();
             lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
+            cbldEspecialidad.Visible = false;
         }
 
         private void FrmPersona_Load(object sender, EventArgs e)
         {
             Listar();
+            //llenarcomboEspecialidad();
             this.Habilitar(false);
             this.Botones();
+            cbldEspecialidad.Enabled = false;
             txtIdPlan.Visible = false;
         }
 
@@ -177,6 +183,7 @@ namespace UI.Desktop
                         errorIcono.SetError(txtE_mail, "Ingresa un email valido");
                         errorIcono.SetError(txtTelefono, "Ingresa el telefono");
                         errorIcono.SetError(dtFecha, "Ingresa una fecha corecta");
+                        errorIcono.SetError(txtPlan, "Busca el Plan");
                         //MessageBox.Show("Falta ingresar algunos datos, seran remarcados");
                                     
                 }
@@ -190,7 +197,7 @@ namespace UI.Desktop
                     }
                     else
                     {
-                        resp = PersonaLogic.Insertar(Convert.ToInt32(this.txtIdtrabajador.Text.Trim()), this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(),
+                        resp = PersonaLogic.Insertar(Convert.ToInt32(this.txtIdPersonas.Text.Trim()), this.txtNombre.Text.Trim(), this.txtApellido.Text.Trim(),
                                                      this.txtDireccion.Text.Trim(), this.txtE_mail.Text.Trim(), this.txtTelefono.Text.Trim(),this.dtFecha.Value,
                                                      Convert.ToInt32(this.txtLegajo.Text.Trim()), this.cbAcesso.Text, Convert.ToInt32(this.txtIdPlan.Text.Trim()),
                                                      this.cbsexo.Text);
@@ -233,6 +240,8 @@ namespace UI.Desktop
             this.Limpiar();
             this.Habilitar(true);
             this.txtNombre.Focus();
+            cbldEspecialidad.Visible = false;
+            this.txtPlan.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -240,12 +249,15 @@ namespace UI.Desktop
             FrmLista_Plan vista = new FrmLista_Plan();
             vista.ShowDialog();
             Plan(vista.par1, vista.par2);
+            cbldEspecialidad.Visible = false;
+            txtPlan.Visible = true;
         }
 
         private void FrmPersona_FormClosing(object sender, FormClosingEventArgs e)
         {
             //_instancia = null;
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -254,23 +266,55 @@ namespace UI.Desktop
             this.Botones();
             this.Limpiar();
             this.Habilitar(false);
+            cbldEspecialidad.Enabled = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.txtIdtrabajador.Text.Equals(""))
+            if (!this.txtIdPersonas.Text.Equals(""))
             {
                 this.IsEditar = true;
                 this.Botones();
                 this.Habilitar(true);
                 //llenarcomboEspecialidad();
-                //this.cbldEspecialidad.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Especialidad"].Value); ;
-
-            }
+                
+             }
             else
             {
                 this.MensajeError("Debe de seleccionar primero el registro a Modificar");
             }
         }
+        string opc;
+        private void dataListado_DoubleClick(object sender, EventArgs e)
+        {
+            
+            this.txtIdPersonas.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Codigo"].Value);
+            this.txtNombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Nombre"].Value);
+            this.cbsexo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["sexo"].Value);
+            this.txtApellido.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Apellido"].Value);
+            this.dtFecha.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["fecha_nac"].Value);
+            this.txtDireccion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["direccion"].Value);
+            this.txtLegajo.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["legajo"].Value);
+            this.txtTelefono.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["telefono"].Value);
+            this.cbAcesso.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["tipo_persona"].Value);
+            this.txtE_mail.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["email"].Value);
+            this.txtIdPlan.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id_plan"].Value);
+            opc = Convert.ToString(this.dataListado.CurrentRow.Cells["Codigo"].Value);
+            Data.Database.Plan especia = new Data.Database.Plan();
+            Planes fr = new Planes();
+            cbldEspecialidad.DataSource = PlanLogic.GetOne(opc);
+            cbldEspecialidad.ValueMember = "id_plan";
+            cbldEspecialidad.DisplayMember = "desc_plan";
+            if (cbldEspecialidad.DisplayMember == opc)
+            {
+                txtPlan.Text = fr.Plan;
+            }
+            this.tabControl1.SelectedIndex = 1;
+            cbldEspecialidad.Visible = true;
+            cbldEspecialidad.Enabled = false;
+            txtPlan.Visible = false;
+            
+        }
+        
     }
 }

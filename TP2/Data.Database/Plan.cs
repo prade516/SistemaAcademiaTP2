@@ -31,6 +31,7 @@ public class Plan:Adapter
             pl.Add(pla);
         }
 	}
+        
 	catch (Exception ex)
     {
         Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
@@ -41,7 +42,7 @@ public class Plan:Adapter
     }
     return pl;
    }
-    public  DataTable GetOne(Planes Tbuscado)
+ public  DataTable GetOne(Planes Tbuscado)
  {
      DataTable dtresul = new DataTable();
      try

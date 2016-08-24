@@ -24,7 +24,7 @@ namespace Business.Entities
        
 
  #region Las propiedades de las personas
-        public int Id_Persona
+        public int Codigo
         {
             get { return _Id_Persona; }
             set { _Id_Persona = value; }
@@ -92,7 +92,7 @@ namespace Business.Entities
         }
         public _Personas(int id_persona, string nombre, string apellido, string direccion, string email, string telefono, DateTime fecha_nac, int legajo, string tipo_persona, int id_plan, string sexo, string txtbuscado)
         {
-            this.Id_Persona = id_persona;
+            this.Codigo = id_persona;
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Direccion = direccion;

@@ -53,7 +53,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtIdtrabajador = new System.Windows.Forms.TextBox();
+            this.txtIdPersonas = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtE_mail = new System.Windows.Forms.TextBox();
@@ -72,6 +72,7 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.txtPlan = new System.Windows.Forms.TextBox();
+            this.cbldEspecialidad = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -174,6 +175,7 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(523, 184);
             this.dataListado.TabIndex = 7;
+            this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
             // 
             // Eliminar
             // 
@@ -209,6 +211,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbldEspecialidad);
             this.groupBox1.Controls.Add(this.dtFecha);
             this.groupBox1.Controls.Add(this.txtIdPlan);
             this.groupBox1.Controls.Add(this.button3);
@@ -221,7 +224,7 @@
             this.groupBox1.Controls.Add(this.txtLegajo);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtPlan);
-            this.groupBox1.Controls.Add(this.txtIdtrabajador);
+            this.groupBox1.Controls.Add(this.txtIdPersonas);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtE_mail);
@@ -350,14 +353,14 @@
             this.label8.TabIndex = 50;
             this.label8.Text = "Apellidos";
             // 
-            // txtIdtrabajador
+            // txtIdPersonas
             // 
-            this.txtIdtrabajador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdtrabajador.Location = new System.Drawing.Point(112, 14);
-            this.txtIdtrabajador.Name = "txtIdtrabajador";
-            this.txtIdtrabajador.ReadOnly = true;
-            this.txtIdtrabajador.Size = new System.Drawing.Size(149, 20);
-            this.txtIdtrabajador.TabIndex = 49;
+            this.txtIdPersonas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdPersonas.Location = new System.Drawing.Point(112, 14);
+            this.txtIdPersonas.Name = "txtIdPersonas";
+            this.txtIdPersonas.ReadOnly = true;
+            this.txtIdPersonas.Size = new System.Drawing.Size(149, 20);
+            this.txtIdPersonas.TabIndex = 49;
             // 
             // label1
             // 
@@ -512,6 +515,14 @@
             this.txtPlan.Size = new System.Drawing.Size(122, 20);
             this.txtPlan.TabIndex = 16;
             // 
+            // cbldEspecialidad
+            // 
+            this.cbldEspecialidad.FormattingEnabled = true;
+            this.cbldEspecialidad.Location = new System.Drawing.Point(336, 14);
+            this.cbldEspecialidad.Name = "cbldEspecialidad";
+            this.cbldEspecialidad.Size = new System.Drawing.Size(122, 21);
+            this.cbldEspecialidad.TabIndex = 64;
+            // 
             // FrmPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,7 +569,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtIdtrabajador;
+        private System.Windows.Forms.TextBox txtIdPersonas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtE_mail;
         private System.Windows.Forms.Label label12;
@@ -580,5 +591,6 @@
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.TextBox txtPlan;
+        private System.Windows.Forms.ComboBox cbldEspecialidad;
     }
 }

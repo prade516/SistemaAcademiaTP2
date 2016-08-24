@@ -35,7 +35,7 @@ namespace Data.Database
                while (drpersonas.Read())
                {
                    _Personas per = new _Personas();
-                   per.Id_Persona = (int)drpersonas["id_persona"];
+                   per.Codigo = (int)drpersonas["id_persona"];
                    per.Nombre = (string)drpersonas["nombre"];
                    per.Apellido = (string)drpersonas["apellido"];
                    per.Direccion = (string)drpersonas["direccion"];
@@ -74,69 +74,33 @@ namespace Data.Database
            return personas;
 
        }
-       public Business.Entities._Personas GetOne(string Txtbuscado)
+       public DataTable GetOne(_Personas Txtbuscado)
        {
-           //DataTable dtresul = new DataTable("Persona");
-           _Personas per = new _Personas();
+           DataTable dtresul = new DataTable("Persona");
+           //_Personas per = new _Personas();
            //Adapter c = new Adapter();
            try
            {
                this.OpenConnection();
                int opc;
-               SqlCommand cmdpersonas = new SqlCommand("select * from personas where legajo= @Txtbuscado", SqlConn);
-               cmdpersonas.Parameters.Add("@Txtbuscado", SqlDbType.Int).Value = Txtbuscado;
-               //SqlParameter parpersona = new SqlParameter();
-               //parpersona.ParameterName="textobuscar";
-               //parpersona.SqlDbType=SqlDbType.VarChar;
-               //parpersona.Size=50;
-               //parpersona.Value=Txtbuscado.Txtbuscado;
-               //cmdpersonas.Parameters.Add(parpersona);
+               SqlCommand cmdpersonas = new SqlCommand("select per.nombre,per.apellido,per.legajo,pl.desc_plan from personas per inner join planes pl on per.id_plan=pl.id_plan where per.legajo like @textobuscar + '%'", SqlConn);
+               SqlParameter parame = new SqlParameter();
+               parame.ParameterName = "textobuscar";
+               parame.SqlDbType = SqlDbType.VarChar;
+               parame.Size = 50;
+               parame.Value = Txtbuscado.Txtbuscado;
+               cmdpersonas.Parameters.Add(parame);
 
-               //SqlDataAdapter drpersonas = new SqlDataAdapter(cmdpersonas);
-               //drpersonas.Fill(dtresul);
+               SqlDataAdapter drplan = new SqlDataAdapter(cmdpersonas);
+               drplan.Fill(dtresul);
 
                SqlDataReader drpersona = cmdpersonas.ExecuteReader();
-               while (drpersona.Read())
-               {
-                   //Personas per = new _Personas();
-                   per.Id_Persona = (int)drpersona["id_persona"];
-                   per.Nombre = (string)drpersona["nombre"];
-                   per.Apellido = (string)drpersona["apellido"];
-                   per.Direccion = (string)drpersona["direccion"];
-                   per.Email = (string)drpersona["email"];  
-                   per.Telefono = (string)drpersona["telefono"];
-                   per.Fecha_Nac = (DateTime)drpersona["fecha_nac"];                        
-                   per.Legajo = (int)drpersona["legajo"];
-                   opc = (int)drpersona["tipo_persona"];
-                   if (opc == 1)
-                   {
-                       per.Tipo_Persona = Convert.ToString(gestion.Adminstrador);
-                   }
-                   else if (opc == 2)
-                   {
-                       per.Tipo_Persona = Convert.ToString(gestion.Profesor);
-                   }
-                   else
-                   {
-                       per.Tipo_Persona = Convert.ToString(gestion.Alumno);
-                   }
-                   per.Id_Plan = (int)drpersona["id_plan"];
-                   per.Sexo = (string)drpersona["sexo"];
-               }
-               //SqlDataAdapter dr = new SqlDataAdapter(cmdpersonas);
-               //dr.Fill(dtresul);
-               drpersona.Close();
-               
            }
            catch (Exception ex)
            {
-               Exception ExcepcionManejada = new Exception("No se Econtrar a la persona Buscada", ex);
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
            }
-           //finally
-           //{
-           //    this.CloseConnection();
-           //}
-            return per;;
+           return dtresul;
        }
        public string Insert(_Personas persona)
        {
@@ -198,7 +162,7 @@ namespace Data.Database
                SqlCommand cmdSave = new SqlCommand("update personas set nombre=@nombre,apellido=@apellido,direccion=@direccion" +
                "email=@email,telefono=@telefono,fecha_nac=@fecha_nac,legago=@legajo,tipo_persona=@tipo_persona where id_persona=@id", SqlConn);
 
-               cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = persona.Id_Persona;
+               cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = persona.Codigo;
                cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
                cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar,50).Value = persona.Direccion;
@@ -244,7 +208,7 @@ namespace Data.Database
            {
                this.OpenConnection();
                SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona=@id", SqlConn);
-               cmdDelete.Parameters.Add("@id_persona", SqlDbType.Int).Value = ID.Id_Persona;
+               cmdDelete.Parameters.Add("@id_persona", SqlDbType.Int).Value = ID.Codigo;
                cmdDelete.ExecuteNonQuery();
 
                resp = cmdDelete.ExecuteNonQuery() == 1 ? "OK" : "No se Elimino el registro";
