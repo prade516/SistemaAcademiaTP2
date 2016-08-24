@@ -153,7 +153,40 @@ namespace UI.Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string resp = "";
+
+                    foreach (DataGridViewRow row in dataListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            resp = PersonaLogic.Delete(Convert.ToInt32(Codigo));
+                            if (resp.Equals("OK"))
+                            {
+                                this.MensajeOk("Se elimino Correctamente el registro");
+                                chkEliminar.Checked = false;
+                            }
+                            else
+                            {
+                                this.MensajeError(resp);
+                            }
+                        }
+                    }
+                    this.Listar();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -314,6 +347,27 @@ namespace UI.Desktop
             cbldEspecialidad.Enabled = false;
             txtPlan.Visible = false;
             
+        }
+
+        private void chkEliminar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkEliminar.Checked)
+            {
+                this.dataListado.Columns[0].Visible = true;
+            }
+            else
+            {
+                this.dataListado.Columns[0].Visible = false;
+            }
+        }
+
+        private void dataListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListado.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)dataListado.Rows[e.RowIndex].Cells["Eliminar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
         }
         
     }

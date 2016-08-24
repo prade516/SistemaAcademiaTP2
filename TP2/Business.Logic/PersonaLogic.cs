@@ -79,7 +79,14 @@ namespace Business.Logic
 
            return especia.Insert(espe);
        }
-      
+       public static string Delete(int id)
+       {
+           Business.Entities._Personas pla = new Business.Entities._Personas();
+           Data.Database.Personas pl = new Data.Database.Personas();
+
+           pla.Codigo = id;
+           return pl.Delete(pla);
+       }
     }
     }
 

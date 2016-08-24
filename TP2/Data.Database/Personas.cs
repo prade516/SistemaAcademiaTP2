@@ -207,7 +207,7 @@ namespace Data.Database
            try
            {
                this.OpenConnection();
-               SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona=@id", SqlConn);
+               SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona=@id_persona", SqlConn);
                cmdDelete.Parameters.Add("@id_persona", SqlDbType.Int).Value = ID.Codigo;
                cmdDelete.ExecuteNonQuery();
 

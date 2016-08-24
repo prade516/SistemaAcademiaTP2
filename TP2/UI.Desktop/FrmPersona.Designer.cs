@@ -42,6 +42,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbldEspecialidad = new System.Windows.Forms.ComboBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtIdPlan = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtPlan = new System.Windows.Forms.TextBox();
             this.txtIdPersonas = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.txtPlan = new System.Windows.Forms.TextBox();
-            this.cbldEspecialidad = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListado)).BeginInit();
@@ -147,6 +147,7 @@
             this.chkEliminar.TabIndex = 9;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // cblBuscar
             // 
@@ -175,6 +176,7 @@
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListado.Size = new System.Drawing.Size(523, 184);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
             // 
             // Eliminar
@@ -246,6 +248,14 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trabajadores";
+            // 
+            // cbldEspecialidad
+            // 
+            this.cbldEspecialidad.FormattingEnabled = true;
+            this.cbldEspecialidad.Location = new System.Drawing.Point(336, 14);
+            this.cbldEspecialidad.Name = "cbldEspecialidad";
+            this.cbldEspecialidad.Size = new System.Drawing.Size(122, 21);
+            this.cbldEspecialidad.TabIndex = 64;
             // 
             // dtFecha
             // 
@@ -352,6 +362,15 @@
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 50;
             this.label8.Text = "Apellidos";
+            // 
+            // txtPlan
+            // 
+            this.txtPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlan.Location = new System.Drawing.Point(335, 14);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.ReadOnly = true;
+            this.txtPlan.Size = new System.Drawing.Size(122, 20);
+            this.txtPlan.TabIndex = 16;
             // 
             // txtIdPersonas
             // 
@@ -505,23 +524,6 @@
             // ttmensaje
             // 
             this.ttmensaje.IsBalloon = true;
-            // 
-            // txtPlan
-            // 
-            this.txtPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPlan.Location = new System.Drawing.Point(335, 14);
-            this.txtPlan.Name = "txtPlan";
-            this.txtPlan.ReadOnly = true;
-            this.txtPlan.Size = new System.Drawing.Size(122, 20);
-            this.txtPlan.TabIndex = 16;
-            // 
-            // cbldEspecialidad
-            // 
-            this.cbldEspecialidad.FormattingEnabled = true;
-            this.cbldEspecialidad.Location = new System.Drawing.Point(336, 14);
-            this.cbldEspecialidad.Name = "cbldEspecialidad";
-            this.cbldEspecialidad.Size = new System.Drawing.Size(122, 21);
-            this.cbldEspecialidad.TabIndex = 64;
             // 
             // FrmPersona
             // 
