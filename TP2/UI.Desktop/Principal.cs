@@ -164,11 +164,23 @@ namespace UI.Desktop
         private void estado()
         {
 
+            if (Acceso =="1")
+            {
+                this.Conectado.Text = "Esta Conectado como Administrador con el Nombre : " + Nombre.ToUpper() + " " + Apellido.ToUpper();
+            }
+            else if (Acceso=="2")
+            {
+                this.Conectado.Text = "Esta Conectado como Docente con el Nombre : " + Nombre.ToUpper() + " " + Apellido.ToUpper();
+            }
+            else
+            {
+                this.Conectado.Text = "Esta Conectado como Alumno con el Nombre : " + Nombre.ToUpper() +  " "  +  Apellido.ToUpper();
+            }
         }
         private void Principal_Load(object sender, EventArgs e)
         {
             GestionUsuario();
-            this.Conectado.Text = "Conectado";
+            estado();
         }
 
         private void altaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,6 +200,22 @@ namespace UI.Desktop
             FrmPlan childForm = new FrmPlan();
             childForm.MdiParent = this;
             childForm.Show();
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+          }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult Opcion;
+            Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Opcion == DialogResult.OK)
+            {
+                 Application.Exit();
+            }
+            
         }
         }
     }
