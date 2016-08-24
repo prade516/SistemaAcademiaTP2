@@ -216,6 +216,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\descarga.jpg" />
+    <None Include="Resources\herramientas-handyman_318-85459 %281%29.png" />
+    <None Include="Resources\cielo-despejado_0.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
+    <None Include="Resources\images %282%29.jpg" />
     <Content Include="Resource\images %2820%29.jpg" />
     <Content Include="Resource\images %2822%29.jpg" />
     <Content Include="Resource\Vista %2835%29.png" />

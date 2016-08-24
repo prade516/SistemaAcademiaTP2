@@ -25,10 +25,10 @@ namespace UI.Desktop
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
+            //Form childForm = new Form();
+            //childForm.MdiParent = this;
+            //childForm.Text = "Ventana " + childFormNumber++;
+            //childForm.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -124,6 +124,8 @@ namespace UI.Desktop
                 this.InscripcionMenu.Enabled = true;
                 this.ConsultaMenu.Enabled = true;
                 this.HerramientaMenu.Enabled = true;
+                this.carreraMenu.Enabled = true;
+                this.UsuarioStripButton.Enabled = true;
             }
             else if (Acceso=="2")
             {
@@ -131,7 +133,15 @@ namespace UI.Desktop
                 this.InscripcionMenu.Enabled = true;
                 this.ConsultaMenu.Enabled = true;
                 this.HerramientaMenu.Enabled = false;
-                this.altaPersonaToolStripMenuItem.Enabled = false;
+                this.altaPersonaMenu.Enabled = false;
+                this.examenMenu.Enabled = false;
+                this.cursarMenu.Enabled = false;
+                this.notasMenu.Enabled = false;
+                this.verMateriasAprobadasMenu.Enabled = false;
+                this.carreraMenu.Enabled = false;
+                this.historiaAcademicoMenu.Enabled = false;
+                this.UsuarioStripButton.Enabled = false;
+
             }
             else
             {
@@ -139,12 +149,46 @@ namespace UI.Desktop
                 this.InscripcionMenu.Enabled = true;
                 this.ConsultaMenu.Enabled = true;
                 this.HerramientaMenu.Enabled = false;
+                this.examenMenu.Enabled = true;
+                this.cursarMenu.Enabled = true;
+                this.condicionDeAlumnosInscriptoMenu.Enabled = false;
+                this.notasMenu.Enabled = true;
+                this.historiaAcademicoMenu.Enabled = true;
+                this.verMateriasAprobadasMenu.Enabled = true;
+                this.cursarMenu.Enabled = true;
+                this.inscriptoMenu.Enabled = false;
+                this.carreraMenu.Enabled = false;
+                this.UsuarioStripButton.Enabled = false;
             }
         }
+        private void estado()
+        {
 
+        }
         private void Principal_Load(object sender, EventArgs e)
         {
             GestionUsuario();
+            this.Conectado.Text = "Conectado";
+        }
+
+        private void altaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void especialidadesMenu_Click(object sender, EventArgs e)
+        {
+            FrmEspecialidad childForm = new FrmEspecialidad();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void planesMenu_Click(object sender, EventArgs e)
+        {
+            FrmPlan childForm = new FrmPlan();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
         }
     }
-}
+

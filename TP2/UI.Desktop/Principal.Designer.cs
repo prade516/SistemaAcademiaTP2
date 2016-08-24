@@ -31,12 +31,31 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SyscadMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.SalirMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.PersonaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaPersonaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaUsuarioMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.InscripcionMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.examenMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursarMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.condicionDeAlumnosInscriptoMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ConsultaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.notasMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.examenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historiaAcademicoMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMateriasAprobadasMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cursosMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscriptoMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.HerramientaMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.realizarBackUpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.restaurarBackUpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.carreraMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialidadesMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.planesMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiasMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.comisionesMenuI = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,26 +63,11 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printPreviewToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UsuarioStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.altaPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.examenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historiaAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verMateriasAprobadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.realizarBackUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restaurarBackUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Conectado = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -72,11 +76,12 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenu,
+            this.SyscadMenu,
             this.PersonaMenu,
             this.InscripcionMenu,
             this.ConsultaMenu,
             this.HerramientaMenu,
+            this.carreraMenu,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.HerramientaMenu;
@@ -85,59 +90,190 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
-            // fileMenu
+            // SyscadMenu
             // 
-            this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
-            this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(123, 20);
-            this.fileMenu.Text = "&Sistema Academico";
+            this.SyscadMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SalirMenu});
+            this.SyscadMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
+            this.SyscadMenu.Name = "SyscadMenu";
+            this.SyscadMenu.Size = new System.Drawing.Size(123, 20);
+            this.SyscadMenu.Text = "&Sistema Academico";
             // 
-            // exitToolStripMenuItem
+            // SalirMenu
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "&Salir";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
+            this.SalirMenu.Name = "SalirMenu";
+            this.SalirMenu.Size = new System.Drawing.Size(96, 22);
+            this.SalirMenu.Text = "&Salir";
+            this.SalirMenu.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
             // PersonaMenu
             // 
             this.PersonaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.altaPersonaToolStripMenuItem,
-            this.altaUsuarioToolStripMenuItem});
+            this.altaPersonaMenu,
+            this.altaUsuarioMenu});
             this.PersonaMenu.Name = "PersonaMenu";
             this.PersonaMenu.Size = new System.Drawing.Size(66, 20);
             this.PersonaMenu.Text = "&Personas";
             // 
+            // altaPersonaMenu
+            // 
+            this.altaPersonaMenu.Name = "altaPersonaMenu";
+            this.altaPersonaMenu.Size = new System.Drawing.Size(116, 22);
+            this.altaPersonaMenu.Text = "Persona";
+            // 
+            // altaUsuarioMenu
+            // 
+            this.altaUsuarioMenu.Name = "altaUsuarioMenu";
+            this.altaUsuarioMenu.Size = new System.Drawing.Size(116, 22);
+            this.altaUsuarioMenu.Text = "Usuario";
+            this.altaUsuarioMenu.Click += new System.EventHandler(this.altaUsuarioToolStripMenuItem_Click);
+            // 
             // InscripcionMenu
             // 
             this.InscripcionMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.examenToolStripMenuItem,
-            this.cursarToolStripMenuItem});
+            this.examenMenu,
+            this.cursarMenu,
+            this.condicionDeAlumnosInscriptoMenu});
             this.InscripcionMenu.Name = "InscripcionMenu";
             this.InscripcionMenu.Size = new System.Drawing.Size(72, 20);
             this.InscripcionMenu.Text = "&Incripcion";
             this.InscripcionMenu.Click += new System.EventHandler(this.viewMenu_Click);
             // 
+            // examenMenu
+            // 
+            this.examenMenu.Name = "examenMenu";
+            this.examenMenu.Size = new System.Drawing.Size(245, 22);
+            this.examenMenu.Text = "Examen";
+            // 
+            // cursarMenu
+            // 
+            this.cursarMenu.Name = "cursarMenu";
+            this.cursarMenu.Size = new System.Drawing.Size(245, 22);
+            this.cursarMenu.Text = "Cursar";
+            // 
+            // condicionDeAlumnosInscriptoMenu
+            // 
+            this.condicionDeAlumnosInscriptoMenu.Name = "condicionDeAlumnosInscriptoMenu";
+            this.condicionDeAlumnosInscriptoMenu.Size = new System.Drawing.Size(245, 22);
+            this.condicionDeAlumnosInscriptoMenu.Text = "Condicion de Alumnos Inscripto";
+            // 
             // ConsultaMenu
             // 
             this.ConsultaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.notasToolStripMenuItem,
-            this.historiaAcademicoToolStripMenuItem,
-            this.verMateriasAprobadasToolStripMenuItem});
+            this.notasMenu,
+            this.historiaAcademicoMenu,
+            this.verMateriasAprobadasMenu,
+            this.cursosMenu,
+            this.inscriptoMenu});
             this.ConsultaMenu.Name = "ConsultaMenu";
             this.ConsultaMenu.Size = new System.Drawing.Size(70, 20);
             this.ConsultaMenu.Text = "&Consultar";
             // 
+            // notasMenu
+            // 
+            this.notasMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cursarToolStripMenuItem,
+            this.examenToolStripMenuItem});
+            this.notasMenu.Name = "notasMenu";
+            this.notasMenu.Size = new System.Drawing.Size(198, 22);
+            this.notasMenu.Text = "Correlativa para";
+            // 
+            // cursarToolStripMenuItem
+            // 
+            this.cursarToolStripMenuItem.Name = "cursarToolStripMenuItem";
+            this.cursarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.cursarToolStripMenuItem.Text = "Cursar";
+            // 
+            // examenToolStripMenuItem
+            // 
+            this.examenToolStripMenuItem.Name = "examenToolStripMenuItem";
+            this.examenToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.examenToolStripMenuItem.Text = "Examen";
+            // 
+            // historiaAcademicoMenu
+            // 
+            this.historiaAcademicoMenu.Name = "historiaAcademicoMenu";
+            this.historiaAcademicoMenu.Size = new System.Drawing.Size(198, 22);
+            this.historiaAcademicoMenu.Text = "Historia Academico";
+            // 
+            // verMateriasAprobadasMenu
+            // 
+            this.verMateriasAprobadasMenu.Name = "verMateriasAprobadasMenu";
+            this.verMateriasAprobadasMenu.Size = new System.Drawing.Size(198, 22);
+            this.verMateriasAprobadasMenu.Text = "Ver Materias Aprobadas";
+            // 
+            // cursosMenu
+            // 
+            this.cursosMenu.Name = "cursosMenu";
+            this.cursosMenu.Size = new System.Drawing.Size(198, 22);
+            this.cursosMenu.Text = "Cursos";
+            // 
+            // inscriptoMenu
+            // 
+            this.inscriptoMenu.Name = "inscriptoMenu";
+            this.inscriptoMenu.Size = new System.Drawing.Size(198, 22);
+            this.inscriptoMenu.Text = "Inscripto";
+            // 
             // HerramientaMenu
             // 
+            this.HerramientaMenu.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.HerramientaMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.HerramientaMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.realizarBackUpToolStripMenuItem,
-            this.restaurarBackUpToolStripMenuItem});
+            this.realizarBackUpMenu,
+            this.restaurarBackUpMenu});
+            this.HerramientaMenu.ForeColor = System.Drawing.Color.Black;
             this.HerramientaMenu.Name = "HerramientaMenu";
             this.HerramientaMenu.Size = new System.Drawing.Size(90, 20);
             this.HerramientaMenu.Text = "&Herramientas";
+            // 
+            // realizarBackUpMenu
+            // 
+            this.realizarBackUpMenu.Name = "realizarBackUpMenu";
+            this.realizarBackUpMenu.Size = new System.Drawing.Size(169, 22);
+            this.realizarBackUpMenu.Text = "Realizar Back Up";
+            // 
+            // restaurarBackUpMenu
+            // 
+            this.restaurarBackUpMenu.Name = "restaurarBackUpMenu";
+            this.restaurarBackUpMenu.Size = new System.Drawing.Size(169, 22);
+            this.restaurarBackUpMenu.Text = "Restaurar Back Up";
+            // 
+            // carreraMenu
+            // 
+            this.carreraMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.especialidadesMenu,
+            this.planesMenu,
+            this.materiasMenu,
+            this.comisionesMenuI});
+            this.carreraMenu.Name = "carreraMenu";
+            this.carreraMenu.Size = new System.Drawing.Size(57, 20);
+            this.carreraMenu.Text = "Carrera";
+            // 
+            // especialidadesMenu
+            // 
+            this.especialidadesMenu.Name = "especialidadesMenu";
+            this.especialidadesMenu.Size = new System.Drawing.Size(152, 22);
+            this.especialidadesMenu.Text = "Especialidades";
+            this.especialidadesMenu.Click += new System.EventHandler(this.especialidadesMenu_Click);
+            // 
+            // planesMenu
+            // 
+            this.planesMenu.Name = "planesMenu";
+            this.planesMenu.Size = new System.Drawing.Size(152, 22);
+            this.planesMenu.Text = "Planes";
+            this.planesMenu.Click += new System.EventHandler(this.planesMenu_Click);
+            // 
+            // materiasMenu
+            // 
+            this.materiasMenu.Name = "materiasMenu";
+            this.materiasMenu.Size = new System.Drawing.Size(150, 22);
+            this.materiasMenu.Text = "Materias";
+            // 
+            // comisionesMenuI
+            // 
+            this.comisionesMenuI.Name = "comisionesMenuI";
+            this.comisionesMenuI.Size = new System.Drawing.Size(150, 22);
+            this.comisionesMenuI.Text = "Comisiones";
             // 
             // helpMenu
             // 
@@ -188,90 +324,28 @@
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripButton,
-            this.openToolStripButton,
-            this.saveToolStripButton,
-            this.toolStripSeparator1,
-            this.printToolStripButton,
-            this.printPreviewToolStripButton,
-            this.toolStripSeparator2,
-            this.helpToolStripButton});
+            this.UsuarioStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(632, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
-            // newToolStripButton
+            // UsuarioStripButton
             // 
-            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.newToolStripButton.Text = "Nuevo";
-            this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
-            // 
-            // openToolStripButton
-            // 
-            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.openToolStripButton.Text = "Abrir";
-            this.openToolStripButton.Click += new System.EventHandler(this.OpenFile);
-            // 
-            // saveToolStripButton
-            // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "Guardar";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printToolStripButton.Text = "Imprimir";
-            // 
-            // printPreviewToolStripButton
-            // 
-            this.printPreviewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printPreviewToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripButton.Image")));
-            this.printPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printPreviewToolStripButton.Name = "printPreviewToolStripButton";
-            this.printPreviewToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printPreviewToolStripButton.Text = "Vista previa de impresión";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "Ayuda";
+            this.UsuarioStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.UsuarioStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UsuarioStripButton.Image")));
+            this.UsuarioStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.UsuarioStripButton.Name = "UsuarioStripButton";
+            this.UsuarioStripButton.Size = new System.Drawing.Size(23, 22);
+            this.UsuarioStripButton.Text = "Alta persona";
+            this.UsuarioStripButton.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
+            this.toolStripStatusLabel,
+            this.Conectado});
             this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(632, 22);
@@ -284,70 +358,25 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(42, 17);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // altaPersonaToolStripMenuItem
+            // Conectado
             // 
-            this.altaPersonaToolStripMenuItem.Name = "altaPersonaToolStripMenuItem";
-            this.altaPersonaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaPersonaToolStripMenuItem.Text = "Alta Persona";
-            // 
-            // altaUsuarioToolStripMenuItem
-            // 
-            this.altaUsuarioToolStripMenuItem.Name = "altaUsuarioToolStripMenuItem";
-            this.altaUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.altaUsuarioToolStripMenuItem.Text = "Alta Usuario";
-            // 
-            // examenToolStripMenuItem
-            // 
-            this.examenToolStripMenuItem.Name = "examenToolStripMenuItem";
-            this.examenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.examenToolStripMenuItem.Text = "Examen";
-            // 
-            // cursarToolStripMenuItem
-            // 
-            this.cursarToolStripMenuItem.Name = "cursarToolStripMenuItem";
-            this.cursarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cursarToolStripMenuItem.Text = "Cursar";
-            // 
-            // notasToolStripMenuItem
-            // 
-            this.notasToolStripMenuItem.Name = "notasToolStripMenuItem";
-            this.notasToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.notasToolStripMenuItem.Text = "Notas";
-            // 
-            // historiaAcademicoToolStripMenuItem
-            // 
-            this.historiaAcademicoToolStripMenuItem.Name = "historiaAcademicoToolStripMenuItem";
-            this.historiaAcademicoToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.historiaAcademicoToolStripMenuItem.Text = "Historia Academico";
-            // 
-            // verMateriasAprobadasToolStripMenuItem
-            // 
-            this.verMateriasAprobadasToolStripMenuItem.Name = "verMateriasAprobadasToolStripMenuItem";
-            this.verMateriasAprobadasToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.verMateriasAprobadasToolStripMenuItem.Text = "Ver Materias Aprobadas";
-            // 
-            // realizarBackUpToolStripMenuItem
-            // 
-            this.realizarBackUpToolStripMenuItem.Name = "realizarBackUpToolStripMenuItem";
-            this.realizarBackUpToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.realizarBackUpToolStripMenuItem.Text = "Realizar Back Up";
-            // 
-            // restaurarBackUpToolStripMenuItem
-            // 
-            this.restaurarBackUpToolStripMenuItem.Name = "restaurarBackUpToolStripMenuItem";
-            this.restaurarBackUpToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.restaurarBackUpToolStripMenuItem.Text = "Restaurar Back Up";
+            this.Conectado.Name = "Conectado";
+            this.Conectado.Size = new System.Drawing.Size(0, 17);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::UI.Desktop.Properties.Resources.images__2_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "Principal";
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -368,13 +397,11 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fileMenu;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SyscadMenu;
+        private System.Windows.Forms.ToolStripMenuItem SalirMenu;
         private System.Windows.Forms.ToolStripMenuItem PersonaMenu;
         private System.Windows.Forms.ToolStripMenuItem InscripcionMenu;
         private System.Windows.Forms.ToolStripMenuItem ConsultaMenu;
@@ -383,22 +410,28 @@
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton newToolStripButton;
-        private System.Windows.Forms.ToolStripButton openToolStripButton;
-        private System.Windows.Forms.ToolStripButton saveToolStripButton;
-        private System.Windows.Forms.ToolStripButton printToolStripButton;
-        private System.Windows.Forms.ToolStripButton printPreviewToolStripButton;
-        private System.Windows.Forms.ToolStripButton helpToolStripButton;
+        private System.Windows.Forms.ToolStripButton UsuarioStripButton;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ToolStripMenuItem altaPersonaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem examenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaPersonaMenu;
+        private System.Windows.Forms.ToolStripMenuItem altaUsuarioMenu;
+        private System.Windows.Forms.ToolStripMenuItem examenMenu;
+        private System.Windows.Forms.ToolStripMenuItem cursarMenu;
+        private System.Windows.Forms.ToolStripMenuItem notasMenu;
+        private System.Windows.Forms.ToolStripMenuItem historiaAcademicoMenu;
+        private System.Windows.Forms.ToolStripMenuItem verMateriasAprobadasMenu;
+        private System.Windows.Forms.ToolStripMenuItem realizarBackUpMenu;
+        private System.Windows.Forms.ToolStripMenuItem restaurarBackUpMenu;
+        private System.Windows.Forms.ToolStripMenuItem condicionDeAlumnosInscriptoMenu;
+        private System.Windows.Forms.ToolStripMenuItem cursosMenu;
+        private System.Windows.Forms.ToolStripMenuItem inscriptoMenu;
+        private System.Windows.Forms.ToolStripMenuItem carreraMenu;
+        private System.Windows.Forms.ToolStripMenuItem especialidadesMenu;
+        private System.Windows.Forms.ToolStripMenuItem planesMenu;
+        private System.Windows.Forms.ToolStripMenuItem materiasMenu;
+        private System.Windows.Forms.ToolStripMenuItem comisionesMenuI;
         private System.Windows.Forms.ToolStripMenuItem cursarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem notasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historiaAcademicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verMateriasAprobadasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem realizarBackUpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restaurarBackUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem examenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel Conectado;
     }
 }
 

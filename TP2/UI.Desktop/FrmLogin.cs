@@ -41,7 +41,7 @@ namespace UI.Desktop
                     frm.IdUsuario = Datos.Rows[0][0].ToString();
                     frm.Nombre = Datos.Rows[0][1].ToString();
                     frm.Apellido = Datos.Rows[0][2].ToString();
-                    frm.Acceso = Datos.Rows[0][3].ToString();
+                    frm.Acceso = Datos.Rows[0][4].ToString();
 
                     frm.Show();
                     this.Hide();
