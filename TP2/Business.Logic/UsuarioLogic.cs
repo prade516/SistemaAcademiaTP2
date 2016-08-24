@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
 using Data.Database;
+using System.Data;
 
 
 
@@ -42,6 +43,13 @@ namespace Business.Logic
            UsuarioData.Save(usur);
        }
 
-      
+      public static DataTable Login(string usuario,string password)
+      {
+          Usuario usr = new Usuario();
+          UsuarioAdapter usradap = new   UsuarioAdapter();
+          usr.Nombre_Usuario = usuario;
+          usr.Clave = password;
+          return usradap.Login(usr);
+      }
     }
 }

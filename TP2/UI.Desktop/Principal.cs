@@ -14,6 +14,10 @@ namespace UI.Desktop
     {
         private int childFormNumber = 0;
 
+        public string IdUsuario = "";
+        public string Nombre = "";
+        public string Apellido = "";
+        public string Acceso="";
         public Principal()
         {
             InitializeComponent();

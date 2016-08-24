@@ -25,9 +25,28 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Principal frm = new Principal();
-            frm.Show();
-            this.Hide();
+
+            string usuario, password;
+            usuario = Convert.ToString(this.txtUsuario.Text);
+            password = Convert.ToString(this.txtContraseña.Text);
+            DataTable Datos = Business.Logic.UsuarioLogic.Login(usuario, password);
+            
+                if (Datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("No Tiene Acesso al Sistema", "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Principal frm = new Principal();
+                    frm.IdUsuario = Datos.Rows[0][0].ToString();
+                    frm.Nombre = Datos.Rows[0][1].ToString();
+                    frm.Apellido = Datos.Rows[0][2].ToString();
+                    frm.Acceso = Datos.Rows[0][3].ToString();
+
+                    frm.Show();
+                    this.Hide();
+                }                      
+            
         }
     }
 }

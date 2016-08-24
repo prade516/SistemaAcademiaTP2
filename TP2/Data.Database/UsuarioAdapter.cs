@@ -217,5 +217,37 @@ namespace Data.Database
             }
             usuario.Estado = BusinessEntity.Estados.No_Modificar;            
         }
+        public DataTable Login(Business.Entities.Usuario lg)
+        {
+            DataTable dtresul = new DataTable("usuario");
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmlogin = new SqlCommand("select usr.id_usuario,per.nombre,per.apellido,usr.habilitado,per.tipo_persona from usuarios usr inner join personas per on per.id_persona=usr.id_persona where usr.nombre_usuario like @nombre_usuario and usr.clave like @clave",SqlConn);
+                
+                SqlParameter parame = new SqlParameter();
+                parame.ParameterName = "nombre_usuario";
+                parame.SqlDbType = SqlDbType.VarChar;
+                parame.Size = 50;
+                parame.Value = lg.Nombre_Usuario;
+                cmlogin.Parameters.Add(parame);
+
+                SqlParameter parausuio = new SqlParameter();
+                parausuio.ParameterName = "clave";
+                parausuio.SqlDbType = SqlDbType.VarChar;
+                parausuio.Size = 50;
+                parausuio.Value = lg.Nombre_Usuario;
+                cmlogin.Parameters.Add(parausuio);
+
+                SqlDataAdapter drplan = new SqlDataAdapter(cmlogin);
+                drplan.Fill(dtresul);
+            }
+            catch (Exception)
+            {
+
+                dtresul=null;
+            }
+            return dtresul;
+        }
     }
 }
