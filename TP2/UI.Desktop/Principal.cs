@@ -55,7 +55,7 @@ namespace UI.Desktop
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +109,11 @@ namespace UI.Desktop
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewMenu_Click(object sender, EventArgs e)
         {
 
         }

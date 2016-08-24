@@ -45,8 +45,12 @@ namespace UI.Desktop
 
                     frm.Show();
                     this.Hide();
-                }                      
-            
+                }                 
+          }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            this.txtUsuario.Focus();
         }
     }
 }
