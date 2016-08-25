@@ -204,17 +204,21 @@ namespace UI.Desktop
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-          }
+            DialogResult Opcion;
+            Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema de Ventas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (Opcion == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (Opcion == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+                
+        }
 
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult Opcion;
-            Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (Opcion == DialogResult.OK)
-            {
-                 Application.Exit();
-            }
             
         }
         }

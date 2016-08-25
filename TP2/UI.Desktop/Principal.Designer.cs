@@ -66,8 +66,8 @@
             this.UsuarioStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.Conectado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -252,14 +252,14 @@
             // especialidadesMenu
             // 
             this.especialidadesMenu.Name = "especialidadesMenu";
-            this.especialidadesMenu.Size = new System.Drawing.Size(152, 22);
+            this.especialidadesMenu.Size = new System.Drawing.Size(150, 22);
             this.especialidadesMenu.Text = "Especialidades";
             this.especialidadesMenu.Click += new System.EventHandler(this.especialidadesMenu_Click);
             // 
             // planesMenu
             // 
             this.planesMenu.Name = "planesMenu";
-            this.planesMenu.Size = new System.Drawing.Size(152, 22);
+            this.planesMenu.Size = new System.Drawing.Size(150, 22);
             this.planesMenu.Text = "Planes";
             this.planesMenu.Click += new System.EventHandler(this.planesMenu_Click);
             // 
@@ -381,7 +381,6 @@
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
             this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
