@@ -52,11 +52,13 @@ namespace UI.Desktop
             switch (Modo)
             {
                 case ModoForm.Alta:
-                    UsuarioActual = new Usuario();  
-                     this.UsuarioActual.Habilitado= this.chkHabilitado.Checked;
+                    UsuarioActual = new Usuario();                       
                      //this.UsuarioActual.Email=this.txtEmail.Text;
                     this.UsuarioActual.Nombre_Usuario=this.txtUsuario.Text;
                     this.UsuarioActual.Clave=this.txtClave.Text;
+                    this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                    this.UsuarioActual.Cambia_Clave = this.chkCambiaClave.Checked;
+                    this.UsuarioActual.Id_persona = Convert.ToInt32(this.txtIdPersona.Text);
                     break;
                 case ModoForm.Baja:  
                     this.UsuarioActual.ID = Convert.ToInt16(this.txtID.Text);
@@ -171,16 +173,28 @@ namespace UI.Desktop
             //this.Ocultarcolumna();
             lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
         }
+        public void usuariosDesktop(string Codigo, string nombre,string apellido)
+        {
+            this.txtIdPersona.Text = Codigo;
+            this.txtNombre.Text = nombre;
+            this.txtApellido.Text = apellido;
+        }
         private void UsuarioDesktop_Load(object sender, EventArgs e)
         {
             Listar();
             Ocultarcolumna();
+            txtIdPersona.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmListaUsuario lista = new FrmListaUsuario();
-            lista.ShowDialog();
+            //FrmListaUsuario vista = new FrmListaUsuario();
+            //lista.ShowDialog();
+            FrmListaPersona vista = new FrmListaPersona();
+            vista.ShowDialog();
+            usuariosDesktop(vista.par1, vista.par2,vista.par3);
+            //cbldEspecialidad.Visible = false;
+            //txtPlan.Visible = true;
         }
     }
 }

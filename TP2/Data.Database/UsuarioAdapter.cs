@@ -154,8 +154,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_usuario=@id", SqlConn);
-                cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_usuario=@id_usuario", SqlConn);
+                cmdDelete.Parameters.Add("@id_usuario", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -174,9 +174,9 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("update usuarios set nombre_usuario=@nombre_usuario"+
-                "clave=@clave,habilitado=@habilitado where id_usuario=@id",SqlConn);
+                "clave=@clave,habilitado=@habilitado where id_usuario=@id_usuario", SqlConn);
 
-                cmdSave.Parameters.Add("@id",SqlDbType.Int).Value=usuario.Id_Usuario;
+                cmdSave.Parameters.Add("@id_usuario", SqlDbType.Int).Value = usuario.Id_Usuario;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar,50).Value = usuario.Nombre_Usuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar,50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
@@ -199,7 +199,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("insert into usuarios(nombre_usuario,clave,habilitado,cambia_clave,id_persona)"+
-                                                     "value(@nombre_usuario,@clave,@habilitado,@Cambia_clave,@id_persona", SqlConn);
+                                                     "values(@nombre_usuario,@clave,@habilitado,@Cambia_clave,@id_persona", SqlConn);
 
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.Nombre_Usuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
