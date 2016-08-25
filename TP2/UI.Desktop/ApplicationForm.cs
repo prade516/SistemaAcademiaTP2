@@ -12,7 +12,7 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class ApplicationForm : Form
+    public  partial class ApplicationForm : Form
     {
         public ApplicationForm()
         {
@@ -27,7 +27,8 @@ namespace UI.Desktop
             get { return _Modo; }
             set { _Modo = value; }
         }
-        public virtual void MapearDeDatos() { }
+
+        public   void MapearDeDatos() { }
         public virtual void MapearADatos() { }
         public virtual void GuardarCambios() { }
            

@@ -118,13 +118,13 @@
             // altaPersonaMenu
             // 
             this.altaPersonaMenu.Name = "altaPersonaMenu";
-            this.altaPersonaMenu.Size = new System.Drawing.Size(116, 22);
+            this.altaPersonaMenu.Size = new System.Drawing.Size(152, 22);
             this.altaPersonaMenu.Text = "Persona";
             // 
             // altaUsuarioMenu
             // 
             this.altaUsuarioMenu.Name = "altaUsuarioMenu";
-            this.altaUsuarioMenu.Size = new System.Drawing.Size(116, 22);
+            this.altaUsuarioMenu.Size = new System.Drawing.Size(152, 22);
             this.altaUsuarioMenu.Text = "Usuario";
             this.altaUsuarioMenu.Click += new System.EventHandler(this.altaUsuarioToolStripMenuItem_Click);
             // 

@@ -13,70 +13,88 @@ namespace Data.Database
         #region DatosEnMemoria
         // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
         // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Usuario> _Usuarios;
+        //private static List<Usuario> _Usuarios;
 
-        private static List<Usuario> Usuarios
-        {
-            get
-            {
-                if (_Usuarios == null)
-                {
-                    _Usuarios = new List<Business.Entities.Usuario>();
-                    Business.Entities.Usuario usr;
-                    usr = new Business.Entities.Usuario();
-                    usr.Id_Usuario = 1;
-                    usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
-                    //usr.Nombre = "Casimiro";
-                    //usr.Apellido = "Cegado";
-                    usr.Nombre_Usuario = "casicegado";
-                    usr.Clave = "miro";
-                    //usr.Email = "casimirocegado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
+        //private static List<Usuario> Usuarios
+        //{
+        //    get
+        //    {
+        //        if (_Usuarios == null)
+        //        {
+        //            _Usuarios = new List<Business.Entities.Usuario>();
+        //            Business.Entities.Usuario usr;
+        //            usr = new Business.Entities.Usuario();
+        //            usr.Id_Usuario = 1;
+        //            usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
+        //            //usr.Nombre = "Casimiro";
+        //            //usr.Apellido = "Cegado";
+        //            usr.Nombre_Usuario = "casicegado";
+        //            usr.Clave = "miro";
+        //            //usr.Email = "casimirocegado@gmail.com";
+        //            usr.Habilitado = true;
+        //            _Usuarios.Add(usr);
 
-                    usr = new Business.Entities.Usuario();
-                    usr.Id_Usuario = 2;
-                    usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
-                    //usr.Nombre = "Armando Esteban";
-                    //usr.Apellido = "Quito";
-                    usr.Nombre_Usuario = "aequito";
-                    usr.Clave = "carpintero";
-                    //usr.Email = "armandoquito@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
+        //            usr = new Business.Entities.Usuario();
+        //            usr.Id_Usuario = 2;
+        //            usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
+        //            //usr.Nombre = "Armando Esteban";
+        //            //usr.Apellido = "Quito";
+        //            usr.Nombre_Usuario = "aequito";
+        //            usr.Clave = "carpintero";
+        //            //usr.Email = "armandoquito@gmail.com";
+        //            usr.Habilitado = true;
+        //            _Usuarios.Add(usr);
 
-                    usr = new Business.Entities.Usuario();
-                    usr.Id_Usuario = 3;
-                    usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
-                    //usr.Nombre = "Alan";
-                    //usr.Apellido = "Brado";
-                    usr.Nombre_Usuario = "alanbrado";
-                    usr.Clave = "abrete sesamo";
-                    //usr.Email = "alanbrado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
+        //            usr = new Business.Entities.Usuario();
+        //            usr.Id_Usuario = 3;
+        //            usr.Estado = Business.Entities.BusinessEntity.Estados.No_Modificar;
+        //            //usr.Nombre = "Alan";
+        //            //usr.Apellido = "Brado";
+        //            usr.Nombre_Usuario = "alanbrado";
+        //            usr.Clave = "abrete sesamo";
+        //            //usr.Email = "alanbrado@gmail.com";
+        //            usr.Habilitado = true;
+        //            _Usuarios.Add(usr);
 
-                }
-                return _Usuarios;
-            }
-        }
+        //        }
+        //        return _Usuarios;
+        //    }
+        //}
         #endregion
         
         public  List<Usuario> GetAll()
         {
            List<Usuario> usuarios = new List<Usuario>();
+           int op;
            try
            {
                this.OpenConnection();
-               SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios", SqlConn);
+               SqlCommand cmdUsuarios = new SqlCommand("select u.id_usuario,p.id_persona,u.nombre_usuario,u.clave,u.habilitado,u.cambia_clave,p.tipo_persona from usuarios u inner join personas p on p.id_persona=u.id_persona", SqlConn);
                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                while (drUsuarios.Read())
                {
                    Usuario usr = new Usuario();
                    usr.Id_Usuario = (int)drUsuarios["id_usuario"];
+                   usr.Id_persona = (int)drUsuarios["id_persona"];
                    usr.Nombre_Usuario = (string)drUsuarios["nombre_usuario"];
                    usr.Clave = (string)drUsuarios["clave"];
+                   op = (int)drUsuarios["tipo_persona"];
+                   if (op==1)
+                   {
+                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Adminstrador);
+                   }
+                   else if (op==2)
+                   {
+                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Profesor);
+                   }
+                   else
+                   {
+                       usr.Tipo = Convert.ToString(Data.Database.Personas.gestion.Alumno);
+                   }
+
                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                   usr.Cambia_Clave = (bool)drUsuarios["cambia_clave"];
+                   
                    //usr.Email = (string)drUsuarios["email"];
                    usuarios.Add(usr);
                    //drUsuarios.Close();
@@ -180,13 +198,15 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into usuarios(nombre_usuario,clave,habilitado)"+
-                "value(@nombre_usuario,@clave,@habilitado where id_usuario=@id,select @@identity", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("insert into usuarios(nombre_usuario,clave,habilitado,cambia_clave,id_persona)"+
+                                                     "value(@nombre_usuario,@clave,@habilitado,@Cambia_clave,@id_persona", SqlConn);
 
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.Nombre_Usuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                usuario.Id_Usuario = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+                cmdSave.Parameters.Add("@cambi_clave", SqlDbType.Bit).Value = usuario.Cambia_Clave;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Bit).Value = usuario.Id_persona;
+               
             }
             catch (Exception Ex)
             {

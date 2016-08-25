@@ -12,8 +12,9 @@ namespace Business.Entities
         private int _id_persona;
         private string _Nombre_Usuario;
         private string _Clave;
+        private string _Tipo;
         private bool _Habilitado;       
-        private string _Email;
+        //private string _Email;
         private bool _Cambia_Clave;
         private string txtbuscado;
 
@@ -38,6 +39,11 @@ namespace Business.Entities
             get { return _Clave; }
             set { _Clave = value; }
         }
+     public string Tipo
+     {
+         get { return _Tipo; }
+         set { _Tipo = value; }
+     }
       public bool Habilitado
         {
             get { return _Habilitado; }
@@ -62,7 +68,7 @@ namespace Business.Entities
        public Usuario()
        { 
        }
-       public Usuario(int id_usuario, string nombre_usuario, string clave, bool habilitado, bool cambia_clave, int id_persona, string txtbuscado)
+       public Usuario(int id_usuario, string nombre_usuario, string clave, bool habilitado,string tipo, bool cambia_clave, int id_persona, string txtbuscado)
        {
            this.Id_Usuario = id_usuario;
            this.Nombre_Usuario = nombre_usuario;
@@ -72,6 +78,7 @@ namespace Business.Entities
            this.Cambia_Clave = cambia_clave;
            this.Id_persona = id_persona;
            this.Txtbuscado = txtbuscado;
+           this.Tipo = tipo;
        }
     }
 }

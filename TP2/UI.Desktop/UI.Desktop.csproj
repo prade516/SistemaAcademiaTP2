@@ -73,6 +73,12 @@
     <Compile Include="FrmEspecialidad.Designer.cs">
       <DependentUpon>FrmEspecialidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListaUsuario.Designer.cs">
+      <DependentUpon>FrmListaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEspecialidad.resx">
       <DependentUpon>FrmEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListaUsuario.resx">
+      <DependentUpon>FrmListaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

@@ -18,6 +18,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+       
         public virtual void MapearDeDatos() 
         {
             this.txtID.Text = UsuarioActual.ID.ToString();
@@ -44,8 +45,9 @@ namespace UI.Desktop
                     break;
             }
         }
-   
-        public virtual void MapearADatos() {
+
+        public override  void MapearADatos()
+        {
           
             switch (Modo)
             {
@@ -91,7 +93,7 @@ namespace UI.Desktop
                
                 if (txtClave.TextLength >= 8 && txtClave.Text == txtConfirmarClave.Text)
                 {
-                    MessageBox.Show("Conectado");
+                    //MessageBox.Show("Conectado");
                     return true;
                 }
                 else
@@ -153,6 +155,32 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void Ocultarcolumna()
+        {
+            this.dataListado.Columns[0].Visible = false;
+            this.dataListado.Columns[10].Visible = false;
+            this.dataListado.Columns[8].Visible = false;
+            this.dataListado.Columns[9].Visible = false;
+
+        }
+        public void Listar()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            this.dataListado.DataSource = ul.GetAll();
+            //this.Ocultarcolumna();
+            lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
+        }
+        private void UsuarioDesktop_Load(object sender, EventArgs e)
+        {
+            Listar();
+            Ocultarcolumna();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmListaUsuario lista = new FrmListaUsuario();
+            lista.ShowDialog();
         }
     }
 }

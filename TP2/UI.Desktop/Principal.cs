@@ -185,7 +185,9 @@ namespace UI.Desktop
 
         private void altaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UsuarioDesktop childForm = new UsuarioDesktop();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
 
         private void especialidadesMenu_Click(object sender, EventArgs e)
