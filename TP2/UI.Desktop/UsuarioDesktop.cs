@@ -64,10 +64,12 @@ namespace UI.Desktop
                     this.UsuarioActual.ID = Convert.ToInt16(this.txtID.Text);
                     break;
                 case ModoForm.Modificacion:
-                     this.UsuarioActual.Habilitado= this.chkHabilitado.Checked;
-                     //this.UsuarioActual.Email=this.txtNombre.Text;
-                     this.UsuarioActual.Nombre_Usuario=this.txtApellido.Text;
-                     this.UsuarioActual.Clave=this.txtClave.Text;
+                    this.UsuarioActual.ID = Convert.ToInt16(this.txtID.Text);
+                    this.UsuarioActual.Nombre_Usuario=this.txtUsuario.Text;
+                    this.UsuarioActual.Clave=this.txtClave.Text;
+                    this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
+                    this.UsuarioActual.Cambia_Clave = this.chkCambiaClave.Checked;
+                    this.UsuarioActual.Id_persona = Convert.ToInt32(this.txtIdPersona.Text);
                     break;
                 case ModoForm.Consulta:
                     this.UsuarioActual.ID = Convert.ToInt16(this.txtID.Text);
@@ -81,14 +83,15 @@ namespace UI.Desktop
             }
             
         }
-        public virtual void GuardarCambios() {
+        public override void  GuardarCambios() {
             MapearADatos();
             UsuarioLogic usu = new UsuarioLogic();
             usu.Save(UsuarioActual);
 
 
         }
-        public  virtual bool  Validar()
+
+        public override bool Validar()
         {
             if (txtUsuario.Text != String.Empty  && txtClave.Text != String.Empty && txtConfirmarClave.Text != String.Empty)
             {
@@ -110,7 +113,7 @@ namespace UI.Desktop
             return false;
             }
 
-        public void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
+        public  void Notificar(string titulo, string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(mensaje, titulo, botones, icono);
         }

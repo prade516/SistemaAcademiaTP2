@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data.Database;
 
 namespace UI.Desktop
 {
     public partial class Principal : Form
     {
-        private int childFormNumber = 0;
+        //private int childFormNumber = 0;
 
         public string IdUsuario = "";
         public string Nombre = "";
@@ -55,6 +56,8 @@ namespace UI.Desktop
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
+            Data.Database.Adapter ad = new Data.Database.Adapter();
+            ad.CloseConnection();
             Application.Exit();
         }
 
@@ -210,6 +213,8 @@ namespace UI.Desktop
             Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema de Ventas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Opcion == DialogResult.Yes)
             {
+                Data.Database.Adapter ad = new Data.Database.Adapter();
+                ad.CloseConnection();
                 Application.Exit();
             }
             else if (Opcion == DialogResult.No)
@@ -222,6 +227,20 @@ namespace UI.Desktop
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void altaPersonaMenu_Click(object sender, EventArgs e)
+        {
+            FrmPersona childForm = new FrmPersona();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void materiasMenu_Click(object sender, EventArgs e)
+        {
+            FrmMaterias childForm = new FrmMaterias();
+            childForm.MdiParent = this;
+            childForm.Show();
         }
         }
     }

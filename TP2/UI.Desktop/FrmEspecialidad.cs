@@ -46,6 +46,7 @@ namespace UI.Desktop
             this.dataListado.DataSource = ul.GetAll();
             //this.Ocultarcolumna();
             lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
+            dataListado.AutoSizeRowsMode.ToString();
         }
         private void MensajeOk(string mensaje)
         {

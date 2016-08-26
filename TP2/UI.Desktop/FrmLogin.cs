@@ -50,7 +50,7 @@ namespace UI.Desktop
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            this.txtUsuario.Focus();
+            this.GroupBox1.TabIndex = 0;
         }
     }
 }

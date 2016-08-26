@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtcantidadHora = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtidPlan = new System.Windows.Forms.TextBox();
             this.btnBuscarcategoria = new System.Windows.Forms.Button();
             this.txtNombrePlan = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtcantidadHora = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,7 +73,7 @@
             this.tabControl1.Location = new System.Drawing.Point(4, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(566, 283);
+            this.tabControl1.Size = new System.Drawing.Size(484, 283);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -89,7 +89,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(558, 221);
+            this.tabPage1.Size = new System.Drawing.Size(476, 257);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lista";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -107,8 +107,10 @@
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(515, 150);
+            this.dataListado.Size = new System.Drawing.Size(462, 150);
             this.dataListado.TabIndex = 7;
+            this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
+            this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
             // 
             // Eliminar
             // 
@@ -119,7 +121,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(488, 226);
+            this.lblTotal.Location = new System.Drawing.Point(18, 239);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(35, 13);
             this.lblTotal.TabIndex = 6;
@@ -134,10 +136,11 @@
             this.chkEliminar.TabIndex = 5;
             this.chkEliminar.Text = "Eliminar";
             this.chkEliminar.UseVisualStyleBackColor = true;
+            this.chkEliminar.CheckedChanged += new System.EventHandler(this.chkEliminar_CheckedChanged);
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(452, 12);
+            this.btnImprimir.Location = new System.Drawing.Point(225, 34);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 23);
             this.btnImprimir.TabIndex = 4;
@@ -146,7 +149,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(376, 12);
+            this.btnEliminar.Location = new System.Drawing.Point(149, 34);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 3;
@@ -155,7 +158,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(299, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(72, 34);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 2;
@@ -184,7 +187,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(558, 257);
+            this.tabPage2.Size = new System.Drawing.Size(476, 257);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Materias";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -210,15 +213,33 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(7, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(544, 250);
+            this.groupBox1.Size = new System.Drawing.Size(466, 250);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actualizacion de Materias";
             // 
+            // txtcantidadHora
+            // 
+            this.txtcantidadHora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcantidadHora.Location = new System.Drawing.Point(291, 70);
+            this.txtcantidadHora.Name = "txtcantidadHora";
+            this.txtcantidadHora.ReadOnly = true;
+            this.txtcantidadHora.Size = new System.Drawing.Size(100, 20);
+            this.txtcantidadHora.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(208, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Cantidad Horas";
+            // 
             // txtidPlan
             // 
             this.txtidPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtidPlan.Location = new System.Drawing.Point(346, 20);
+            this.txtidPlan.Location = new System.Drawing.Point(292, 20);
             this.txtidPlan.Name = "txtidPlan";
             this.txtidPlan.Size = new System.Drawing.Size(130, 20);
             this.txtidPlan.TabIndex = 22;
@@ -226,7 +247,7 @@
             // btnBuscarcategoria
             // 
             this.btnBuscarcategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarcategoria.Location = new System.Drawing.Point(482, 46);
+            this.btnBuscarcategoria.Location = new System.Drawing.Point(428, 46);
             this.btnBuscarcategoria.Name = "btnBuscarcategoria";
             this.btnBuscarcategoria.Size = new System.Drawing.Size(27, 23);
             this.btnBuscarcategoria.TabIndex = 17;
@@ -235,8 +256,9 @@
             // txtNombrePlan
             // 
             this.txtNombrePlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombrePlan.Location = new System.Drawing.Point(346, 46);
+            this.txtNombrePlan.Location = new System.Drawing.Point(292, 46);
             this.txtNombrePlan.Name = "txtNombrePlan";
+            this.txtNombrePlan.ReadOnly = true;
             this.txtNombrePlan.Size = new System.Drawing.Size(130, 20);
             this.txtNombrePlan.TabIndex = 16;
             // 
@@ -251,47 +273,50 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(258, 49);
+            this.label7.Location = new System.Drawing.Point(213, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Nombre Plan";
+            this.label7.Text = "Plan";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(462, 220);
+            this.btnCancelar.Location = new System.Drawing.Point(383, 220);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(381, 220);
+            this.btnEditar.Location = new System.Drawing.Point(302, 220);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 8;
+            this.btnEditar.TabIndex = 5;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(300, 220);
+            this.btnGuardar.Location = new System.Drawing.Point(221, 220);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(219, 220);
+            this.btnNuevo.Location = new System.Drawing.Point(140, 220);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 6;
+            this.btnNuevo.TabIndex = 4;
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // txtDescripcion
             // 
@@ -301,7 +326,7 @@
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescripcion.Size = new System.Drawing.Size(239, 76);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txthoraSemanales
             // 
@@ -309,13 +334,15 @@
             this.txthoraSemanales.Location = new System.Drawing.Point(103, 68);
             this.txthoraSemanales.Name = "txthoraSemanales";
             this.txthoraSemanales.Size = new System.Drawing.Size(100, 20);
-            this.txthoraSemanales.TabIndex = 4;
+            this.txthoraSemanales.TabIndex = 1;
+            this.txthoraSemanales.TextChanged += new System.EventHandler(this.txthoraSemanales_TextChanged);
             // 
             // txtidmateria
             // 
             this.txtidmateria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtidmateria.Location = new System.Drawing.Point(103, 43);
             this.txtidmateria.Name = "txtidmateria";
+            this.txtidmateria.ReadOnly = true;
             this.txtidmateria.Size = new System.Drawing.Size(100, 20);
             this.txtidmateria.TabIndex = 3;
             // 
@@ -346,23 +373,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo Materia";
             // 
-            // txtcantidadHora
-            // 
-            this.txtcantidadHora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcantidadHora.Location = new System.Drawing.Point(345, 70);
-            this.txtcantidadHora.Name = "txtcantidadHora";
-            this.txtcantidadHora.Size = new System.Drawing.Size(100, 20);
-            this.txtcantidadHora.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(253, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Cantidad Horas";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -378,12 +388,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 321);
+            this.ClientSize = new System.Drawing.Size(489, 321);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmMaterias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                       .:.Mantenimiento Materia.:.";
+            this.Load += new System.EventHandler(this.FrmMaterias_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

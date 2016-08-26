@@ -12,9 +12,9 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public  partial class ApplicationForm : Form
+    public partial  class  ApplicationForm : Form
     {
-        public ApplicationForm()
+        public  ApplicationForm()
         {
             InitializeComponent();
         }

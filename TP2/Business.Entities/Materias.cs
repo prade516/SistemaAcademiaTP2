@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    class Materias
+    public class Materias
     {
          private int _Id_Materia;
         private string _Desc_Materia;
         private int _Hs_Semanales;
         private int _Hs_Totales;
         private int _Id_Plan;
+        private string _BuscarMaterias;
+
+        public string BuscarMaterias
+        {
+            get { return _BuscarMaterias; }
+            set { _BuscarMaterias = value; }
+        }
 
         
         public int Id_Materia
@@ -43,13 +50,14 @@ namespace Business.Entities
        public Materias()
         {
         }
-       public Materias(int id_materia,string desc_materia,int hs_semanales,int hs_totales,int id_plan)
+       public Materias(int id_materia,string desc_materia,int hs_semanales,int hs_totales,int id_plan,string busca)
        {
            this.Id_Materia = id_materia;
            this.Desc_Materia = desc_materia;
            this.Hs_Semanales = hs_semanales;
            this.Hs_Totales = hs_totales;
            this.Id_Plan = id_plan;
+           this.BuscarMaterias = busca;
        }
     }
 }

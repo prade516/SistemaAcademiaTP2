@@ -77,7 +77,7 @@ namespace Business.Logic
            espe.Id_Plan = id_plan;
            espe.Sexo = sexo;
 
-           return especia.Insert(espe);
+           return especia.Update(espe);
        }
        public static string Delete(int id)
        {

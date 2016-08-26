@@ -118,13 +118,14 @@
             // altaPersonaMenu
             // 
             this.altaPersonaMenu.Name = "altaPersonaMenu";
-            this.altaPersonaMenu.Size = new System.Drawing.Size(152, 22);
+            this.altaPersonaMenu.Size = new System.Drawing.Size(116, 22);
             this.altaPersonaMenu.Text = "Persona";
+            this.altaPersonaMenu.Click += new System.EventHandler(this.altaPersonaMenu_Click);
             // 
             // altaUsuarioMenu
             // 
             this.altaUsuarioMenu.Name = "altaUsuarioMenu";
-            this.altaUsuarioMenu.Size = new System.Drawing.Size(152, 22);
+            this.altaUsuarioMenu.Size = new System.Drawing.Size(116, 22);
             this.altaUsuarioMenu.Text = "Usuario";
             this.altaUsuarioMenu.Click += new System.EventHandler(this.altaUsuarioToolStripMenuItem_Click);
             // 
@@ -252,27 +253,28 @@
             // especialidadesMenu
             // 
             this.especialidadesMenu.Name = "especialidadesMenu";
-            this.especialidadesMenu.Size = new System.Drawing.Size(150, 22);
+            this.especialidadesMenu.Size = new System.Drawing.Size(152, 22);
             this.especialidadesMenu.Text = "Especialidades";
             this.especialidadesMenu.Click += new System.EventHandler(this.especialidadesMenu_Click);
             // 
             // planesMenu
             // 
             this.planesMenu.Name = "planesMenu";
-            this.planesMenu.Size = new System.Drawing.Size(150, 22);
+            this.planesMenu.Size = new System.Drawing.Size(152, 22);
             this.planesMenu.Text = "Planes";
             this.planesMenu.Click += new System.EventHandler(this.planesMenu_Click);
             // 
             // materiasMenu
             // 
             this.materiasMenu.Name = "materiasMenu";
-            this.materiasMenu.Size = new System.Drawing.Size(150, 22);
+            this.materiasMenu.Size = new System.Drawing.Size(152, 22);
             this.materiasMenu.Text = "Materias";
+            this.materiasMenu.Click += new System.EventHandler(this.materiasMenu_Click);
             // 
             // comisionesMenuI
             // 
             this.comisionesMenuI.Name = "comisionesMenuI";
-            this.comisionesMenuI.Size = new System.Drawing.Size(150, 22);
+            this.comisionesMenuI.Size = new System.Drawing.Size(152, 22);
             this.comisionesMenuI.Text = "Comisiones";
             // 
             // helpMenu

@@ -139,6 +139,7 @@ namespace UI.Desktop
             this.Ocultarcolumna();
             lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
             cbldEspecialidad.Visible = false;
+            
         }
 
         private void FrmPersona_Load(object sender, EventArgs e)
@@ -170,17 +171,24 @@ namespace UI.Desktop
                             resp = PersonaLogic.Delete(Convert.ToInt32(Codigo));
                             if (resp.Equals("OK"))
                             {
-                                this.MensajeOk("Se elimino Correctamente el registro");
-                                chkEliminar.Checked = false;
+                                this.MensajeError(resp);
                             }
                             else
                             {
-                                this.MensajeError(resp);
+                                this.MensajeOk("Se elimino Correctamente el registro");
+                                chkEliminar.Checked = false;                                
                             }
                         }
                     }
                     this.Listar();
+                    this.chkEliminar.Checked = false;
 
+                }
+                else
+                {
+                    this.MensajeError("La eliminacion esta cancelada");
+                    this.chkEliminar.Checked = false;
+                   
                 }
             }
             catch (Exception ex)

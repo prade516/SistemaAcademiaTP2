@@ -70,14 +70,14 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(138, 20);
-            this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.TabIndex = 2;
             // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(107, 26);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(138, 20);
-            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TabIndex = 1;
             // 
             // Label2
             // 
@@ -116,7 +116,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(197, 126);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 33);
-            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -129,7 +129,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(282, 126);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(87, 33);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancel";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
