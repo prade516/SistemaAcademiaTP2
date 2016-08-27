@@ -36,7 +36,7 @@ namespace UI.Desktop
                 this.dataListado.DataSource = EspecialidadLogic.GetOne(this.txtBuscar.Text);
                  //this.dataListado.DataSource = ul.GetOne( this.txtBuscar.Text);
                 //this.Ocultarcolumna();
-                lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
+                lblTotal.Text = "Total de registro :" + Convert.ToString(dataListado.Rows.Count);
             }
             
         }
@@ -99,6 +99,7 @@ namespace UI.Desktop
             Ocultarcolumna();
             this.Habilitar(false);
             this.Botones();
+            this.btnEliminar.Enabled = false;
             
         }
 
@@ -136,11 +137,11 @@ namespace UI.Desktop
                    {
                        if (this.Isnuevo)
                        {
-                           this.MensajeOk("Se Inserto de forma correcto el registro");
+                           this.MensajeOk("Se Inserto de forma correcta el registro");
                        }
                        else
                        {
-                           this.MensajeOk("Se Actualizo de forma correcto el registro");
+                           this.MensajeOk("Se Actualizo de forma correcta el registro");
                        }
                    }
                    else
@@ -176,7 +177,7 @@ namespace UI.Desktop
             }
             else
             {
-                this.MensajeError("Debe de seleccionar primero el registro a Modificar");
+                this.MensajeError("Debe seleccionar primero el registro a Modificar");
             }
         }
 
@@ -201,10 +202,12 @@ namespace UI.Desktop
             if (chkEliminar.Checked)
             {
                 this.dataListado.Columns[0].Visible = true;
+                this.btnEliminar.Enabled = true;
             }
             else
             {
                 this.dataListado.Columns[0].Visible = false;
+                this.btnEliminar.Enabled = false;
             }
         }
 
@@ -233,7 +236,7 @@ namespace UI.Desktop
                             else
                             {
                                 this.MensajeError(resp);
-                                //jfsaklfsklfsklfkslakfskl
+                                
                             }
                         }
                     }
@@ -257,6 +260,11 @@ namespace UI.Desktop
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.Buscar(); 
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             this.Buscar(); 
         }

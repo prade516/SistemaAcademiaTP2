@@ -210,7 +210,7 @@ namespace UI.Desktop
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult Opcion;
-            Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema de Ventas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Opcion = MessageBox.Show("Realmente Desea Salir del sistema", "Sistema Academico", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Opcion == DialogResult.Yes)
             {
                 Data.Database.Adapter ad = new Data.Database.Adapter();
