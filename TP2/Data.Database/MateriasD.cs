@@ -42,5 +42,22 @@ namespace Data.Database
            }
            return pl;
        }
+       public string Insertar(Materias mat) 
+       {
+           string resp = "";
+           try
+           {
+               this.OpenConnection();
+               SqlCommand cmdMateria = new SqlCommand("insert into materias(desc_materia,hs_semanales,hs_totales,idplan)"+
+               " values(?,?,?,?)");
+               cmdMateria.Parameters.Add("desc_materia", SqlDbType.VarChar, 50).Value = mat.Desc_Materia;
+           }
+           catch (Exception)
+           {
+               
+               throw;
+           }
+           return resp;
+       }
     }
 }

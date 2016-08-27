@@ -22,7 +22,16 @@ namespace UI.Desktop
 
         private void txthoraSemanales_TextChanged(object sender, EventArgs e)
         {
-            this.txtcantidadHora.Text = Convert.ToString(Convert.ToInt32(this.txthoraSemanales.Text) * 4);
+            if (this.Isnuevo)
+            {
+                this.txtcantidadHora.Text = Convert.ToString(Convert.ToInt32(this.txthoraSemanales.Text) * 4);
+                
+            }
+            else
+            {
+                this.txtcantidadHora.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_totales"].Value);
+            }
+           
         }
         private void Ocultarcolumna()
         {
@@ -106,7 +115,11 @@ namespace UI.Desktop
                 ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
             }
         }
-
+        public void Materias(string Codigo, string Plan)
+        {
+            this.txtidPlan.Text = Codigo;
+            this.txtNombrePlan.Text = Plan;
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Isnuevo = false;
@@ -149,9 +162,18 @@ namespace UI.Desktop
 
             this.txtidmateria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id_materia"].Value);
             this.txthoraSemanales.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_semanales"].Value);
-            this.txtcantidadHora.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_totales"].Value);
+            //this.txtcantidadHora.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_totales"].Value);
             this.txtidPlan.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id_plan"].Value); 
             this.tabControl1.SelectedIndex = 1;
+        }
+
+        private void btnBuscarcategoria_Click(object sender, EventArgs e)
+        {
+            FrmLista_Plan vista = new FrmLista_Plan();
+            vista.ShowDialog();
+            Materias(vista.par1, vista.par2);
+            //cbldEspecialidad.Visible = false;
+            //txtPlan.Visible = true;
         }
     }
 }

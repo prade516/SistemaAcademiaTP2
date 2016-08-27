@@ -252,6 +252,7 @@
             this.btnBuscarcategoria.Size = new System.Drawing.Size(27, 23);
             this.btnBuscarcategoria.TabIndex = 17;
             this.btnBuscarcategoria.UseVisualStyleBackColor = true;
+            this.btnBuscarcategoria.Click += new System.EventHandler(this.btnBuscarcategoria_Click);
             // 
             // txtNombrePlan
             // 
