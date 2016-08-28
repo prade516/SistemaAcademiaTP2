@@ -25,5 +25,30 @@ namespace Business.Logic
        {
            return PersonaData.GetAll();
        }
+       public static string Insertar(string desc_materia, int hs_semanal, int hs_total,int idplan)
+       {
+           Business.Entities.Materias pla = new Business.Entities.Materias();
+           Data.Database.MateriasD pl = new Data.Database.MateriasD();
+
+           pla.Desc_Materia = desc_materia;
+           pla.Hs_Semanales = hs_semanal;
+           pla.Hs_Totales = hs_total;
+           pla.Id_Plan = idplan;
+
+           return pl.Insertar(pla);
+       }
+       public static string Editar(int idmateria,string desc_materia, int hs_semanal, int hs_total, int idplan)
+       {
+           Business.Entities.Materias pla = new Business.Entities.Materias();
+           Data.Database.MateriasD pl = new Data.Database.MateriasD();
+
+           pla.Id_Materia = idmateria;
+           pla.Desc_Materia = desc_materia;
+           pla.Hs_Semanales = hs_semanal;
+           pla.Hs_Totales = hs_total;
+           pla.Id_Plan = idplan;
+
+           return pl.Update(pla);
+       }
     }
 }

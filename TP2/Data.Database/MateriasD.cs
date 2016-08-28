@@ -48,14 +48,52 @@ namespace Data.Database
            try
            {
                this.OpenConnection();
-               SqlCommand cmdMateria = new SqlCommand("insert into materias(desc_materia,hs_semanales,hs_totales,idplan)"+
-               " values(?,?,?,?)");
+               SqlCommand cmdMateria = new SqlCommand("insert into materias(desc_materia,hs_semanales,hs_totales,id_plan)"+
+               " values(?,?,?,?)",SqlConn);
+
                cmdMateria.Parameters.Add("desc_materia", SqlDbType.VarChar, 50).Value = mat.Desc_Materia;
+               cmdMateria.Parameters.Add("hs_semanales", SqlDbType.Int).Value = mat.Hs_Semanales;
+               cmdMateria.Parameters.Add("hs_totales", SqlDbType.Int).Value = mat.Hs_Totales;
+               cmdMateria.Parameters.Add("id_plan", SqlDbType.Int).Value = mat.Desc_Materia;
+
+               resp = cmdMateria.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el registro";
+
            }
-           catch (Exception)
+           catch (Exception Ex)
            {
-               
-               throw;
+               resp = Ex.Message;
+           }
+           finally
+           {
+               if (SqlConn.State == ConnectionState.Open)
+                   this.CloseConnection();
+           }
+           return resp;
+       }
+
+       public string Update(Materias pla)
+       {
+           string resp = "";
+           try
+           {
+               this.OpenConnection();
+               SqlCommand cmdSave = new SqlCommand("update materias set desc_materia = @desc_materia,hs_semanales=@hs_semanales,hs_totales=@hs_semanales,id_plan=@id_plan where id_materia=@id_materia", SqlConn);
+
+               cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar,50).Value = pla.Desc_Materia;
+               cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = pla.Hs_Semanales;
+               cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = pla.Hs_Totales;
+               cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = pla.Id_Plan;
+
+               resp = cmdSave.ExecuteNonQuery() == 1 ? "OK" : "NO se Actualiza el registro";
+           }
+           catch (Exception Ex)
+           {
+               resp = Ex.Message;
+           }
+           finally
+           {
+               if (SqlConn.State == ConnectionState.Open)
+                   this.CloseConnection();
            }
            return resp;
        }

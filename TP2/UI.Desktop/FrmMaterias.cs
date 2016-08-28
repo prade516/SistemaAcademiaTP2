@@ -175,5 +175,60 @@ namespace UI.Desktop
             //cbldEspecialidad.Visible = false;
             //txtPlan.Visible = true;
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+             try
+            {
+                string resp = "";
+
+                if (txtDescripcion.Text == string.Empty && txthoraSemanales.Text==string.Empty && txtcantidadHora.Text==string.Empty&& txtidPlan.Text==string.Empty)
+                {
+                    MensajeError("Falta ingresar algunos datos, seran remarcados");
+                    errorIcono.SetError(txtDescripcion, "Ingrese un valor");
+                    errorIcono.SetError(txtNombrePlan, "Ingrese un valor");
+                }
+                else
+                {
+                    if (this.Isnuevo)
+                    {
+                        resp = MateriaLogic.Insertar(txtDescripcion.Text.Trim().ToUpper(),Convert.ToInt32(txthoraSemanales.Text.Trim().ToUpper()),Convert.ToInt32(txtcantidadHora.Text.Trim().ToUpper()),Convert.ToInt32(txtidPlan.Text.Trim().ToUpper()));
+                    }
+                    else
+                    {
+                        resp = MateriaLogic.Editar(Convert.ToInt32(txtidmateria.Text), txtDescripcion.Text.Trim().ToUpper(),Convert.ToInt32(txthoraSemanales.Text.Trim().ToUpper()),Convert.ToInt32(txtcantidadHora.Text.Trim().ToUpper()),Convert.ToInt32(txtidPlan.Text.Trim().ToUpper()));
+                    }
+                    if (resp.Equals("OK"))
+                    {
+                        if (this.Isnuevo)
+                        {
+                            this.MensajeOk("Se Inserto de forma correcto el registro");
+                        }
+                        else
+                        {
+                            this.MensajeOk("Se Actualizo de forma correcto el registro");
+                        }
+                    }
+                    else
+                    {
+                        this.MensajeError(resp);
+                    }
+                    this.Isnuevo = false;
+                    this.IsEditar = false;
+                    this.Botones();
+                    this.Limpiar();
+                    this.Listar();
+
+
+                    //DataGridTextBoxColumn row = dataListado.Columns[2];
+                    //r = 80;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }       
+        }
     }
 }
