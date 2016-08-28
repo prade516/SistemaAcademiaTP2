@@ -29,7 +29,7 @@ namespace Data.Database
         {
             //sqlConn.ConnectionString = conexionsql.sqlcon;
             sqlConn.Close();
-            sqlConn = null;//Libera memoria
+            sqlConn = null;
             //throw new Exception("Metodo no implementado");
 
         }

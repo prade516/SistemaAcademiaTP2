@@ -81,7 +81,7 @@ namespace Data.Database
                    op = (int)drUsuarios["tipo_persona"];
                    if (op==1)
                    {
-                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Administrador);
+                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Adminstrador);
                    }
                    else if (op==2)
                    {
@@ -243,7 +243,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmlogin = new SqlCommand("select usr.id_usuario,per.nombre,per.apellido,usr.habilitado,per.tipo_persona from usuarios usr inner join personas per on per.id_persona=usr.id_persona where usr.nombre_usuario = @nombre_usuario and usr.clave = @clave",SqlConn);
+                SqlCommand cmlogin = new SqlCommand("select usr.id_usuario,per.nombre,per.apellido,usr.habilitado,per.tipo_persona from usuarios usr inner join personas per on per.id_persona=usr.id_persona where usr.nombre_usuario like @nombre_usuario and usr.clave like @clave",SqlConn);
                 
                 SqlParameter parame = new SqlParameter();
                 parame.ParameterName = "nombre_usuario";
@@ -256,7 +256,7 @@ namespace Data.Database
                 parausuio.ParameterName = "clave";
                 parausuio.SqlDbType = SqlDbType.VarChar;
                 parausuio.Size = 50;
-                parausuio.Value = lg.Clave;
+                parausuio.Value = lg.Nombre_Usuario;
                 cmlogin.Parameters.Add(parausuio);
 
                 SqlDataAdapter drplan = new SqlDataAdapter(cmlogin);

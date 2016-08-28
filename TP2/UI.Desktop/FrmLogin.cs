@@ -33,7 +33,7 @@ namespace UI.Desktop
             
                 if (Datos.Rows.Count == 0)
                 {
-                    MessageBox.Show("No Tiene Acesso al Sistema", "Sistema Academia", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No Tiene Acesso al Sistema", "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

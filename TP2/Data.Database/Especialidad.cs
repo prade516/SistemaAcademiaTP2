@@ -26,13 +26,14 @@ namespace Data.Database
                    espe.Idespecialidad = (int)drEspecialidad["id_especialidad"];
                    espe.DescEspecialidad = (string)drEspecialidad["desc_Especialidad"];
                    especiali.Add(espe);
-                  
+                   //drUsuarios.Close();
+                   //this.CloseConnection();
                }
                drEspecialidad.Close();
            }
            catch (Exception ex)
            {
-               Exception ExcepcionManejada = new Exception("No se Encontro la lista", ex);
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
            }
            finally
            {
@@ -61,7 +62,7 @@ namespace Data.Database
            }
            catch (Exception ex)
            {
-               Exception ExcepcionManejada = new Exception("No se encontro coincidencia", ex);
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
            }
            //finally
            //{
@@ -77,7 +78,6 @@ namespace Data.Database
            {
                this.OpenConnection();
                SqlCommand cmdDelete = new SqlCommand("delete especialidades where id_especialidad=@id_especialidad", SqlConn);
-
                cmdDelete.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = Espe.Idespecialidad;
                resp = cmdDelete.ExecuteNonQuery() == 1 ? "OK" : "No se Elimino el registro";
            }
