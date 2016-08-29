@@ -50,5 +50,13 @@ namespace Business.Logic
 
            return pl.Update(pla);
        }
+       public static string Delete(int id)
+       {
+           Business.Entities.Materias pla = new Business.Entities.Materias();
+           Data.Database.MateriasD pl = new Data.Database.MateriasD();
+
+           pla.Id_Materia = id;
+           return pl.Delete(pla);
+       }
     }
 }

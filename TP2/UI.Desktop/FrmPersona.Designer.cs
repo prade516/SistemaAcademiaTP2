@@ -88,7 +88,7 @@
             this.tabControl1.Location = new System.Drawing.Point(-1, 34);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(552, 310);
+            this.tabControl1.Size = new System.Drawing.Size(774, 310);
             this.tabControl1.TabIndex = 19;
             // 
             // tabPage1
@@ -104,14 +104,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(544, 284);
+            this.tabPage1.Size = new System.Drawing.Size(766, 284);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(460, 10);
+            this.button1.Location = new System.Drawing.Point(684, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 16;
@@ -120,7 +120,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(384, 10);
+            this.button2.Location = new System.Drawing.Point(608, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 15;
@@ -130,7 +130,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(307, 10);
+            this.btnBuscar.Location = new System.Drawing.Point(531, 10);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 14;
@@ -166,6 +166,7 @@
             this.dataListado.AllowUserToAddRows = false;
             this.dataListado.AllowUserToDeleteRows = false;
             this.dataListado.AllowUserToOrderColumns = true;
+            this.dataListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -174,7 +175,7 @@
             this.dataListado.Name = "dataListado";
             this.dataListado.ReadOnly = true;
             this.dataListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListado.Size = new System.Drawing.Size(523, 184);
+            this.dataListado.Size = new System.Drawing.Size(747, 184);
             this.dataListado.TabIndex = 7;
             this.dataListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListado_CellContentClick);
             this.dataListado.DoubleClick += new System.EventHandler(this.dataListado_DoubleClick);
@@ -198,7 +199,7 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(139, 12);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(162, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(290, 20);
             this.txtBuscar.TabIndex = 1;
             // 
             // tabPage2
@@ -206,7 +207,7 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(544, 284);
+            this.tabPage2.Size = new System.Drawing.Size(766, 284);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -244,7 +245,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(545, 285);
+            this.groupBox1.Size = new System.Drawing.Size(756, 285);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Trabajadores";
@@ -260,15 +261,15 @@
             // dtFecha
             // 
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(334, 73);
+            this.dtFecha.Location = new System.Drawing.Point(373, 73);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(113, 20);
+            this.dtFecha.Size = new System.Drawing.Size(102, 20);
             this.dtFecha.TabIndex = 63;
             // 
             // txtIdPlan
             // 
             this.txtIdPlan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdPlan.Location = new System.Drawing.Point(374, 155);
+            this.txtIdPlan.Location = new System.Drawing.Point(507, 155);
             this.txtIdPlan.Name = "txtIdPlan";
             this.txtIdPlan.Size = new System.Drawing.Size(122, 20);
             this.txtIdPlan.TabIndex = 62;
@@ -300,7 +301,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(218, 73);
+            this.label10.Location = new System.Drawing.Point(257, 73);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 13);
             this.label10.TabIndex = 58;
@@ -331,7 +332,7 @@
             // txtApellido
             // 
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtApellido.Location = new System.Drawing.Point(335, 41);
+            this.txtApellido.Location = new System.Drawing.Point(507, 41);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(177, 20);
             this.txtApellido.TabIndex = 55;
@@ -351,13 +352,13 @@
             this.txtLegajo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLegajo.Location = new System.Drawing.Point(112, 102);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(177, 20);
+            this.txtLegajo.Size = new System.Drawing.Size(149, 20);
             this.txtLegajo.TabIndex = 53;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(295, 43);
+            this.label8.Location = new System.Drawing.Point(439, 43);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 50;
@@ -402,15 +403,15 @@
             // txtE_mail
             // 
             this.txtE_mail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtE_mail.Location = new System.Drawing.Point(334, 200);
+            this.txtE_mail.Location = new System.Drawing.Point(361, 200);
             this.txtE_mail.Name = "txtE_mail";
-            this.txtE_mail.Size = new System.Drawing.Size(200, 20);
+            this.txtE_mail.Size = new System.Drawing.Size(323, 20);
             this.txtE_mail.TabIndex = 46;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(288, 202);
+            this.label12.Location = new System.Drawing.Point(315, 202);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 45;
@@ -432,7 +433,7 @@
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccion.Size = new System.Drawing.Size(239, 61);
+            this.txtDireccion.Size = new System.Drawing.Size(363, 43);
             this.txtDireccion.TabIndex = 39;
             // 
             // label2
@@ -449,7 +450,7 @@
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Location = new System.Drawing.Point(112, 40);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(177, 20);
+            this.txtNombre.Size = new System.Drawing.Size(279, 20);
             this.txtNombre.TabIndex = 33;
             // 
             // label9
@@ -529,8 +530,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 347);
+            this.ClientSize = new System.Drawing.Size(774, 347);
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
             this.Name = "FrmPersona";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPersona";

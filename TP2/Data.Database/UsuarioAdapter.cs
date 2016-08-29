@@ -256,7 +256,7 @@ namespace Data.Database
                 parausuio.ParameterName = "clave";
                 parausuio.SqlDbType = SqlDbType.VarChar;
                 parausuio.Size = 50;
-                parausuio.Value = lg.Nombre_Usuario;
+                parausuio.Value = lg.Clave;
                 cmlogin.Parameters.Add(parausuio);
 
                 SqlDataAdapter drplan = new SqlDataAdapter(cmlogin);

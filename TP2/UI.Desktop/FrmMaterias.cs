@@ -24,7 +24,8 @@ namespace UI.Desktop
         {
             if (this.Isnuevo)
             {
-                this.txtcantidadHora.Text = Convert.ToString(Convert.ToInt32(this.txthoraSemanales.Text) * 4);
+                int val = Convert.ToInt32(this.txthoraSemanales.Text);
+                this.txtcantidadHora.Text = Convert.ToString(val * 4);
                 
             }
             else
@@ -59,7 +60,11 @@ namespace UI.Desktop
         private void FrmMaterias_Load(object sender, EventArgs e)
         {
             Listar();
-            Ocultarcolumna();
+            Ocultarcolumna();           
+            this.Habilitar(false);
+            this.Botones();
+            this.btnEliminar.Enabled = false;
+            
         }
 
         private void chkEliminar_CheckedChanged(object sender, EventArgs e)
@@ -67,10 +72,12 @@ namespace UI.Desktop
             if (chkEliminar.Checked)
             {
                 this.dataListado.Columns[0].Visible = true;
+                this.btnEliminar.Enabled = true;
             }
             else
             {
                 this.dataListado.Columns[0].Visible = false;
+                this.btnEliminar.Enabled = false;
             }
         }
         private void Habilitar(bool valor)
@@ -162,7 +169,7 @@ namespace UI.Desktop
 
             this.txtidmateria.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id_materia"].Value);
             this.txthoraSemanales.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_semanales"].Value);
-            //this.txtcantidadHora.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["hs_totales"].Value);
+            this.txtDescripcion.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["desc_materia"].Value);
             this.txtidPlan.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["id_plan"].Value); 
             this.tabControl1.SelectedIndex = 1;
         }
@@ -192,7 +199,7 @@ namespace UI.Desktop
                 {
                     if (this.Isnuevo)
                     {
-                        resp = MateriaLogic.Insertar(txtDescripcion.Text.Trim().ToUpper(),Convert.ToInt32(txthoraSemanales.Text.Trim().ToUpper()),Convert.ToInt32(txtcantidadHora.Text.Trim().ToUpper()),Convert.ToInt32(txtidPlan.Text.Trim().ToUpper()));
+                        resp = MateriaLogic.Insertar(txtDescripcion.Text.Trim().ToUpper(),Convert.ToInt32(txthoraSemanales.Text.Trim().ToUpper()),Convert.ToInt16(txtcantidadHora.Text.Trim().ToUpper()),Convert.ToInt32(txtidPlan.Text.Trim().ToUpper()));
                     }
                     else
                     {
@@ -229,6 +236,50 @@ namespace UI.Desktop
 
                 throw;
             }       
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                DialogResult Opcion;
+                Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema Academia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (Opcion == DialogResult.OK)
+                {
+                    string Codigo;
+                    string resp = "";
+
+                    foreach (DataGridViewRow row in dataListado.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToString(row.Cells[1].Value);
+                            resp = MateriaLogic.Delete(Convert.ToInt32(Codigo));
+                            if (resp.Equals("OK"))
+                            {
+                                this.MensajeOk("Se elimino Correctamente el registro");
+                                chkEliminar.Checked = false;
+                            }
+                            else
+                            {
+                                this.MensajeError(resp);
+                            }
+                        }
+                    }
+                    this.Listar();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

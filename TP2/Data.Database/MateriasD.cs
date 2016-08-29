@@ -49,12 +49,12 @@ namespace Data.Database
            {
                this.OpenConnection();
                SqlCommand cmdMateria = new SqlCommand("insert into materias(desc_materia,hs_semanales,hs_totales,id_plan)"+
-               " values(?,?,?,?)",SqlConn);
+               " values(@desc_materia,@hs_semanales,@hs_totales,@id_plan)", SqlConn);
 
                cmdMateria.Parameters.Add("desc_materia", SqlDbType.VarChar, 50).Value = mat.Desc_Materia;
                cmdMateria.Parameters.Add("hs_semanales", SqlDbType.Int).Value = mat.Hs_Semanales;
                cmdMateria.Parameters.Add("hs_totales", SqlDbType.Int).Value = mat.Hs_Totales;
-               cmdMateria.Parameters.Add("id_plan", SqlDbType.Int).Value = mat.Desc_Materia;
+               cmdMateria.Parameters.Add("id_plan", SqlDbType.Int).Value = mat.Id_Plan;
 
                resp = cmdMateria.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el registro";
 
@@ -71,6 +71,27 @@ namespace Data.Database
            return resp;
        }
 
+       public string Delete(Materias mat)
+       {
+           string resp = "";
+           try
+           {
+               this.OpenConnection();
+               SqlCommand cmdelete = new SqlCommand("delete materias where id_materia=@id_materia", SqlConn);
+               cmdelete.Parameters.Add("@id_materia", SqlDbType.Int).Value = mat.Id_Materia;
+               resp = cmdelete.ExecuteNonQuery() == 1 ? "OK" : "No se Elimino el registro";
+           }
+           catch (Exception Ex)
+           {
+               resp = Ex.Message;
+           }
+           finally
+           {
+               if (SqlConn.State == ConnectionState.Open)
+                   this.CloseConnection();
+           }
+           return resp;
+       }
        public string Update(Materias pla)
        {
            string resp = "";
@@ -79,6 +100,7 @@ namespace Data.Database
                this.OpenConnection();
                SqlCommand cmdSave = new SqlCommand("update materias set desc_materia = @desc_materia,hs_semanales=@hs_semanales,hs_totales=@hs_semanales,id_plan=@id_plan where id_materia=@id_materia", SqlConn);
 
+               cmdSave.Parameters.Add("@id_materia", SqlDbType.Int).Value = pla.Id_Materia;
                cmdSave.Parameters.Add("@desc_materia", SqlDbType.VarChar,50).Value = pla.Desc_Materia;
                cmdSave.Parameters.Add("@hs_semanales", SqlDbType.Int).Value = pla.Hs_Semanales;
                cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = pla.Hs_Totales;
