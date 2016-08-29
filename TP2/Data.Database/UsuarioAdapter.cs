@@ -198,15 +198,16 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("insert into usuarios(nombre_usuario,clave,habilitado,cambia_clave,id_persona)"+
-                                                     "values(@nombre_usuario,@clave,@habilitado,@Cambia_clave,@id_persona", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("insert into usuarios(nombre_usuario,clave,habilitado,cambia_clave,id_persona)" +
+                                                     " values(@nombre_usuario,@clave,@habilitado,@Cambia_clave,@id_persona)", SqlConn);
 
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.Nombre_Usuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
-                cmdSave.Parameters.Add("@cambi_clave", SqlDbType.Bit).Value = usuario.Cambia_Clave;
-                cmdSave.Parameters.Add("@id_persona", SqlDbType.Bit).Value = usuario.Id_persona;
-               
+                cmdSave.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = usuario.Cambia_Clave;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Id_persona;
+
+                cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
