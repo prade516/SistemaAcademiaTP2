@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="~/Formulario/frmLogueo.aspx" Inherits="UI.Web.Formulario.frmLogeo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmLogueo.aspx" Inherits="UI.Web.Formulario.frmLogueo" %>
 
 <!DOCTYPE html>
 

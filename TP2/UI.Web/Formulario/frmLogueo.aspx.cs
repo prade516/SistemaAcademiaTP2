@@ -28,7 +28,7 @@ namespace UI.Web
             }
             else
             {
-                Response.Redirect("Home.aspx");
+                Response.Redirect("Formulario/Home.aspx");
                 //Principal frm = new Principal();
                 //frm.IdUsuario = Datos.Rows[0][0].ToString();
                 //frm.Nombre = Datos.Rows[0][1].ToString();
