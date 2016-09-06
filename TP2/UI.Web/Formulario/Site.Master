@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Academia</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="bodyForm" runat="server">
+        <%--<link href="CSS/cssmenu.css" rel="stylesheet" />--%>
+        <%--<asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>--%>
+        <%--<asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />--%>
+        <div id="Cabecera">
+            <div id="contenidoCabecera">
+                <div id="barrahorizontal">
+                    <ul >
+                        <li id="centralbarhor">
+                            <a href="Home.aspx">Inicio</a>
+                            <a href="frmpersonas.aspx">Personas y Usuarios</a>
+                             <a href="frmexamen.aspx">Inscripcion</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div id="logotipo">
+                    <%--<img src="image/sistema-academico.png" alt="Sistema academico" />--%>
+                </div>
+                <div id="titulo">
+                    <%--<h1>Sistema Academia</h1>--%>
+                </div>
+            </div>
+        </div>
+        <div id="bajo">
+            <div id="columnaiz">
+                
+                <asp:ContentPlaceHolder ID="Contenidomenucontextual" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="columnacentro">               
+                <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="columnader">
+            </div>
+            <div id="pie">
+                <span>Sistema academia trabajo final</span>
+            </div>
+        </div>
+        <div>
+        </div>
+    </form>
+</body>
+</html>

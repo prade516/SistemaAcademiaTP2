@@ -1,0 +1,15 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Formulario/Site.Master" AutoEventWireup="true" CodeBehind="personas.master.cs" Inherits="UI.Web.Administrador.frmad" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
+     <ul>
+        <li><a href="frmpersonas.aspx">Persona</a></li>
+        <li><a href="frmusuario.aspx">Usuario</a></li>
+        <%--<li><a href="frmInscripcion.aspx">Cursar</a></li>--%>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
+    <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
+
+    </asp:ContentPlaceHolder>-
+</asp:Content>
