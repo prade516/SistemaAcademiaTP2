@@ -17,7 +17,7 @@ namespace UI.Web
             {
                 LoadGrid();
             }
-           
+          
         }
 
         UsuarioLogic _logic = new UsuarioLogic();

@@ -17,17 +17,18 @@ namespace Data.Database
            try
            {
                this.OpenConnection();
-               SqlCommand cmdplan = new SqlCommand("select id_materia,desc_materia,hs_semanales,hs_totales,id_plan from materias", SqlConn);
-               SqlDataReader drplan = cmdplan.ExecuteReader();
-               while (drplan.Read())
+               SqlCommand cmdplan = new SqlCommand("select ma.id_materia,ma.desc_materia,pl.desc_plan,ma.hs_semanales,ma.hs_totales,pl.id_plan from materias ma inner join planes pl on ma.id_plan=pl.id_plan", SqlConn);
+               SqlDataReader drmateria = cmdplan.ExecuteReader();
+               while (drmateria.Read())
                {
                    Materias pla = new Materias();
                    //_Especialidades esp = new _Especialidades();
-                   pla.Id_Materia = (int)drplan["id_materia"];
-                   pla.Desc_Materia = (string)drplan["desc_materia"];
-                   pla.Hs_Semanales = (int)drplan["hs_semanales"];
-                   pla.Hs_Totales = (int)drplan["hs_totales"];
-                   pla.Id_Plan = (int)drplan["id_plan"];
+                   pla.Id_Materia = (int)drmateria["id_materia"];
+                   pla.Desc_Materia = (string)drmateria["desc_materia"];
+                   pla.Plan = (string)drmateria["desc_plan"];
+                   pla.Hs_Semanales = (int)drmateria["hs_semanales"];
+                   pla.Hs_Totales = (int)drmateria["hs_totales"];
+                   pla.Id_Plan = (int)drmateria["id_plan"];                   
                    pl.Add(pla);
                }
            }
@@ -41,6 +42,31 @@ namespace Data.Database
                this.CloseConnection();
            }
            return pl;
+       }
+       public DataTable GetOne(Materias Tbuscado)
+       {
+           DataTable dtresul = new DataTable("materia");
+           try
+           {
+               this.OpenConnection();
+               SqlCommand cmdmateria = new SqlCommand("select ma.id_materia,ma.desc_materia,pl.desc_plan,ma.hs_semanales,ma.hs_totales from materias ma inner join planes pl on ma.id_plan=pl.id_plan where ma.desc_materia like @textobuscar + '%'", SqlConn);
+               SqlParameter parame = new SqlParameter();
+               parame.ParameterName = "textobuscar";
+               parame.SqlDbType = SqlDbType.VarChar;
+               parame.Size = 50;
+               parame.Value = Tbuscado.BuscarMaterias;
+               cmdmateria.Parameters.Add(parame);
+
+               SqlDataAdapter drmateria = new SqlDataAdapter(cmdmateria);
+
+               drmateria.Fill(dtresul);
+
+           }
+           catch (Exception ex)
+           {
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
+           }
+           return dtresul;
        }
        public string Insertar(Materias mat) 
        {

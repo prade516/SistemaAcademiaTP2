@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI.Web {
+namespace UI.Web.Formulario {
     
     
-    public partial class frmLogeo {
+    public partial class WebForm1 {
         
         /// <summary>
         /// Control form1.

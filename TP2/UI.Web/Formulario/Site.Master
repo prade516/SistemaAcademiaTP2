@@ -20,8 +20,10 @@
                     <ul >
                         <li id="centralbarhor">
                             <a href="Home.aspx">Inicio</a>
-                            <a href="frmpersonas.aspx">Personas y Usuarios</a>
-                             <a href="frmexamen.aspx">Inscripcion</a>
+                            <a href="frmpersonaprincipal.aspx">Personas</a>
+                            <a href="frmInscripcionprincipal.aspx">Inscripcion</a>
+                             <a href="frmconsultaprincipal.aspx">Consulta</a>
+                             <a href="frmcarreraprincipal.aspx">Carrera</a>
                         </li>
 
                     </ul>
@@ -36,11 +38,11 @@
         </div>
         <div id="bajo">
             <div id="columnaiz">
-                
+
                 <asp:ContentPlaceHolder ID="Contenidomenucontextual" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <div id="columnacentro">               
+            <div id="columnacentro">
                 <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
                 </asp:ContentPlaceHolder>
             </div>

@@ -10,7 +10,7 @@
 namespace UI.Web.Formulario {
     
     
-    public partial class Inscripcion {
+    public partial class frmconsultar {
         
         /// <summary>
         /// Control Contenidoprincipal.

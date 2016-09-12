@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
 using Business.Logic;
+using System.Data;
 
 namespace Business.Logic
 {
@@ -24,6 +25,13 @@ namespace Business.Logic
        public List<Materias> GetAll()
        {
            return PersonaData.GetAll();
+       }
+       public static DataTable GetOne(string desc_materia)
+       {
+           Business.Entities.Materias pla = new Business.Entities.Materias();
+           Data.Database.MateriasD pl = new Data.Database.MateriasD();
+           pla.BuscarMaterias = desc_materia;
+           return pl.GetOne(pla);
        }
        public static string Insertar(string desc_materia, int hs_semanal, int hs_total,int idplan)
        {

@@ -2,11 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
-    <ul>
+    <ul id="menuContextual">
         <li><a href="frmexamen.aspx">Examen</a></li>
         <li><a href="frmcursar.aspx">Cursar</a></li>
         <%--<li><a href="frmInscripcion.aspx">Cursar</a></li>--%>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
+       <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
+
+    </asp:ContentPlaceHolder>-
 </asp:Content>

@@ -23,7 +23,7 @@ public class Plan:Adapter
         while (drplan.Read())
         {
             Planes pla = new Planes();
-            _Especialidades esp = new _Especialidades();
+            //_Especialidades esp = new _Especialidades();
             pla.Codigo = (int)drplan["id_plan"];
             pla.Id_Especialidad=(int)drplan["id_especialidad"];
             pla.Especialidad = (string)drplan["desc_especialidad"];

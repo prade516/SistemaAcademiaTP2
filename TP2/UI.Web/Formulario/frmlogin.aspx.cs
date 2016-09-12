@@ -6,13 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace UI.Web
+namespace UI.Web.Formulario
 {
-    public partial class frmLogeo : System.Web.UI.Page
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.txtusuario.Focus();
         }
 
         protected void btnlogin_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace UI.Web
             }
             else
             {
-                Response.Redirect("Formulario/Home.aspx");
+                Response.Redirect("Home.aspx");
                 //Principal frm = new Principal();
                 //frm.IdUsuario = Datos.Rows[0][0].ToString();
                 //frm.Nombre = Datos.Rows[0][1].ToString();
@@ -37,7 +37,7 @@ namespace UI.Web
 
                 //frm.Show();
                 //this.Hide();
-            }  
-        }
+            }
         }
     }
+}

@@ -12,6 +12,13 @@ namespace Business.Entities
         private string _DescComision;
         private int _AnioEspecialidad;
         private int _IdPlan;
+        private string _Plan;
+
+        public string Plan
+        {
+            get { return _Plan; }
+            set { _Plan = value; }
+        }
 
         public int IdComision
         {
@@ -37,12 +44,13 @@ namespace Business.Entities
          { 
          
          }
-         public Comisiones(int id_comision,string desc_comision,int anio_especialidad,int id_plan)
+         public Comisiones(int id_comision,string desc_comision,int anio_especialidad,int id_plan,string plan)
          {
              this.IdComision = id_comision;
              this.DescComision = desc_comision;
              this.AnioEspecialidad = anio_especialidad;
              this.IdPlan = id_plan;
+             this.Plan = plan;
          }
     }
 }
