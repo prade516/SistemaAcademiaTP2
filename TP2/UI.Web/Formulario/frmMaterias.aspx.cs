@@ -22,15 +22,25 @@ namespace UI.Web.Formulario
             if (!IsPostBack)
             {
                     LoadGrid();
-                    this.txtidplan.Text = (string)(Session["codigo"]);
-                    this.txtplan.Text = (string)(Session["plan"]);
+                    //this.txtidplan.Text = (string)(Session["codigo"]);
+                    //this.txtplan.Text = (string)(Session["plan"]);
                     EnableButon(false);
                     EnableTextBox(false);
-                    llenarcajas();                    
-           }         
+                    llenarcajas();
+                    llenarcomboPlan();   
+           }
            
         }
-
+        private void llenarcomboPlan()
+        {
+            Data.Database.Plan especia = new Data.Database.Plan();
+            //_Especialidades fr = new _Especialidades();
+            cbldPlan.DataSource = especia.GetAll();
+            cbldPlan.DataValueField = "Codigo";
+            cbldPlan.DataTextField = "Plan";
+            cbldPlan.DataBind();
+            cbldPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
+        }
         MateriaLogic _logic = new MateriaLogic();
 
         public MateriaLogic Logic
@@ -90,13 +100,13 @@ namespace UI.Web.Formulario
             this.btnaceptar.Enabled = enable;
             this.btnEditar.Enabled = enable;
             this.btncancelar.Enabled = enable;
-            this.txtbuscaridplan.Enabled = enable;
+            //this.txtbuscaridplan.Enabled = enable;
          
         }
         private void Limpiar()
         {
             this.txtidmateria.Text = string.Empty;
-            this.txtplan.Text = string.Empty;
+            //this.txtplan.Text = string.Empty;
             this.txtHsTotales.Text = string.Empty;
             this.txthorasemales.Text = string.Empty;
             this.txtdesc_materia.Text = string.Empty;
@@ -128,7 +138,7 @@ namespace UI.Web.Formulario
             this.txtidmateria.Text = idm;
             this.btnaceptar.Enabled = true;
             this.btnEditar.Enabled = false;
-            this.txtbuscaridplan.Enabled = true; 
+            //this.txtbuscaridplan.Enabled = true; 
         }
         private void guardarValor()
         {
@@ -153,7 +163,7 @@ namespace UI.Web.Formulario
         }
         protected void gridview_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            this.txtplan.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[2].Text));
+            //this.txtplan.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[2].Text));
             guardarValor();
             llenarcajas();
             this.txtidplan.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[5].Text));

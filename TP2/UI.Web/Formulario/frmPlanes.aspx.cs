@@ -41,6 +41,7 @@ namespace UI.Web.Formulario
             cbldEspecialidad.DataValueField = "Idespecialidad";
             cbldEspecialidad.DataTextField = "DescEspecialidad";
             cbldEspecialidad.DataBind();
+            cbldEspecialidad.Items.Insert(0, new ListItem("Seleccione una Especialidad", "0"));
         }
         private void Habilitar(bool valor)
         {

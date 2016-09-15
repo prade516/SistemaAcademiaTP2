@@ -30,6 +30,7 @@
     <div>
         <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" OnClick="btncancelar_Click" ></asp:Button>
         <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" OnClick="btnaceptar_Click"></asp:Button>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button"></asp:Button>
         <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" OnClick="btnEditar_Click"></asp:Button>
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click" ></asp:Button>
 

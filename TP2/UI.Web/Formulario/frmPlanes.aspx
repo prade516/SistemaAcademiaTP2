@@ -28,16 +28,18 @@
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txthorasemales" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox ID="txtid_especialidad" runat="server" CssClass="cajatexto" placeholder="Codigo especialidad" Visible="false"></asp:TextBox>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHsTotales" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                <asp:DropDownList ID="cbldEspecialidad" runat="server" CssClass="cajatexto1">
+                <asp:Label ID="LabelEspecialidad" runat="server" Text="Especialidad" CssClass="cajatexto3" ReadOnly="True"></asp:Label> 
+                 <asp:DropDownList ID="cbldEspecialidad" runat="server" CssClass="cajatexto1">
                 </asp:DropDownList>
             </p>
             
         </asp:Panel>
    </center>
-     <br /><br /><br /><br /><br /><br /><br />
+     <br /><br /><br /><br /><br />
     <div>
         <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" OnClick="btncancelar_Click" ></asp:Button>
         <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" OnClick="btnaceptar_Click" ></asp:Button>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button"></asp:Button>
         <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" OnClick="btnEditar_Click" ></asp:Button>
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click" ></asp:Button>
     </div>

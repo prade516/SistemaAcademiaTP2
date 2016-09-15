@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class Comisiones
+    public class Comisiones:BusinessEntity
     {
          private int _IdComision;
         private string _DescComision;
         private int _AnioEspecialidad;
         private int _IdPlan;
         private string _Plan;
+        private string _BuscarComision;
+
+        public string BuscarComision
+        {
+            get { return _BuscarComision; }
+            set { _BuscarComision = value; }
+        }
 
         public string Plan
         {
@@ -44,13 +51,14 @@ namespace Business.Entities
          { 
          
          }
-         public Comisiones(int id_comision,string desc_comision,int anio_especialidad,int id_plan,string plan)
+         public Comisiones(int id_comision,string desc_comision,int anio_especialidad,int id_plan,string plan,string buscarComision)
          {
              this.IdComision = id_comision;
              this.DescComision = desc_comision;
              this.AnioEspecialidad = anio_especialidad;
              this.IdPlan = id_plan;
              this.Plan = plan;
+             this.BuscarComision = buscarComision;
          }
     }
 }
