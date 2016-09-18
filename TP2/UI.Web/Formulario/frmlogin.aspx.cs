@@ -28,15 +28,18 @@ namespace UI.Web.Formulario
             }
             else
             {
-                Response.Redirect("Home.aspx");
-                //Principal frm = new Principal();
-                //frm.IdUsuario = Datos.Rows[0][0].ToString();
-                //frm.Nombre = Datos.Rows[0][1].ToString();
-                //frm.Apellido = Datos.Rows[0][2].ToString();
-                //frm.Acceso = Datos.Rows[0][4].ToString();
+                string idusuario = Datos.Rows[0][0].ToString();
+                string nombre = Datos.Rows[0][1].ToString();
+                string apellido = Datos.Rows[0][2].ToString();
+                string acesso = Datos.Rows[0][4].ToString();
 
-                //frm.Show();
-                //this.Hide();
+                Session.Add("codigo", idusuario);
+                Session.Add("Nombre", nombre);
+                Session.Add("Apellido", apellido);
+                Session.Add("Acesso", acesso);
+
+                Response.Redirect("Home.aspx");
+                
             }
         }
     }

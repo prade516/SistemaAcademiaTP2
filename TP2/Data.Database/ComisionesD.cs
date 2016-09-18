@@ -84,7 +84,8 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand("delete comisiones where id_comision=@id_comision", SqlConn);
                 cmdDelete.Parameters.Add("@id_comision", SqlDbType.Int).Value = comision.IdComision;
-                cmdDelete.ExecuteNonQuery();
+
+                Convert.ToInt32(cmdDelete.ExecuteNonQuery());
             }
             catch (Exception Ex)
             {
@@ -109,6 +110,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comision.DescComision;
                 cmdSave.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comision.AnioEspecialidad;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = comision.IdPlan;
+
+                cmdSave.ExecuteNonQuery();
                
             }
             catch (Exception Ex)
@@ -139,7 +142,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear la comision", Ex);
                 throw ExcepcionManejada;
                 throw;
             }

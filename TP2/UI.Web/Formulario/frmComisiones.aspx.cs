@@ -85,7 +85,7 @@ namespace UI.Web.Formulario
         }
         private void Buton(bool valor)
         {
-            this.btnEditar.Visible = Visible;
+            this.btnEditar.Visible = valor;
             this.btncancelar.Visible = valor;
             this.btnNuevo.Visible = valor;
             this.btnaceptar.Visible = valor;
@@ -123,6 +123,17 @@ namespace UI.Web.Formulario
             }
             
         }
+        protected void Modificar()
+        {
+            Comisiones comision = new Comisiones();
+            comision.IdComision = (Convert.ToInt32(this.txtidComision.Text));
+            comision.DescComision = this.txtDesc_comision.Text;
+            comision.AnioEspecialidad = Convert.ToInt32(this.txtanio_especialidad.Text);
+            comision.IdPlan = Convert.ToInt32(this.cbldPlan.SelectedValue); 
+            comision.Estado = BusinessEntity.Estados.Modificar;
+            Logic.Update(comision);
+            this.Limpiar();
+        }
         protected void Eliminar()
         {
             Comisiones comision = new Comisiones();
@@ -133,9 +144,15 @@ namespace UI.Web.Formulario
 
         protected void btnaceptar_Click(object sender, EventArgs e)
         {
-            this.CargarComision();
-            
-            //this.LoadGrid();
+            if (this.txtidComision.Text==string.Empty)
+            {
+                this.CargarComision();     
+            }
+            else
+            {
+                this.Modificar();
+            }     
+           
         }
         protected void gridview_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -162,6 +179,7 @@ namespace UI.Web.Formulario
             this.txtDesc_comision.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[1].Text)).ToString();
             this.txtanio_especialidad.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[2].Text)).ToString();
             this.cbldPlan.SelectedItem.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[3].Text)).ToString();
+            this.txtPlan.Text=(Convert.ToString(this.gridview.SelectedRow.Cells[3].Text)).ToString();
             this.Buton(true);
             this.btnNuevo.Visible = false;
             this.btnaceptar.Visible = false;
@@ -177,6 +195,5 @@ namespace UI.Web.Formulario
         {
             this.Eliminar();
         }
-
     }
 }

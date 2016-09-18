@@ -6,13 +6,32 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-   public class Cursos
+   public class Cursos:BusinessEntity
     {
        private int _IdCurso;
         private int _IdMateria;
         private int _IdComision;
         private int _AnioCalendario;
         private int _Cupo;
+        private string _desc_materia;
+        private string _desc_comision;
+        private string _Tbuscado;
+
+        public string Desc_comision
+        {
+            get { return _desc_comision; }
+            set { _desc_comision = value; }
+        }
+        public string TextoBuscado
+        {
+            get { return _Tbuscado; }
+            set { _Tbuscado = value; }
+        }
+        public string Desc_materia
+        {
+            get { return _desc_materia; }
+            set { _desc_materia = value; }
+        }
 
         public int IdCurso
         {
@@ -44,13 +63,16 @@ namespace Business.Entities
         {
         }
 
-        public Cursos(int id_curso,int id_materia,int id_comision,int anio_calendario,int cupo)
+        public Cursos(int id_curso,int id_materia,int id_comision,int anio_calendario,int cupo,string materia,string comision,string texto)
         {
             this.IdCurso = id_curso;
             this.IdMateria = id_materia;
             this.IdComision = id_comision;
             this.AnioCalendario = anio_calendario;
             this.Cupo = cupo;
+            this.Desc_comision = comision;
+            this.Desc_materia = materia;
+            this.TextoBuscado = texto;
         }
     }
 }

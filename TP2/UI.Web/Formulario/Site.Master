@@ -19,11 +19,11 @@
                 <div id="barrahorizontal">
                     <ul >
                         <li id="centralbarhor">
-                            <a href="Home.aspx">Inicio</a>
-                            <a href="frmpersonaprincipal.aspx">Personas</a>
-                            <a href="frmInscripcionprincipal.aspx">Inscripcion</a>
-                             <a href="frmconsultaprincipal.aspx">Consulta</a>
-                             <a href="frmcarreraprincipal.aspx">Carrera</a>
+                            <asp:LinkButton ID="LinkInicio" runat="server" PostBackUrl="~/Formulario/Home.aspx">Inicio</asp:LinkButton>
+                            <asp:LinkButton ID="LinkPersona" runat="server" PostBackUrl="~/Formulario/frmpersonaprincipal.aspx">Personas</asp:LinkButton>
+                            <asp:LinkButton ID="LinkInscripcion" runat="server" PostBackUrl="~/Formulario/frmInscripcionprincipal.aspx">Inscripcion</asp:LinkButton>
+                            <asp:LinkButton ID="LinkConsulta" runat="server" PostBackUrl="~/Formulario/frmconsultaprincipal.aspx">Consulta</asp:LinkButton>
+                             <asp:LinkButton ID="LinkCarrera" runat="server" PostBackUrl="~/Formulario/frmcarreraprincipal.aspx">Carrera</asp:LinkButton>
                         </li>
 
                     </ul>
@@ -54,6 +54,7 @@
         </div>
         <div>
         </div>
+        
     </form>
 </body>
 </html>

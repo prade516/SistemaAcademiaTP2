@@ -11,60 +11,37 @@ namespace Business.Logic
 {
    public  class MateriaLogic
     {
-        private Data.Database.MateriasD _PersonaData;
+        private Data.Database.MateriasD _Materia;
 
-        public Data.Database.MateriasD PersonaData
+        public Data.Database.MateriasD Materia
         {
-            get { return _PersonaData; }
-            set { _PersonaData = value; }
+            get { return _Materia; }
+            set { _Materia = value; }
         }   
        public MateriaLogic()
         {
-            PersonaData = new Data.Database.MateriasD();
+            Materia = new Data.Database.MateriasD();
         }
        public List<Materias> GetAll()
        {
-           return PersonaData.GetAll();
+           return Materia.GetAll();
        }
-       public static DataTable GetOne(string desc_materia)
+       public List<Business.Entities.Materias> GetByMateria(string desc_materia)
        {
-           Business.Entities.Materias pla = new Business.Entities.Materias();
-           Data.Database.MateriasD pl = new Data.Database.MateriasD();
-           pla.BuscarMaterias = desc_materia;
-           return pl.GetOne(pla);
+           return Materia.GetByMateria(desc_materia);
        }
-       public static string Insertar(string desc_materia, int hs_semanal, int hs_total,int idplan)
+
+       public void Insertar(Business.Entities.Materias mat)
        {
-           Business.Entities.Materias pla = new Business.Entities.Materias();
-           Data.Database.MateriasD pl = new Data.Database.MateriasD();
-
-           pla.Desc_Materia = desc_materia;
-           pla.Hs_Semanales = hs_semanal;
-           pla.Hs_Totales = hs_total;
-           pla.Id_Plan = idplan;
-
-           return pl.Insertar(pla);
+           Materia.Save(mat);
        }
-       public static string Editar(int idmateria,string desc_materia, int hs_semanal, int hs_total, int idplan)
+       public void Editar(Business.Entities.Materias mat)
        {
-           Business.Entities.Materias pla = new Business.Entities.Materias();
-           Data.Database.MateriasD pl = new Data.Database.MateriasD();
-
-           pla.Id_Materia = idmateria;
-           pla.Desc_Materia = desc_materia;
-           pla.Hs_Semanales = hs_semanal;
-           pla.Hs_Totales = hs_total;
-           pla.Id_Plan = idplan;
-
-           return pl.Update(pla);
+           Materia.Save(mat);
        }
-       public static string Delete(int id)
+       public void Delete(Business.Entities.Materias mat)
        {
-           Business.Entities.Materias pla = new Business.Entities.Materias();
-           Data.Database.MateriasD pl = new Data.Database.MateriasD();
-
-           pla.Id_Materia = id;
-           return pl.Delete(pla);
+           Materia.Save(mat);
        }
     }
 }

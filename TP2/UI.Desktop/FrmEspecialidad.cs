@@ -130,7 +130,7 @@ namespace UI.Desktop
                     }
                     else 
                     {
-                        resp = EspecialidadLogic.editar(Convert.ToInt32(txtid_especialidad.Text),this.txtDesc_especialidad.Text.Trim().ToUpper());
+                        resp = EspecialidadLogic.Editar(Convert.ToInt32(txtid_especialidad.Text),this.txtDesc_especialidad.Text.Trim().ToUpper());
                     }
                    if(resp.Equals("OK"))
                    {

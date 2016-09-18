@@ -1,4 +1,5 @@
-﻿using Business.Logic;
+﻿using Business.Entities;
+using Business.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,16 +36,71 @@ namespace UI.Web.Formulario
             //gridview.Columns[2].Visible = false;
             this.gridview.DataBind();
         }
+        protected void CargarEspecialidad()
+        {
+            _Especialidades especialidad = new _Especialidades();
+            bool registar = true;
+            foreach (GridViewRow row in gridview.Rows)
+            {
+                if (row.Cells[1].Text == this.txtDesc_especialidad.Text)
+                {
+                    registar = false;
+                    msgError.Text = "ya existe esa Especialidad";
+                }                     
+            }
+            if (registar)
+            {
+                especialidad.DescEspecialidad = this.txtDesc_especialidad.Text;
 
+                especialidad.Estado = BusinessEntity.Estados.Nuevo;
+                Logic.Insertar(especialidad);
+                this.Limpiar();
+            }
+
+        }
+        protected void Modificar()
+        {
+            try
+            {
+                _Especialidades especialidad = new _Especialidades();
+                especialidad.Idespecialidad = Convert.ToInt32(this.txtidespecialidad.Text);
+                especialidad.DescEspecialidad = this.txtDesc_especialidad.Text;
+
+                especialidad.Estado = BusinessEntity.Estados.Modificar;
+                Logic.Editar(especialidad);
+
+                this.Limpiar();
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+           
+        }
+        protected void Eliminar()
+        {
+            try
+            {
+                _Especialidades especialidad = new _Especialidades();
+                especialidad.Idespecialidad = Convert.ToInt32(this.txtidespecialidad.Text);
+                especialidad.Estado = BusinessEntity.Estados.Eliminar;
+                Logic.Delete(especialidad);
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+            
+        }
         protected void btnaceptar_Click(object sender, EventArgs e)
         {
-            if (this.Isnuevo)
+            if (this.txtidespecialidad.Text==string.Empty)
             {
-                 EspecialidadLogic.Insertar(txtDesc_especialidad.Text.Trim().ToUpper());
+                this.CargarEspecialidad();
             }
             else
             {
-                 EspecialidadLogic.editar(Convert.ToInt32(txtidespecialidad.Text), this.txtDesc_especialidad.Text.Trim().ToUpper());
+                this.Modificar();
             }
         }
         private void Limpiar()
@@ -54,61 +110,68 @@ namespace UI.Web.Formulario
         }
         private void Habilitar(bool valor)
         {
-            this.txtDesc_especialidad.ReadOnly = !valor;
+            this.txtDesc_especialidad.Enabled = valor;
         }
-        private void Botones()
+        protected void Botones(bool valor)
         {
-            if (this.Isnuevo || this.IsEditar)
-            {
-                this.Habilitar(true);
-                this.btnNuevo.Enabled = false;
-                this.btnaceptar.Enabled = true;
-                this.btnEditar.Enabled = false;
-                this.btncancelar.Enabled = true;
-            }
-            else
-            {
-                this.Habilitar(false);
-                this.btnNuevo.Enabled = true;
-                this.btnaceptar.Enabled = false;
-                this.btnEditar.Enabled = true;
-                this.btncancelar.Enabled = false;
-            }
+            this.btnEditar.Visible = !valor;
+            this.btncancelar.Visible = valor;
+            this.btnNuevo.Visible = !valor;
+            this.btnaceptar.Visible = valor;
+            this.btnEliminar.Visible = !valor;
         }
         protected void btncancelar_Click(object sender, EventArgs e)
         {
             this.Isnuevo = false;
             this.IsEditar = false;
-            this.Botones();
+            this.Botones(false);
             this.Limpiar();
             this.Habilitar(false);
+            this.btnEditar.Visible = false;
+            this.btnEliminar.Visible = false;
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             this.Isnuevo = true;
             this.IsEditar = false;
-            this.Botones();
+            this.Botones(true);
             this.Limpiar();
             this.Habilitar(true);
+            this.txtDesc_especialidad.Focus();
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             this.IsEditar = true;
-            this.Botones();
-            this.Habilitar(true);
+            this.Botones(true);
+            this.Habilitar(true); 
+        }      
+
+        protected void gridview_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            //gridview.PageIndex = e.NewPageIndex;
+            LoadGrid();
         }
 
         protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtidespecialidad.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[0].Text));
             this.txtDesc_especialidad.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[1].Text));
+            this.Botones(false);
+            this.btnNuevo.Visible = false;
+            this.btnaceptar.Visible = false;
+            this.btncancelar.Visible = true;
         }
 
-        protected void gridview_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            //gridview.PageIndex = e.NewPageIndex;
+            this.Eliminar();
+        }   
+
+        protected void gridview_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridview.PageIndex = e.NewPageIndex;
             LoadGrid();
         }
     }

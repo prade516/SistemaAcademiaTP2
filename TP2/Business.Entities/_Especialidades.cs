@@ -7,7 +7,7 @@ using Business.Entities;
 
 namespace Business.Entities
 {
-    public class _Especialidades
+    public class _Especialidades:BusinessEntity
     {
        private int _Idespecialidad;
         private string _DescEspecialidad;

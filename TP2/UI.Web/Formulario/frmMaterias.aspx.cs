@@ -10,23 +10,14 @@ using System.Web.UI.WebControls;
 namespace UI.Web.Formulario
 {
     public partial class frmMaterias : System.Web.UI.Page
-    {
-      private static string  idm;
-      private static string materia;
-      private static string cthosema;
-      private static string tthor;
-      private bool Isnuevo = false;
-      //private bool IsEditar = false;
+    {  
+      private bool Isnuevo=false;
+      private bool IsEditar = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                    LoadGrid();
-                    //this.txtidplan.Text = (string)(Session["codigo"]);
-                    //this.txtplan.Text = (string)(Session["plan"]);
-                    EnableButon(false);
-                    EnableTextBox(false);
-                    llenarcajas();
+                    LoadGrid();                 
                     llenarcomboPlan();   
            }
            
@@ -64,25 +55,88 @@ namespace UI.Web.Formulario
         }      
         protected void btnaceptar_Click1(object sender, EventArgs e)
         {
-            if (Isnuevo)
+            if (this.txtidmateria.Text==string.Empty)
             {
-                MateriaLogic.Insertar(this.txtdesc_materia.Text, Convert.ToInt32(this.txthorasemales.Text), Convert.ToInt32(this.txtHsTotales.Text), Convert.ToInt32(this.txtidplan.Text));
-                LoadGrid();
-                this.btnaceptar.Enabled = false;
-                //this.btnEditar.Enabled = false;
-                Limpiar();
+                this.CargarMateria(); 
             }
             else
             {
-                MateriaLogic.Editar(Convert.ToInt32(this.txtidmateria.Text),this.txtdesc_materia.Text, Convert.ToInt32(this.txthorasemales.Text), Convert.ToInt32(this.txtHsTotales.Text), Convert.ToInt32(this.txtidplan.Text));
-                LoadGrid();
-                this.btnaceptar.Enabled = false;
-                this.btnNuevo.Enabled = true;
-                Limpiar();
+                this.ModificarMateria();
             }
-          
+                
         }
 
+        protected void CargarMateria()
+        {
+            try
+            {
+                Materias materia = new Materias();
+                bool registar = true;
+                foreach (GridViewRow row in gridview.Rows)
+                {
+                    if (row.Cells[1].Text == (this.txtdesc_materia.Text).ToUpper())
+                    {
+                        registar = false;
+                        msgError.Text = "ya existe esa materia";
+                    }
+                }
+                if (registar)
+                {
+                    if (cbldPlan.SelectedItem.Text == "Seleccione un Plan")
+                    {
+                        msgError.Text = "Debe seleccionar un plan";
+                    }
+                    else
+                    {
+                        materia.Desc_Materia = (this.txtdesc_materia.Text);
+                        materia.Hs_Semanales = (Convert.ToInt32(this.txthorasemales.Text));
+                        materia.Hs_Totales = (Convert.ToInt32(this.txtHsTotales.Text));
+                        materia.Id_Plan = (Convert.ToInt32(this.cbldPlan.SelectedValue));
+                        materia.Estado = BusinessEntity.Estados.Nuevo;
+                        Logic.Insertar(materia);
+                        this.Limpiar();
+                    }
+                }           
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+              
+        }
+        protected void ModificarMateria()
+        {
+            try
+            {
+                Materias materia = new Materias();
+                materia.Id_Materia = Convert.ToInt32(this.txtidmateria.Text);
+                materia.Desc_Materia = (this.txtdesc_materia.Text);
+                materia.Hs_Semanales = (Convert.ToInt32(this.txthorasemales.Text));
+                materia.Hs_Totales = Convert.ToInt32(this.txtHsTotales.Text);
+                materia.Id_Plan = Convert.ToInt32(this.cbldPlan.SelectedValue);
+                materia.Estado = BusinessEntity.Estados.Modificar;
+                Logic.Editar(materia);
+                this.Limpiar();        
+            }
+            catch (Exception ex)
+            {
+
+                msgError.Text = ex.Message;
+            }
+                         
+        }
+        private void Habilitar(bool valor)
+        {
+            this.txtdesc_materia.Enabled = valor;
+            this.txthorasemales.Enabled = valor;
+            this.txtHsTotales.Enabled = valor;
+            //cbldPlan.SelectedItem.Text = "Seleccione un Plan";
+            cbldPlan.Enabled = valor;
+            this.btnEditar.Visible = false;
+            this.btnaceptar.Visible = valor;
+            this.btnNuevo.Enabled = !valor;
+            this.btncancelar.Visible = valor;
+        }
         protected void gridview_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridview.PageIndex = e.NewPageIndex;
@@ -103,76 +157,109 @@ namespace UI.Web.Formulario
             //this.txtbuscaridplan.Enabled = enable;
          
         }
+        private void Buton(bool valor)
+        {
+            this.btnEditar.Visible = Visible;
+            this.btncancelar.Visible = valor;
+            this.btnNuevo.Visible = valor;
+            this.btnaceptar.Visible = valor;
+            this.btnEliminar.Visible = valor;
+        } 
+        private void DesHabilitar(bool valor)
+        {
+            //this.txtidComision.Enabled = valor;
+            this.txtdesc_materia.Enabled = valor;
+            this.txthorasemales.Enabled = valor;
+            this.txtHsTotales.Enabled = valor;
+            cbldPlan.SelectedItem.Text = "Seleccione un Plan";
+            cbldPlan.Enabled = valor;
+            this.btnaceptar.Visible = valor;
+            this.btnNuevo.Enabled = !valor;
+            this.btncancelar.Visible = valor;
+            this.btnEliminar.Visible = valor;
+            this.btnEditar.Visible = valor;
+            
+        }
+        protected void Editar()
+        {
+            if (!this.txtidmateria.Text.Equals(""))
+            {
+                this.IsEditar = true;
+                this.Isnuevo = false;
+                this.Habilitar(true);
+                this.btnEliminar.Visible = false;
+            }
+            else
+            {
+                this.msgError.Text=("Debe de seleccionar primero el registro a Modificar");
+            }
+        }
         private void Limpiar()
         {
-            this.txtidmateria.Text = string.Empty;
-            //this.txtplan.Text = string.Empty;
+            this.txtidmateria.Text = string.Empty;           
             this.txtHsTotales.Text = string.Empty;
             this.txthorasemales.Text = string.Empty;
             this.txtdesc_materia.Text = string.Empty;
-            this.txtidplan.Text = string.Empty;
+            
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Limpiar();
-            EnableTextBox(true);
-            EnableButon(true);
-            this.btnNuevo.Enabled = false;
-            this.btnEditar.Enabled = false;
+            this.Habilitar(true);
+           
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
         {
-            Limpiar();
-            EnableTextBox(false);
-            EnableButon(false);
-            this.btnNuevo.Enabled = true;
+            this.DesHabilitar(false);
+            //this.Buton(false);
+            this.btnNuevo.Visible = true;
+            this.Limpiar();
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
-        {            
-            EnableTextBox(true);
-            EnableButon(true);
-            this.btnNuevo.Enabled = false;
-            this.txtidmateria.Text = idm;
-            this.btnaceptar.Enabled = true;
-            this.btnEditar.Enabled = false;
-            //this.txtbuscaridplan.Enabled = true; 
-        }
-        private void guardarValor()
         {
-            idm = (Convert.ToString(this.gridview.SelectedRow.Cells[0].Text));
-            materia = (Convert.ToString(this.gridview.SelectedRow.Cells[1].Text));
-            cthosema = (Convert.ToString(this.gridview.SelectedRow.Cells[3].Text));
-            tthor = (Convert.ToString(this.gridview.SelectedRow.Cells[4].Text));
-        }
-        private void llenarcajas()
+            this.Editar();
+        }  
+        protected void Buscar()
         {
-            this.txtidmateria.Text = idm;
-            this.txtdesc_materia.Text = materia;
-            this.txthorasemales.Text = Convert.ToString(cthosema);
-            this.txtHsTotales.Text = Convert.ToString(tthor);
-            this.btnEditar.Enabled = true;
-                   
-        }
-        public void Buscar()
-        {
-            this.gridview.DataSource = MateriaLogic.GetOne(this.txtbuscar.Text);
+            MateriaLogic malogic= new MateriaLogic();
+            this.gridview.DataSource = malogic.GetByMateria(this.txtbuscar.Text);
             this.gridview.DataBind();
         }
-        protected void gridview_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void Eliminar()
         {
-            //this.txtplan.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[2].Text));
-            guardarValor();
-            llenarcajas();
-            this.txtidplan.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[5].Text));
-            this.btnEditar.Enabled = true;
+            Materias materia = new Materias();
+            materia.Id_Materia = Convert.ToInt32(this.txtidmateria.Text);
+            materia.Estado = BusinessEntity.Estados.Eliminar;
+            Logic.Delete(materia);
+        }
+        protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtidmateria.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[0].Text)).ToString();
+            this.txtdesc_materia.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[1].Text)).ToString();
+            this.cbldPlan.SelectedItem.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[3].Text)).ToString();
+            this.txthorasemales.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[4].Text)).ToString();
+            this.txtHsTotales.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[5].Text)).ToString();
+            this.Buton(true);
+            this.btnNuevo.Visible = false;
+            this.btnaceptar.Visible = false;
         }
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
             this.Buscar();
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            this.Eliminar();
+        }    
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            this.ModificarMateria();
+            this.DesHabilitar(false);
         }
 
     }

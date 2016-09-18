@@ -24,7 +24,8 @@
             <br />
             <p class="corto">
                 <asp:TextBox ID="txtidComision" runat="server" placeholder="Codigo Comision" CssClass="cajatexto" ReadOnly="True" Enabled="false"></asp:TextBox> 
-                <asp:TextBox ID="txtDesc_comision" runat="server" CssClass="cajatexto" placeholder="Comision" Enabled="false"></asp:TextBox>      
+                <asp:TextBox ID="txtDesc_comision" runat="server" CssClass="cajatexto" placeholder="Comision" Enabled="false"></asp:TextBox>  
+                <asp:TextBox ID="txtPlan" runat="server" CssClass="cajatexto" placeholder="Comision" Visible="false"></asp:TextBox>      
                 <asp:TextBox ID="txtanio_especialidad" runat="server" CssClass="cajatexto" placeholder="Año Especialidad" Enabled="false"></asp:TextBox>  
                 <asp:Label ID="LabelPlan" runat="server" Text="Plan" CssClass="cajatexto3" ReadOnly="True" ></asp:Label> 
                  <asp:DropDownList ID="cbldPlan" runat="server" CssClass="cajatexto1" Enabled="false"></asp:DropDownList>                      
@@ -42,6 +43,7 @@
         <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" Visible="false" OnClick="btnEditar_Click" ></asp:Button>
         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click" ></asp:Button>
     </div>
+        
         <br /><br /><br />   <br /> 
         <div>
             <asp:Label ID="msgError" runat="server" ForeColor="Red"></asp:Label>

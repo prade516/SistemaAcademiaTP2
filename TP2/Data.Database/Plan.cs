@@ -42,54 +42,57 @@ public class Plan:Adapter
     }
     return pl;
    }
- public  DataTable GetOne(Planes Tbuscado)
+ public List<Business.Entities.Planes> GetByPlan(string Tbuscado)
  {
-     DataTable dtresul = new DataTable();
+     List<Planes> lista = new List<Planes>();
      try
      {
          this.OpenConnection();
-         SqlCommand cmdplan = new SqlCommand("select planes.id_plan,planes.desc_plan,especialidades.desc_especialidad  from planes inner join especialidades on planes.id_especialidad= especialidades.id_especialidad where desc_plan like @textobuscar + '%'",SqlConn);
-         SqlParameter parame = new SqlParameter();
-         parame.ParameterName = "textobuscar";
-         parame.SqlDbType = SqlDbType.VarChar;
-         parame.Size = 50;
-         parame.Value = Tbuscado.Txtbuscado;
-         cmdplan.Parameters.Add(parame);
+         SqlCommand cmdplan = new SqlCommand("select planes.id_plan,planes.desc_plan,especialidades.desc_especialidad  from planes inner join especialidades on planes.id_especialidad= especialidades.id_especialidad where desc_plan like @Tbuscado + '%'", SqlConn);
+         cmdplan.Parameters.Add("@Tbuscado", SqlDbType.VarChar, 50).Value = Tbuscado;
+        SqlDataReader drplan = cmdplan.ExecuteReader();
+         while (drplan.Read())
+         {
+           Planes  plan = new Planes();
 
-         SqlDataAdapter drplan = new SqlDataAdapter(cmdplan);
-         drplan.Fill(dtresul);
-
-     }
+           plan.Codigo = drplan.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drplan["id_plan"]));
+           plan.Plan = drplan.IsDBNull(1) ? string.Empty : drplan["desc_plan"].ToString();
+           plan.Especialidad = drplan.IsDBNull(2) ? Convert.ToString(string.Empty) : ((string)drplan["desc_especialidad"]);
+           lista.Add(plan);
+         }
+         drplan.Close();
+        }
      catch (Exception ex)
      {
          Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);          
      }
-     return dtresul;
+     return lista;
  }
-public string Delete(Planes pla)
+protected void Delete(Planes Codigo)
     {
-        string resp = "";
+        
         try
         {
             this.OpenConnection();
             SqlCommand cmdelete = new SqlCommand("delete planes where id_plan=@id_plan",SqlConn);
-            cmdelete.Parameters.Add("@id_plan", SqlDbType.Int).Value = pla.Codigo;
-            resp = cmdelete.ExecuteNonQuery() == 1 ? "OK" : "No se Elimino el registro";
+            cmdelete.Parameters.Add("@id_plan", SqlDbType.Int).Value =Codigo.Codigo;
+
+          cmdelete.ExecuteNonQuery();
         }
         catch (Exception Ex)
         {
-            resp = Ex.Message;
+            Exception ExcepcionManejada = new Exception("Error al elimanar el plan", Ex);
+            throw ExcepcionManejada;
         }
         finally
         {
             if (SqlConn.State == ConnectionState.Open)
                 this.CloseConnection();
         }
-        return resp;
+        
     }
-public string Update (Planes pla)
-{
-    string resp = "";
+protected void Update (Planes pla)
+{    
     try
     {
         this.OpenConnection();
@@ -99,22 +102,22 @@ public string Update (Planes pla)
         cmdSave.Parameters.Add("@desc_plan", SqlDbType.VarChar, 50).Value = pla.Plan;
         cmdSave.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = pla.Id_Especialidad;
 
-        resp = cmdSave.ExecuteNonQuery() == 1 ? "OK" : "NO se Actualiza el registro";
+        Convert.ToInt32(cmdSave.ExecuteNonQuery());
     }
     catch (Exception Ex)
     {
-        resp = Ex.Message;
+        Exception ExcepcionManejada = new Exception("Error al Actualizar el plan", Ex);
+        throw ExcepcionManejada;
     }
     finally
     {
         if (SqlConn.State == ConnectionState.Open)
             this.CloseConnection();
     }
-    return resp;
+   
 }
-public string Insert(Planes pla)
+protected void Insert(Planes pla)
 {
-    string resp = "";
     try
     {
         this.OpenConnection();
@@ -123,19 +126,36 @@ public string Insert(Planes pla)
         cmdSave.Parameters.Add("@desc_plan", SqlDbType.VarChar, 50).Value = pla.Plan;
         cmdSave.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = pla.Id_Especialidad;
 
-        resp = cmdSave.ExecuteNonQuery() == 1 ? "OK" : "NO se Ingreso el registro";
+     cmdSave.ExecuteNonQuery();
     
     }
     catch (Exception Ex)
     {
-        resp = Ex.Message;
+        Exception ExcepcionManejada = new Exception("Error al Insertar el plan", Ex);
+        throw ExcepcionManejada;
     }
     finally
     {
         if (SqlConn.State == ConnectionState.Open)
             this.CloseConnection();
+    }   
+}
+public void Save(Planes comision)
+{
+    if (comision.Estado == BusinessEntity.Estados.Eliminar)
+    {
+        this.Delete(comision);
     }
-    return resp;
+    else if (comision.Estado == BusinessEntity.Estados.Nuevo)
+    {
+        this.Insert(comision);
+    }
+
+    else if (comision.Estado == BusinessEntity.Estados.Modificar)
+    {
+        this.Update(comision);
+    }
+    comision.Estado = BusinessEntity.Estados.No_Modificar;
 }
 }
 }

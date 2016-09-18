@@ -76,6 +76,15 @@ namespace UI.Web.Formulario {
         protected global::System.Web.UI.WebControls.TextBox txtDesc_comision;
         
         /// <summary>
+        /// Control txtPlan.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlan;
+        
+        /// <summary>
         /// Control txtanio_especialidad.
         /// </summary>
         /// <remarks>

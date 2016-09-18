@@ -42,60 +42,57 @@ namespace Data.Database
            return especiali;
        }
 
-       public DataTable GetOne(_Especialidades Txtbuscado)
+       public List<_Especialidades> GetByEspecialidad(string Txtbuscado)
        {
-           DataTable dtresul = new DataTable("Especialidad");
+           List<_Especialidades> lista = new List<_Especialidades>();
            try
            {
                this.OpenConnection();
-               SqlCommand cmdEspecialidad = new SqlCommand("select * from especialidades where desc_especialidad like @textobuscar + '%'", SqlConn);
-               SqlParameter parame = new SqlParameter();
-               parame.ParameterName = "textobuscar";
-               parame.SqlDbType = SqlDbType.VarChar;
-               parame.Size = 50;
-               parame.Value = Txtbuscado.Txtbuscado;
-               cmdEspecialidad.Parameters.Add(parame);
-               
-               SqlDataAdapter drEspecialidad = new SqlDataAdapter(cmdEspecialidad);
+               SqlCommand cmdEspecialidad = new SqlCommand("select id_especialidad,desc_especialidad from especialidades where desc_especialidad like @textobuscar + '%'", SqlConn);
+               cmdEspecialidad.Parameters.Add("@Tbuscado", SqlDbType.VarChar, 50).Value = Txtbuscado;
+               SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
+               while (drEspecialidad.Read())
+               {
+                   _Especialidades especialidad = new _Especialidades();
 
-               drEspecialidad.Fill(dtresul);
+                   especialidad.Idespecialidad = drEspecialidad.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drEspecialidad["id_especialidad"]));
+                   especialidad.DescEspecialidad = drEspecialidad.IsDBNull(1) ? string.Empty : drEspecialidad["desc_especialidad"].ToString();
+                 
+                   lista.Add(especialidad);
+               }
+               drEspecialidad.Close();
            }
            catch (Exception ex)
            {
                Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
            }
-           //finally
-           //{
-           //    this.CloseConnection();
-           //}
-           return dtresul;
+           return lista;
        }
 
-       public string Delete(_Especialidades Espe)
+      protected void Delete(_Especialidades Espe)
        {
-           string resp = "";
            try
            {
                this.OpenConnection();
                SqlCommand cmdDelete = new SqlCommand("delete especialidades where id_especialidad=@id_especialidad", SqlConn);
                cmdDelete.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = Espe.Idespecialidad;
-               resp = cmdDelete.ExecuteNonQuery() == 1 ? "OK" : "No se Elimino el registro";
+               cmdDelete.ExecuteNonQuery();
            }
            catch (Exception Ex)
            {
-               resp = Ex.Message;
+               Exception ExcepcionManejada = new Exception("Error al elimanar la especialidad", Ex);
+               throw ExcepcionManejada;
            }
            finally
            {
                if(SqlConn.State==ConnectionState.Open)
                this.CloseConnection();
            }
-           return resp;
+         
        }
 
-       public  string Update(_Especialidades Espe)
+     protected void Update(_Especialidades Espe)
        {
-           string resp = "";
            try
            {
                this.OpenConnection();
@@ -104,22 +101,21 @@ namespace Data.Database
                cmdSave.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = Espe.Idespecialidad;
                cmdSave.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 50).Value = Espe.DescEspecialidad;
 
-               resp = cmdSave.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
+               Convert.ToInt32(cmdSave.ExecuteNonQuery());
            }
            catch (Exception Ex)
            {
-               resp = Ex.Message;
+               Exception ExcepcionManejada = new Exception("Error al elimanar el plan", Ex);
+               throw ExcepcionManejada;
            }
            finally
            {
                if(SqlConn.State==ConnectionState.Open)
                   this.CloseConnection();
            }
-           return resp;
        }
-       public string Insert(_Especialidades espe)
-       {
-           string resp = "";
+      protected void Insert(_Especialidades espe)
+       {          
            try
            {
                this.OpenConnection();
@@ -127,19 +123,36 @@ namespace Data.Database
 
                cmdSave.Parameters.Add("@desc_especialidad", SqlDbType.VarChar, 50).Value = espe.DescEspecialidad;              
                //espe.Idespecialidad = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
-               resp = Convert.ToString(cmdSave.ExecuteNonQuery() == 1 ? "OK" : "No se ingreso el registro");
+              Convert.ToString(cmdSave.ExecuteNonQuery());
            }
            catch (Exception Ex)
            {
-               resp = Ex.Message;
+               Exception ExcepcionManejada = new Exception("Error al elimanar el plan", Ex);
+               throw ExcepcionManejada;
            }
            finally
            {
                if (SqlConn.State == ConnectionState.Open)
                    this.CloseConnection();                             
-           }
-           return resp;
+           }          
        }
 
+      public void Save(_Especialidades especialidad)
+      {
+          if (especialidad.Estado == BusinessEntity.Estados.Eliminar)
+          {
+              this.Delete(especialidad);
+          }
+          else if (especialidad.Estado == BusinessEntity.Estados.Nuevo)
+          {
+              this.Insert(especialidad);
+          }
+
+          else if (especialidad.Estado == BusinessEntity.Estados.Modificar)
+          {
+              this.Update(especialidad);
+          }
+          especialidad.Estado = BusinessEntity.Estados.No_Modificar;
+      }
     }
 }

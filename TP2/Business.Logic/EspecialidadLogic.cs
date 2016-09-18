@@ -26,36 +26,21 @@ namespace Business.Logic
            return EspecialidadDatos.GetAll();
        }
        
-       public static DataTable GetOne(string id)
+       public List<_Especialidades> GetByEspecialidad(string desc_especialidad)
        {
-           Business.Entities._Especialidades espe = new Business.Entities._Especialidades();
-           Data.Database.Especialidad especia = new Data.Database.Especialidad();
-           espe.Txtbuscado = id;
-           return especia.GetOne(espe);
+           return EspecialidadDatos.GetByEspecialidad(desc_especialidad);
        }
-       public static string Delete(int id)
+       public void Delete(Business.Entities._Especialidades especialidad)
        {
-           Business.Entities._Especialidades espe = new Business.Entities._Especialidades();
-           Data.Database.Especialidad especia = new Data.Database.Especialidad();
-           espe.Idespecialidad = id;
-           return especia.Delete(espe);
+           EspecialidadDatos.Save(especialidad);
        }
-       public static string Insertar(string descrip)
+       public void Insertar(Business.Entities._Especialidades especialidad)
        {
-           Business.Entities._Especialidades espe =new Business.Entities._Especialidades();
-            Data.Database.Especialidad especia = new  Data.Database.Especialidad();
-           //Especialidad espe= new Especialidad();
-           espe.DescEspecialidad = descrip;
-           return especia.Insert(espe);
-           //EspecialidadDatos.Insert(espe);
+           EspecialidadDatos.Save(especialidad);
        }
-       public static string editar(int idespecialidad, string descripcion)
+       public void Editar(Business.Entities._Especialidades especialidad)
        {
-           Business.Entities._Especialidades espe = new Business.Entities._Especialidades();
-           Data.Database.Especialidad especia = new Data.Database.Especialidad();
-           espe.Idespecialidad = idespecialidad;
-           espe.DescEspecialidad = descripcion;
-           return especia.Update(espe);
+           EspecialidadDatos.Save(especialidad);
        }
     }
 }
