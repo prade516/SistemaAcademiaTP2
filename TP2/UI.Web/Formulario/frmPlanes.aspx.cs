@@ -107,6 +107,12 @@ namespace UI.Web.Formulario
             plan.Estado = BusinessEntity.Estados.Eliminar;
             Logic.Delete(plan);
         }
+        public void Buscar()
+        {
+            PlanLogic comlo = new PlanLogic();
+            this.gridview.DataSource = comlo.GetPlan(this.txtbuscar.Text);
+            this.gridview.DataBind();
+        }
         private void Limpiar()
         {            
             this.txtDesc_plan.Text = string.Empty;
@@ -174,6 +180,11 @@ namespace UI.Web.Formulario
         {
             gridview.PageIndex = e.NewPageIndex;
             LoadGrid();
+        }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
+        {
+            this.Buscar();
         }
     }
 }

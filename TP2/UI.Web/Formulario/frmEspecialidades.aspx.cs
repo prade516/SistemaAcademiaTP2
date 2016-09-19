@@ -153,7 +153,12 @@ namespace UI.Web.Formulario
             //gridview.PageIndex = e.NewPageIndex;
             LoadGrid();
         }
-
+        public void Buscar()
+        {
+            EspecialidadLogic comlo = new EspecialidadLogic();
+            this.gridview.DataSource = comlo.GetByEspecialidad(this.txtbuscar.Text);
+            this.gridview.DataBind();
+        }
         protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtidespecialidad.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[0].Text));
@@ -173,6 +178,16 @@ namespace UI.Web.Formulario
         {
             gridview.PageIndex = e.NewPageIndex;
             LoadGrid();
+        }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
+        {
+            this.Buscar();
+        }
+
+        protected void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.Buscar();
         }
     }
 }

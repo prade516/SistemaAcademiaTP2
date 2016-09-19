@@ -111,7 +111,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comision.AnioEspecialidad;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = comision.IdPlan;
 
-                cmdSave.ExecuteNonQuery();
+                Convert.ToInt32(cmdSave.ExecuteNonQuery());
                
             }
             catch (Exception Ex)

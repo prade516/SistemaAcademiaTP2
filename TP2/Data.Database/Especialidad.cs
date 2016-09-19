@@ -49,7 +49,7 @@ namespace Data.Database
            {
                this.OpenConnection();
                SqlCommand cmdEspecialidad = new SqlCommand("select id_especialidad,desc_especialidad from especialidades where desc_especialidad like @textobuscar + '%'", SqlConn);
-               cmdEspecialidad.Parameters.Add("@Tbuscado", SqlDbType.VarChar, 50).Value = Txtbuscado;
+               cmdEspecialidad.Parameters.Add("@textobuscar", SqlDbType.VarChar, 50).Value = Txtbuscado;
                SqlDataReader drEspecialidad = cmdEspecialidad.ExecuteReader();
                while (drEspecialidad.Read())
                {

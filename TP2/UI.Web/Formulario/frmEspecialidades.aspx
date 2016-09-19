@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
     <asp:Panel runat="server">
-        <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Materia"></asp:TextBox>
-        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1"></asp:Button>
+        <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Materia" OnTextChanged="txtbuscar_TextChanged"></asp:TextBox>
+        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1" OnClick="btnbuscar_Click"></asp:Button>
     </asp:Panel>
     <center>
     <asp:Panel ID="gridPanel" runat="server">
