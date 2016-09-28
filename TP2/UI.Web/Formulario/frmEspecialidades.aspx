@@ -13,7 +13,7 @@
             <Columns>
                 <asp:BoundField HeaderText="Codigo Especialidad" DataField="Idespecialidad" />
                 <asp:BoundField HeaderText="Especialidad" DataField="DescEspecialidad" />
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField HeaderText="Seleccionar" SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
     </asp:Panel>

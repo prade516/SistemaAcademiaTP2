@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,8 +20,7 @@ namespace UI.Web.Formulario
             {
                     LoadGrid();                 
                     llenarcomboPlan();   
-           }
-           
+           }   
         }
         private void llenarcomboPlan()
         {
@@ -57,11 +57,13 @@ namespace UI.Web.Formulario
         {
             if (this.txtidmateria.Text==string.Empty)
             {
-                this.CargarMateria(); 
+                this.CargarMateria();
+                //LoadGrid();
             }
             else
             {
                 this.ModificarMateria();
+                //LoadGrid();
             }
                 
         }
@@ -95,6 +97,8 @@ namespace UI.Web.Formulario
                         materia.Estado = BusinessEntity.Estados.Nuevo;
                         Logic.Insertar(materia);
                         this.Limpiar();
+                        //gridview.EditIndex = -1;
+                        //this.LoadGrid();
                     }
                 }           
             }
@@ -171,7 +175,7 @@ namespace UI.Web.Formulario
             this.txtdesc_materia.Enabled = valor;
             this.txthorasemales.Enabled = valor;
             this.txtHsTotales.Enabled = valor;
-            cbldPlan.SelectedItem.Text = "Seleccione un Plan";
+            //cbldPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
             cbldPlan.Enabled = valor;
             this.btnaceptar.Visible = valor;
             this.btnNuevo.Enabled = !valor;
@@ -221,18 +225,35 @@ namespace UI.Web.Formulario
         {
             this.Editar();
         }  
+        [WebMethod]
         protected void Buscar()
         {
-            MateriaLogic malogic= new MateriaLogic();
-            this.gridview.DataSource = malogic.GetByMateria(this.txtbuscar.Text);
-            this.gridview.DataBind();
+            try
+            {
+                MateriaLogic malogic = new MateriaLogic();
+                this.gridview.DataSource = malogic.GetByMateria(this.txtbuscar.Text);
+                this.gridview.DataBind();
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+           
         }
         protected void Eliminar()
         {
-            Materias materia = new Materias();
-            materia.Id_Materia = Convert.ToInt32(this.txtidmateria.Text);
-            materia.Estado = BusinessEntity.Estados.Eliminar;
-            Logic.Delete(materia);
+            try
+            {
+                Materias materia = new Materias();
+                materia.Id_Materia = Convert.ToInt32(this.txtidmateria.Text);
+                materia.Estado = BusinessEntity.Estados.Eliminar;
+                Logic.Delete(materia);
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+           
         }
         protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
         {

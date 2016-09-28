@@ -9,9 +9,12 @@ namespace Business.Entities
 {
     public class _Especialidades:BusinessEntity
     {
-       private int _Idespecialidad;
+        private int _Idespecialidad;
         private string _DescEspecialidad;
         private string txtbuscado;
+       
+
+       
 
         public int Idespecialidad
         {
@@ -36,6 +39,7 @@ namespace Business.Entities
           this.Idespecialidad = id_especialidad;
           this.DescEspecialidad = desc_especialidad;
           this.Txtbuscado = txtbuscado;
+          
       }
     }
 }

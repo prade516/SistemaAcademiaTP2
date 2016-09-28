@@ -56,7 +56,7 @@ namespace UI.Web.Formulario
             this.txtidComision.Text = string.Empty;
             this.txtDesc_comision.Text = string.Empty;
             this.txtanio_especialidad.Text = string.Empty;
-            cbldPlan.SelectedItem.Text = "Seleccione un Plan";
+            cbldPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
         }
         private void Habilitar(bool valor)
         {
@@ -75,7 +75,7 @@ namespace UI.Web.Formulario
             this.txtidComision.Enabled = valor;
             this.txtDesc_comision.Enabled = valor;
             this.txtanio_especialidad.Enabled = valor;
-            cbldPlan.SelectedItem.Text = "Seleccione un Plan";
+            cbldPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
             cbldPlan.Enabled = valor;
             this.btnaceptar.Visible = valor;
             this.btnNuevo.Enabled = !valor;
@@ -136,10 +136,18 @@ namespace UI.Web.Formulario
         }
         protected void Eliminar()
         {
-            Comisiones comision = new Comisiones();
-            comision.IdComision =Convert.ToInt32(this.txtidComision.Text);
-            comision.Estado = BusinessEntity.Estados.Eliminar;
-            Logic.Delete(comision);
+            try
+            {
+                Comisiones comision = new Comisiones();
+                comision.IdComision = Convert.ToInt32(this.txtidComision.Text);
+                comision.Estado = BusinessEntity.Estados.Eliminar;
+                Logic.Delete(comision);
+            }
+            catch (Exception ex)
+            {
+                msgError.Text = ex.Message;
+            }
+           
         }
 
         protected void btnaceptar_Click(object sender, EventArgs e)

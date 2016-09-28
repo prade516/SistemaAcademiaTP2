@@ -23,8 +23,8 @@ namespace UI.Web.Formulario
         }
         public void Listar()
         {
-            PlanLogic ul = new PlanLogic();
-            this.gridview.DataSource = Logic.GetAll();
+            MateriaLogic ul = new MateriaLogic();
+            this.gridview.DataSource = ul.GetAll();
             this.gridview.DataBind();
             //this.Ocultarcolumna();
             lblTotal.Text = "Total de registro: " + Convert.ToString(gridview.Rows.Count);

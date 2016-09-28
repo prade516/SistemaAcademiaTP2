@@ -8,7 +8,7 @@
     <asp:Panel ID="gridPanel" runat="server">
         <link href="../CSS/datagridview.css" rel="stylesheet" />
         <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
-            AllowPaging="true" AlternatingRowStyle-CssClass="alt" PageSize="7" OnPageIndexChanging="gridview_PageIndexChanging" OnSelectedIndexChanged="gridview_SelectedIndexChanged">
+            AllowPaging="true" AlternatingRowStyle-CssClass="alt" PageSize="60" OnPageIndexChanging="gridview_PageIndexChanging" OnSelectedIndexChanged="gridview_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="Codigo Materia" DataField="Id_Materia" />
                 <asp:BoundField HeaderText="Materia" DataField="Desc_Materia" />
@@ -17,7 +17,7 @@
                 <asp:BoundField HeaderText="Horas Semanales" DataField="Hs_Semanales" />
                 <asp:BoundField HeaderText="Horas Totales" DataField="Hs_Totales" />
                 <asp:BoundField HeaderText="Codigo plan" DataField="Id_Plan" Visible="false" />
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField HeaderText="Seleccionar" SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
 

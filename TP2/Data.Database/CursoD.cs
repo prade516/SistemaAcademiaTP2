@@ -11,22 +11,25 @@ namespace Data.Database
 {
    public class CursoD:Adapter
     {
-       protected List<Cursos> GetAll()
+       public List<Cursos> GetAll()
        {
            List<Cursos> lista = new List<Cursos>();
            try
            {
                OpenConnection();
-               SqlCommand cmdCurso = new SqlCommand("select cur.id_curso,mat.desc_materia,com.desc_comision,cur.cupo from cursos cur inner join materias mat on cur.id_materia=mat.id_materia inner join comisiones com on cur.id_comision=com.id_comision",SqlConn);
+               SqlCommand cmdCurso = new SqlCommand("select  cur.id_curso,mat.id_materia,mat.desc_materia,com.id_comision,com.desc_comision,cur.anio_calendario,cur.cupo from cursos cur inner join materias mat on cur.id_materia=mat.id_materia inner join comisiones com on cur.id_comision=com.id_comision",SqlConn);
                SqlDataReader drCurso = cmdCurso.ExecuteReader();
                while (drCurso.Read())
                {
                    Cursos curso = new Cursos();
 
-                   curso.IdComision = drCurso.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drCurso["id_curso"]));
-                   curso.Desc_materia = drCurso.IsDBNull(1) ? string.Empty : drCurso["desc_materia"].ToString();
-                   curso.Desc_comision = drCurso.IsDBNull(2) ? string.Empty : ((string)drCurso["desc_comision"]);
-                   curso.Cupo = drCurso.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (int)drCurso["cupo"];
+                   curso.IdCurso = drCurso.IsDBNull(0) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drCurso["id_curso"]));
+                   curso.IdMateria = drCurso.IsDBNull(1) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drCurso["id_materia"]));
+                   curso.Desc_materia = drCurso.IsDBNull(2) ? string.Empty : drCurso["desc_materia"].ToString();
+                   curso.IdComision = drCurso.IsDBNull(3) ? Convert.ToInt32(string.Empty) : (Convert.ToInt32(drCurso["id_comision"]));
+                   curso.Desc_comision = drCurso.IsDBNull(4) ? string.Empty : ((string)drCurso["desc_comision"]);
+                   curso.AnioCalendario = drCurso.IsDBNull(5) ? Convert.ToInt32(string.Empty) : (int)drCurso["anio_calendario"];
+                   curso.Cupo = drCurso.IsDBNull(6) ? Convert.ToInt32(string.Empty) : (int)drCurso["cupo"];
 
                    lista.Add(curso);
                }
@@ -42,7 +45,7 @@ namespace Data.Database
            return lista;
        }
 
-       protected List<Cursos> GetByCurso(string Tbuscado)
+       public List<Cursos> GetByCurso(string Tbuscado)
        {
            List<Cursos> lista = new List<Cursos>();
            try
@@ -128,15 +131,15 @@ namespace Data.Database
            try
            {
                this.OpenConnection();
-               SqlCommand cmdSave = new SqlCommand("update cursos set id_materia = @id_materia,id_comision=@id_comision,anio_calendario=@anio_calendario,cupo=@cupo where id_curso=@id ", SqlConn);
+               SqlCommand cmdSave = new SqlCommand("update cursos set id_materia = @id_materia,id_comision=@id_comision,anio_calendario=@anio_calendario,cupo=@cupo where id_curso=@id_curso ", SqlConn);
 
-               cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.IdCurso;
+               cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = curso.IdCurso;
                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.IdMateria;
                cmdSave.Parameters.Add("@id_comision", SqlDbType.Int).Value = curso.IdComision;
                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = curso.AnioCalendario;
                cmdSave.Parameters.Add("@cupo", SqlDbType.Int).Value = curso.Cupo;
 
-               cmdSave.ExecuteNonQuery();
+              cmdSave.ExecuteNonQuery();
            }
            catch (Exception Ex)
            {

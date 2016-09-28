@@ -10,7 +10,25 @@
 namespace UI.Web.Formulario {
     
     
-    public partial class frmcursar {
+    public partial class frmCursos {
+        
+        /// <summary>
+        /// Control txtbuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbuscar;
+        
+        /// <summary>
+        /// Control btnbuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnbuscar;
         
         /// <summary>
         /// Control gridPanel.
@@ -40,58 +58,49 @@ namespace UI.Web.Formulario {
         protected global::System.Web.UI.WebControls.Panel estiloPanal;
         
         /// <summary>
-        /// Control txtidmateria.
+        /// Control txtidCurso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtidmateria;
+        protected global::System.Web.UI.WebControls.TextBox txtidCurso;
         
         /// <summary>
-        /// Control txtdesc_materia.
+        /// Control txtanio_calendario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdesc_materia;
+        protected global::System.Web.UI.WebControls.TextBox txtanio_calendario;
         
         /// <summary>
-        /// Control txthorasemales.
+        /// Control Txtcupo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txthorasemales;
+        protected global::System.Web.UI.WebControls.TextBox Txtcupo;
         
         /// <summary>
-        /// Control txtHsTotales.
+        /// Control cblMateria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHsTotales;
+        protected global::System.Web.UI.WebControls.DropDownList cblMateria;
         
         /// <summary>
-        /// Control LabelPlan.
+        /// Control cblcomision.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelPlan;
-        
-        /// <summary>
-        /// Control cbldPlan.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbldPlan;
+        protected global::System.Web.UI.WebControls.DropDownList cblcomision;
         
         /// <summary>
         /// Control btncancelar.
@@ -146,5 +155,23 @@ namespace UI.Web.Formulario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label msgError;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
     }
 }

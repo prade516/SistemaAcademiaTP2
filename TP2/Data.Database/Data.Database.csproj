@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter.cs" />
+    <Compile Include="Alumnos_InscripcionesD.cs" />
     <Compile Include="ComisionesD.cs" />
     <Compile Include="conexionsql.cs" />
     <Compile Include="CursoD.cs" />

@@ -13,7 +13,7 @@
                 <asp:BoundField HeaderText="Codigo Plan" DataField="Codigo" />
                 <asp:BoundField HeaderText="Plan" DataField="Plan" />
                 <asp:BoundField HeaderText="Especialidad" DataField="Especialidad" />
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField HeaderText="Seleccionar" SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
 

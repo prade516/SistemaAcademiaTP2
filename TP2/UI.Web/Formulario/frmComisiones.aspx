@@ -9,13 +9,13 @@
     <asp:Panel ID="gridPanel" runat="server">
        <link href="../CSS/datagridview.css" rel="stylesheet" />
         <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
-            AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="7" OnPageIndexChanging="gridview_PageIndexChanging" OnSelectedIndexChanged="gridview_SelectedIndexChanged">
+            AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="30" OnPageIndexChanging="gridview_PageIndexChanging" OnSelectedIndexChanged="gridview_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="Codigo Comision" DataField="IdComision"/>
                 <asp:BoundField HeaderText="Comision" DataField="DescComision"/>
                  <asp:BoundField HeaderText="Año Especialidad" DataField="AnioEspecialidad"/>
                 <asp:BoundField HeaderText="Plan" DataField="Plan"/>
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True"/>
+                <asp:CommandField HeaderText="Seleccionar" SelectText="Seleccionar" ShowSelectButton="True"/>
             </Columns>
         </asp:GridView>
     </asp:Panel>

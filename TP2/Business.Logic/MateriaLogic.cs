@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Business.Entities;
 using Business.Logic;
 using System.Data;
+using Data.Database;
 
 namespace Business.Logic
 {

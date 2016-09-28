@@ -32,11 +32,13 @@ namespace UI.Web.Formulario
                 string nombre = Datos.Rows[0][1].ToString();
                 string apellido = Datos.Rows[0][2].ToString();
                 string acesso = Datos.Rows[0][4].ToString();
+                int tipo = Convert.ToInt32(Datos.Rows[0][4].ToString());
 
                 Session.Add("codigo", idusuario);
                 Session.Add("Nombre", nombre);
                 Session.Add("Apellido", apellido);
                 Session.Add("Acesso", acesso);
+                Session.Add("Tipo", tipo);
 
                 Response.Redirect("Home.aspx");
                 

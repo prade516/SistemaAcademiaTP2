@@ -138,7 +138,7 @@ namespace Data.Database
                cmdSave.Parameters.Add("@hs_totales", SqlDbType.Int).Value = pla.Hs_Totales;
                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = pla.Id_Plan;
 
-               cmdSave.ExecuteNonQuery();
+               Convert.ToInt32(cmdSave.ExecuteNonQuery());
            }
            catch (Exception Ex)
            {
@@ -151,8 +151,7 @@ namespace Data.Database
                if (SqlConn.State == ConnectionState.Open)
                    this.CloseConnection();
            }           
-       }
-
+     }
        public void Save(Materias materia)
        {
            if (materia.Estado == BusinessEntity.Estados.Eliminar)
