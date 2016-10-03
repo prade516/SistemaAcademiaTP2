@@ -33,6 +33,7 @@ namespace UI.Web.Formulario
             this.gridview.DataSource = Logic.GetAll();
             this.gridview.DataBind();
         }
+      
         private void llenarcomboEspecialidad()
         {
             Data.Database.Especialidad especia = new Data.Database.Especialidad();
@@ -93,7 +94,7 @@ namespace UI.Web.Formulario
             Planes plan = new Planes();
             plan.Codigo = Convert.ToInt32(this.txtidplan.Text);
             plan.Plan = this.txtDesc_plan.Text;
-            plan.Id_Especialidad = (Convert.ToInt32(cbldEspecialidad.SelectedValue));
+            plan.Id_Especialidad = Convert.ToInt32(cbldEspecialidad.SelectedValue);
                        
             plan.Estado = BusinessEntity.Estados.Modificar;
             Logic.Editar(plan);
@@ -135,7 +136,8 @@ namespace UI.Web.Formulario
         {
             this.IsEditar = true;
             this.Botones(true);
-            this.Habilitar(true);     
+            this.Habilitar(true);
+            this.btnaceptar.Text = "Modificar";
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)

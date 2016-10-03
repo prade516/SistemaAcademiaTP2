@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Entities
 {
-    public class _Personas
+    public class _Personas:BusinessEntity
     {
          private int _Id_Persona;
         private string _Nombre;
@@ -20,6 +20,13 @@ namespace Business.Entities
         private int _Id_Plan;
         private string _Sexo;
         private string txtbuscado;
+        private string _plan;
+
+        public string Plan
+        {
+            get { return _plan; }
+            set { _plan = value; }
+        }
 
        
 
@@ -90,7 +97,7 @@ namespace Business.Entities
         {
 
         }
-        public _Personas(int id_persona, string nombre, string apellido, string direccion, string email, string telefono, DateTime fecha_nac, int legajo, string tipo_persona, int id_plan, string sexo, string txtbuscado)
+        public _Personas(int id_persona, string nombre, string apellido, string direccion, string email, string telefono, DateTime fecha_nac, int legajo, string tipo_persona, int id_plan, string sexo, string txtbuscado,string plan)
         {
             this.Codigo = id_persona;
             this.Nombre = nombre;
@@ -104,6 +111,7 @@ namespace Business.Entities
             this.Id_Plan = id_plan;
             this.Sexo = sexo;
             this.Txtbuscado = txtbuscado;
+            this.Plan = plan;
         }
         #endregion
     }

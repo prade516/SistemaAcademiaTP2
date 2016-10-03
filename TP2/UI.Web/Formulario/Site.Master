@@ -4,9 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
+     
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Academia</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+       
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -14,22 +17,20 @@
         <%--<link href="CSS/cssmenu.css" rel="stylesheet" />--%>
         <%--<asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>--%>
         <%--<asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />--%>
+      
         <div id="Cabecera">
             <div id="contenidoCabecera">
                 <div id="barrahorizontal">
-                    <ul >
+                    <ul>
                         <li id="centralbarhor">
                             <asp:LinkButton ID="LinkInicio" runat="server" PostBackUrl="~/Formulario/Home.aspx">Inicio</asp:LinkButton>
                             <asp:LinkButton ID="LinkPersona" runat="server" PostBackUrl="~/Formulario/frmpersonaprincipal.aspx">Personas</asp:LinkButton>
                             <asp:LinkButton ID="LinkInscripcion" runat="server" PostBackUrl="~/Formulario/frmInscripcionprincipal.aspx">Inscripcion</asp:LinkButton>
                             <asp:LinkButton ID="LinkConsulta" runat="server" PostBackUrl="~/Formulario/frmconsultaprincipal.aspx">Consulta</asp:LinkButton>
-                             <asp:LinkButton ID="LinkCarrera" runat="server" PostBackUrl="~/Formulario/frmcarreraprincipal.aspx">Carrera</asp:LinkButton>
+                            <asp:LinkButton ID="LinkCarrera" runat="server" PostBackUrl="~/Formulario/frmcarreraprincipal.aspx">Carrera</asp:LinkButton>
                         </li>
 
                     </ul>
-                </div>
-                <div id="logotipo">
-                    <%--<img src="image/sistema-academico.png" alt="Sistema academico" />--%>
                 </div>
                 <div id="titulo">
                     <%--<h1>Sistema Academia</h1>--%>
@@ -54,7 +55,7 @@
         </div>
         <div>
         </div>
-        
+
     </form>
 </body>
 </html>

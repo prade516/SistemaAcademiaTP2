@@ -10,6 +10,15 @@
 namespace UI.Web.Administrador {
     
     
-    public partial class frmmaterias {
+    public partial class frmad {
+        
+        /// <summary>
+        /// Control Contenidoprincipal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Contenidoprincipal;
     }
 }

@@ -232,7 +232,7 @@ namespace UI.Desktop
                 {
                     if (this.Isnuevo)
                     {
-                        resp = PersonaLogic.Save(this.txtNombre.Text.Trim(), txtApellido.Text.Trim(), this.txtDireccion.Text.Trim(), this.txtE_mail.Text.Trim(),
+                        resp = PersonaLogic.Insertar(this.txtNombre.Text.Trim(), txtApellido.Text.Trim(), this.txtDireccion.Text.Trim(), this.txtE_mail.Text.Trim(),
                                                  this.txtTelefono.Text.Trim(),this.dtFecha.Value, Convert.ToInt32(this.txtLegajo.Text.Trim()),
                                                  this.cbAcesso.Text, Convert.ToInt32(this.txtIdPlan.Text.Trim()), cbsexo.Text);
                     }

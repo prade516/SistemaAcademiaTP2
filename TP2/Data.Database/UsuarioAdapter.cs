@@ -69,19 +69,21 @@ namespace Data.Database
            try
            {
                this.OpenConnection();
-               SqlCommand cmdUsuarios = new SqlCommand("select u.id_usuario,p.id_persona,u.nombre_usuario,u.clave,u.habilitado,u.cambia_clave,p.tipo_persona from usuarios u inner join personas p on p.id_persona=u.id_persona", SqlConn);
+               SqlCommand cmdUsuarios = new SqlCommand("select u.id_usuario,p.id_persona,p.nombre,p.apellido,u.nombre_usuario,u.clave,u.habilitado,u.cambia_clave,p.tipo_persona,p.email from usuarios u inner join personas p on p.id_persona=u.id_persona", SqlConn);
                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                while (drUsuarios.Read())
                {
                    Usuario usr = new Usuario();
                    usr.Id_Usuario = (int)drUsuarios["id_usuario"];
                    usr.Id_persona = (int)drUsuarios["id_persona"];
+                   usr.Nombre = (string)drUsuarios["nombre"];
+                   usr.Apellido = (string)drUsuarios["apellido"];
                    usr.Nombre_Usuario = (string)drUsuarios["nombre_usuario"];
                    usr.Clave = (string)drUsuarios["clave"];
                    op = (int)drUsuarios["tipo_persona"];
                    if (op==1)
                    {
-                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Adminstrador);
+                       usr.Tipo=Convert.ToString(Data.Database.Personas.gestion.Administrador);
                    }
                    else if (op==2)
                    {
@@ -94,6 +96,7 @@ namespace Data.Database
 
                    usr.Habilitado = (bool)drUsuarios["habilitado"];
                    usr.Cambia_Clave = (bool)drUsuarios["cambia_clave"];
+                   usr.Email = (string)drUsuarios["email"];
                    
                    //usr.Email = (string)drUsuarios["email"];
                    usuarios.Add(usr);
@@ -114,23 +117,41 @@ namespace Data.Database
                 
         }
 
-        public Business.Entities.Usuario GetOne(int ID)
+        public List<Usuario> GetOne(string ID)
         {
-            Usuario usr = new Usuario();                   
+            List<Usuario> usuarios = new List<Usuario>();
+            Usuario usr = new Usuario();
+            int op;    
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where id_usuario=@ID", SqlConn);
-                cmdUsuarios.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+                SqlCommand cmdUsuarios = new SqlCommand(" select usr.id_usuario,per.id_persona,usr.nombre_usuario,usr.clave,usr.habilitado,usr.cambia_clave,per.nombre,per.apellido, per.tipo_persona from usuarios usr inner join personas per on usr.id_persona=per.id_persona where usr.nombre_usuario=@ID", SqlConn);
+                cmdUsuarios.Parameters.Add("@ID", SqlDbType.VarChar,50).Value = ID;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                 while (drUsuarios.Read())
                 {
                     usr.Id_Usuario = (int)drUsuarios["id_usuario"];
+                    usr.Id_persona = (int)drUsuarios["id_persona"];
                     usr.Nombre_Usuario = (string)drUsuarios["nombre_usuario"];
                     usr.Clave = (string)drUsuarios["clave"];
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
-                    //usr.Email = (string)drUsuarios["email"];
-                    //usuarios.Add(usr);
+                    usr.Cambia_Clave = (bool)drUsuarios["cambia_clave"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    op = (int)drUsuarios["tipo_persona"];
+                    if (op == 1)
+                    {
+                        usr.Tipo = Convert.ToString(Data.Database.Personas.gestion.Administrador);
+                    }
+                    else if (op == 2)
+                    {
+                        usr.Tipo = Convert.ToString(Data.Database.Personas.gestion.Profesor);
+                    }
+                    else
+                    {
+                        usr.Tipo = Convert.ToString(Data.Database.Personas.gestion.Alumno);
+                    }
+                    usuarios.Add(usr);
                     //drUsuarios.Close();
                     //this.CloseConnection();
                 }
@@ -144,12 +165,12 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
-            return usr;
+            return usuarios;
             
                 
         }
 
-        public void Delete(int ID)
+        protected void Delete(int ID)
         {
             try
             {
@@ -173,13 +194,16 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("update usuarios set nombre_usuario=@nombre_usuario"+
-                "clave=@clave,habilitado=@habilitado where id_usuario=@id_usuario", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("update usuarios set nombre_usuario=@nombre_usuario,clave=@clave,habilitado=@habilitado,cambia_clave=@cambia_clave,id_persona=@id_persona where id_usuario=@id_usuario", SqlConn);
 
                 cmdSave.Parameters.Add("@id_usuario", SqlDbType.Int).Value = usuario.Id_Usuario;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar,50).Value = usuario.Nombre_Usuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar,50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
+                cmdSave.Parameters.Add("@cambia_clave", SqlDbType.Bit).Value = usuario.Cambia_Clave;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.Id_persona;
+
+                Convert.ToInt32(cmdSave.ExecuteNonQuery());
             }
             catch (Exception Ex)
             {

@@ -28,8 +28,11 @@ namespace Data.Database
         public void CloseConnection()
         {
             //sqlConn.ConnectionString = conexionsql.sqlcon;
-            sqlConn.Close();
-            sqlConn = null;
+            if (SqlConn.State == ConnectionState.Open) 
+            {
+                sqlConn.Close();
+            }
+            
             //throw new Exception("Metodo no implementado");
 
         }

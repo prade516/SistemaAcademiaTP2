@@ -27,20 +27,20 @@ namespace Business.Logic
        {
            return Materia.GetAll();
        }
-       public List<Business.Entities.Materias> GetByMateria(string desc_materia)
+       public List<Materias> GetByMateria(string desc_materia)
        {
            return Materia.GetByMateria(desc_materia);
        }
 
-       public void Insertar(Business.Entities.Materias mat)
+       public void Insertar(Materias mat)
        {
            Materia.Save(mat);
        }
-       public void Editar(Business.Entities.Materias mat)
+       public void Editar(Materias mat)
        {
            Materia.Save(mat);
        }
-       public void Delete(Business.Entities.Materias mat)
+       public void Delete(Materias mat)
        {
            Materia.Save(mat);
        }

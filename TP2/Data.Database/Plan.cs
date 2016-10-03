@@ -42,6 +42,37 @@ public class Plan:Adapter
     }
     return pl;
    }
+ public List<Planes> GetByMostrar()
+ {
+     List<Planes> pl = new List<Planes>();
+     try
+     {
+         this.OpenConnection();
+         SqlCommand cmdplan = new SqlCommand("select pla.id_plan,(pla.desc_plan +'---'+esp.desc_especialidad) as plans from  planes pla inner join especialidades esp  on esp.id_especialidad=pla.id_especialidad", SqlConn);
+         SqlDataReader drplan = cmdplan.ExecuteReader();
+         while (drplan.Read())
+         {
+             Planes pla = new Planes();
+             //_Especialidades esp = new _Especialidades();
+             pla.Codigo = (int)drplan["id_plan"];
+             //pla.Id_Especialidad = (int)drplan["id_especialidad"];
+             //pla.Plan = (string)drplan["desc_plan"];
+             pla.Especialidad = (string)drplan["plans"];
+            
+             pl.Add(pla);
+         }
+     }
+
+     catch (Exception ex)
+     {
+         Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
+     }
+     finally
+     {
+         this.CloseConnection();
+     }
+     return pl;
+ }
  public List<Business.Entities.Planes> GetByPlan(string Tbuscado)
  {
      List<Planes> lista = new List<Planes>();

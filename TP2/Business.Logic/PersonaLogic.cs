@@ -13,7 +13,7 @@ namespace Business.Logic
     {
          private Data.Database.Personas _PersonaData;
 
-    public Data.Database.Personas PersonaData
+      public Data.Database.Personas PersonaData
         {
              get { return _PersonaData; }
              set { _PersonaData = value; }
@@ -28,65 +28,22 @@ namespace Business.Logic
            return PersonaData.GetAll();
        }
 
-       public static DataTable GetOne(string id)
+       public List<_Personas> GetByPersona(int legajo)
        {
-           Business.Entities._Personas espe = new Business.Entities._Personas();
-           Data.Database.Personas especia = new Data.Database.Personas();
-           espe.Txtbuscado = id;
-           return especia.GetOne(espe);
+           return PersonaData.GetByPersona(legajo);
        }
-       public static string Delete(string id) 
+       public void Delete(_Personas id) 
        {
-           Business.Entities._Personas espe = new Business.Entities._Personas();
-           Data.Database.Personas especia = new Data.Database.Personas();
-           espe.Txtbuscado = id;
-           return especia.Delete(espe);
+            PersonaData.Save(id);
        }
-       public static string Save(string nombre,string apellido,string direccion,string email,string telefono,DateTime fech_nac,int legajo,string tipo_persona,int id_plan,string sexo)
+       public void Insertar(_Personas persona)
        {
-           Business.Entities._Personas espe = new Business.Entities._Personas();
-           Data.Database.Personas especia = new Data.Database.Personas();
-           
-           espe.Nombre = nombre;
-           espe.Apellido = apellido;
-           espe.Direccion = direccion;
-           espe.Email = email;
-           espe.Telefono = telefono;
-           espe.Fecha_Nac = fech_nac;
-           espe.Legajo = legajo;
-           espe.Tipo_Persona = tipo_persona;
-           espe.Id_Plan = id_plan;
-           espe.Sexo = sexo;
-
-           return especia.Insert(espe);
+           PersonaData.Save(persona);
        }
-       public static string Insertar(int id_persona, string nombre, string apellido, string direccion, string email, string telefono, DateTime fech_nac, int legajo, string tipo_persona, int id_plan, string sexo)
+       public void Update(_Personas persona)
        {
-           Business.Entities._Personas espe = new Business.Entities._Personas();
-           Data.Database.Personas especia = new Data.Database.Personas();
-
-           espe.Codigo = id_persona;
-           espe.Nombre = nombre;
-           espe.Apellido = apellido;
-           espe.Direccion = direccion;
-           espe.Email = email;
-           espe.Telefono = telefono;
-           espe.Fecha_Nac = fech_nac;
-           espe.Legajo = legajo;
-           espe.Tipo_Persona = tipo_persona;
-           espe.Id_Plan = id_plan;
-           espe.Sexo = sexo;
-
-           return especia.Update(espe);
-       }
-       public static string Delete(int id)
-       {
-           Business.Entities._Personas pla = new Business.Entities._Personas();
-           Data.Database.Personas pl = new Data.Database.Personas();
-
-           pla.Codigo = id;
-           return pl.Delete(pla);
-       }
+           PersonaData.Save(persona);
+       }      
     }
-    }
+}
 

@@ -17,6 +17,20 @@ namespace Business.Entities
         private string _Desc_Materia;
         private int _Anio_especialidad;
         private int _Cupo;
+        private string _Nombre;
+        private string _Apellido;
+
+        public string Apellido
+        {
+            get { return _Apellido; }
+            set { _Apellido = value; }
+        }
+
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { _Nombre = value; }
+        }
 
         public int Cupo
         {
@@ -69,7 +83,7 @@ namespace Business.Entities
         public AlumnoInscripciones()
         { 
         }
-        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo)
+        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo,string nombre,string apellido)
         {
             this.IdInscripcion = id_inscripcion;
             this.IdAlumnos = id_alumnos;
@@ -80,6 +94,8 @@ namespace Business.Entities
             this.Anio_especialidad = anio;
             this.Desc_Materia = materia;
             this.Cupo = cupo;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
         }
     }
 }

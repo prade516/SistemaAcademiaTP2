@@ -46,13 +46,13 @@ namespace UI.Web.Formulario
             this.gridview.DataBind();
         }
 
-        protected void txtbuscaridplan_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("frmplanlista.aspx");
-            this.btnaceptar.Enabled = false;
-            this.btnEditar.Enabled = false;
+        //protected void txtbuscaridplan_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("frmplanlista.aspx");
+        //    this.btnaceptar.Enabled = false;
+        //    this.btnEditar.Enabled = false;
             
-        }      
+        //}      
         protected void btnaceptar_Click1(object sender, EventArgs e)
         {
             if (this.txtidmateria.Text==string.Empty)

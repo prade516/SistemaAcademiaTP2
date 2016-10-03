@@ -25,7 +25,11 @@ public class PlanLogic
            {
                return Plans.GetAll();
            }
-       
+    
+       public List<Planes> GetByMostrar()
+       {
+           return Plans.GetByMostrar();
+       }
        public List<Planes> GetPlan(string desc_plan)
            {
                return Plans.GetByPlan(desc_plan);

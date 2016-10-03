@@ -30,15 +30,19 @@ namespace Business.Logic
            return UsuarioData.GetAll();
        }
        
-       public Business.Entities.Usuario GetOne(int id)
+       public List<Usuario> GetOne(string id)
        {
            return UsuarioData.GetOne(id);
        }
-       public void Delete(int id) 
+       public void Delete(Business.Entities.Usuario usur) 
        {
-           UsuarioData.Delete(id);
+           UsuarioData.Save(usur);
        }
        public void  Save(Business.Entities.Usuario usur)
+       {
+           UsuarioData.Save(usur);
+       }
+       public void Update(Business.Entities.Usuario usur)
        {
            UsuarioData.Save(usur);
        }

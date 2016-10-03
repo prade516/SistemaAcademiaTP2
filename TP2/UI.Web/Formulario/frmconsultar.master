@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Formulario/Site.Master" AutoEventWireup="true" CodeBehind="frmconsultar.master.cs" Inherits="UI.Web.Formulario.frmconsultar" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
+    <ul id="menuContextual">
+        <li><a href="frmCorrelativa_cursar.aspx">Correlativa para cursar</a></li>
+        <li><a href="frmCorrelativa_rendir.aspx">Correlativa para rendir</a></li>
+        <li><a href="frmHistoria_Academica.aspx">Historia Academica</a></li>
+        <li><a href="frmVer_Materia_Aprobada.aspx">Ver Materia Aprobada</a></li>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
+    <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
+    </asp:ContentPlaceHolder>
+    -
+</asp:Content>

@@ -10,16 +10,7 @@
 namespace UI.Web.Formulario {
     
     
-    public partial class frmVer_Materia_Aprobada {
-        
-        /// <summary>
-        /// Control gridPanel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel gridPanel;
+    public partial class frmaltacursado {
         
         /// <summary>
         /// Control gridview.
