@@ -19,6 +19,13 @@ namespace Business.Entities
         private int _Cupo;
         private string _Nombre;
         private string _Apellido;
+        private string _Desc_Comision;
+
+        public string Desc_Comision
+        {
+            get { return _Desc_Comision; }
+            set { _Desc_Comision = value; }
+        }
 
         public string Apellido
         {
@@ -83,7 +90,7 @@ namespace Business.Entities
         public AlumnoInscripciones()
         { 
         }
-        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo,string nombre,string apellido)
+        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo,string nombre,string apellido,string comision)
         {
             this.IdInscripcion = id_inscripcion;
             this.IdAlumnos = id_alumnos;
@@ -96,6 +103,7 @@ namespace Business.Entities
             this.Cupo = cupo;
             this.Nombre = nombre;
             this.Apellido = apellido;
+            this.Desc_Comision = comision;
         }
     }
 }

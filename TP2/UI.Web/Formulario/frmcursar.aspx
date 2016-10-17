@@ -8,6 +8,7 @@
             <AlternatingRowStyle CssClass="alt" />
             <Columns>
                 <asp:BoundField HeaderText="Año" DataField="Anio_especialidad"></asp:BoundField >
+                <asp:BoundField HeaderText="Codigo Materia" DataField="ID"></asp:BoundField >
                 <asp:BoundField HeaderText="Materia" DataField="Desc_Materia"></asp:BoundField >
                 <asp:BoundField HeaderText="Plan" DataField="Plan"></asp:BoundField >
                 <asp:CommandField HeaderText="Inscripcion" SelectText="Inscribir" ShowSelectButton="True"></asp:CommandField>

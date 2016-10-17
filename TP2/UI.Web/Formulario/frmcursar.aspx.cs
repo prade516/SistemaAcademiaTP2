@@ -24,9 +24,11 @@ namespace UI.Web.Formulario
         protected void gridview_SelectedIndexChanged(object sender, EventArgs e)
         {
             int año = Convert.ToInt32((Convert.ToString(this.gridview.SelectedRow.Cells[0].Text)).ToString());
-            string materia =(Convert.ToString(this.gridview.SelectedRow.Cells[1].Text)).ToString();
+            int ID = Convert.ToInt32((Convert.ToString(this.gridview.SelectedRow.Cells[1].Text)).ToString());
+            string materia =(Convert.ToString(this.gridview.SelectedRow.Cells[2].Text)).ToString();
 
             Session.Add("año", año);
+            Session.Add("ID", ID);
             Session.Add("materia", materia);
             //Buscar();
             Response.Redirect("frmaltacursado.aspx");

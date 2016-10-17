@@ -1,11 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/personas.master" AutoEventWireup="true" CodeBehind="frmpersonas.aspx.cs" Inherits="UI.Web.Administrador.frmInscripcion" %>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenidoprincipal" runat="server">
-    <link href="../CSS/bootstrap-datetimepicker-standalone.css" rel="stylesheet" />
-    <link href="../CSS/bootstrap-datetimepicker.css" rel="stylesheet" />
-    <link href="../CSS/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+     
+     <link href="../JsDataPicker/bootstrap.min.css"rel="stylesheet" />
+    <link href="../JsDataPicker/font-awesome.min.css"rel="stylesheet" />
+    <link href="../JsDataPicker/prettify-1.0.css"rel="stylesheet" />
+    <link href="../JsDataPicker/base.css"rel="stylesheet" />
+    <link href="../JsDataPicker/bootstrap-datetimepicker.css"rel="stylesheet" />
+
+  
+    <script src="../JsDataPicker/jquery-2.1.1.min.js"></script>
+    <script src="../JsDataPicker/bootstrap.min.js"></script>
+
+  
+
+    <script src="../JsDataPicker/moment-with-locales.js"></script>
     <script src="../JsDataPicker/bootstrap-datetimepicker.min.js"></script>
-    <script src="../JsDataPicker/bootstrap-datetimepicker.min.js"></script>
+    
+        <script type="text/javascript">
+            <%--$(document).ready(function () {
+                $('#<%=fecha_nacimiento.ClientID%>').datetimepicker();
+                $('#prueba').datetimepicker();
+
+        });--%>
+
+    </script>
     <asp:Panel runat="server">
         <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Legajo"></asp:TextBox>
         <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1" OnClick="btnbuscar_Click"></asp:Button>
@@ -39,6 +59,8 @@
             <asp:TextBox ID="txtE_mail" runat="server" CssClass="cajatexto" placeholder="E-mail" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="txttelefono" runat="server" CssClass="cajatexto" placeholder="Telefono" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="fecha_nacimiento" runat="server" CssClass="cajatexto" placeholder="Fecha nacimiento" Enabled="true"></asp:TextBox>
+
+            <%--<input type="text" id="prueba" class="form-control" />--%>
             <%--<img src="../image/calender.png" />--%>
             <asp:TextBox ID="TxtLegajo" runat="server" CssClass="cajatexto" placeholder="Legajo" Enabled="false"></asp:TextBox>
             <asp:DropDownList ID="cblTipo_persona" runat="server" CssClass="cajatexto1" Enabled="false">
@@ -54,6 +76,18 @@
                 <asp:ListItem>F</asp:ListItem>
             </asp:DropDownList>
         </p>
+        <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="cajatexto1" id='datetimepicker4'/>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
     </asp:Panel>
     </center>
     <br />
@@ -67,6 +101,18 @@
     <br />
     <br />
     <br />
+<%--<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="form-control"" id='datetimepicker4' />
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker();
+            });
+        </script>
+    </div>
+</div>--%>
     <div>
         <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false" OnClick="btncancelar_Click"></asp:Button>
         <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false" OnClick="btnaceptar_Click"></asp:Button>
@@ -93,22 +139,6 @@
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Ingresa un e_mail corecto como ese ejemplo&lt;d@.com&gt;" ForeColor="Red" ValidationGroup="alta" ControlToValidate="txtE_mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         <br />
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#fecha_nacimiento').datetimepicker({
-                locale: 'ru'
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(function () {
-            $('#<%=fecha_nacimiento.ClientID%>').datetimepicker({
-                 changeMonth: true,
-                 changeYear: true,
-                 dateFormat: "dd/mm/yy"
-             });
+    
 
-         });
-
-    </script>
 </asp:Content>
