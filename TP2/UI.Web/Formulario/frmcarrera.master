@@ -3,11 +3,38 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
      <ul id="menuContextual">
-        <li><asp:LinkButton ID="LinEspecialidad" runat="server" PostBackUrl="~/Formulario/frmEspecialidades.aspx">Especialidades</asp:LinkButton></li>
-        <li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"  PostBackUrl="~/Formulario/frmPlanes.aspx">Planes</asp:LinkButton></li>
-        <li><asp:LinkButton ID="LinkMateria" runat="server" PostBackUrl="~/Formulario/frmMaterias.aspx">Materias</asp:LinkButton></li>
-        <li> <asp:LinkButton ID="LinkComision" runat="server" PostBackUrl="~/Formulario/frmComisiones.aspx">Comisiones</asp:LinkButton></li>
-         <li><asp:LinkButton ID="LinkCursos" runat="server" PostBackUrl="~/Formulario/frmCursos.aspx">Cursos</asp:LinkButton></li>
+        <asp:Menu ID="Menu1" runat="server" CssClass="cajatexto">
+                        <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <DynamicMenuStyle BackColor="#F7F6F3" />
+                        <DynamicSelectedStyle BackColor="#5D7B9D" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/Formulario/Home.aspx" Text="Inicio" Value="Inicio"></asp:MenuItem>
+                            <asp:MenuItem Text="Personas" Value="Personas">
+                                <asp:MenuItem Text="Administrador" Value="Administrador"></asp:MenuItem>
+                                <asp:MenuItem Text="Docente" Value="Docente"></asp:MenuItem>
+                                <asp:MenuItem Text="Alumno" Value="Alumno"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Inscripcion" Value="Inscripcion">
+                                <asp:MenuItem Text="Examen" Value="Examen"></asp:MenuItem>
+                                <asp:MenuItem Text="Cursar" Value="Cursar"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Consultar" Value="Consultar">
+                                <asp:MenuItem Text="Materias Aprobadas" Value="Materias Aprobadas"></asp:MenuItem>
+                                <asp:MenuItem Text="Historia Academico" Value="Historia Academico"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Carrera" Value="Carrera">
+                                <asp:MenuItem NavigateUrl="~/Formulario/frmEspecialidades.aspx" Text="Especialidades" Value="Especialidades"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Formulario/frmPlanes.aspx" Text="Planes" Value="Planes"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Formulario/frmMaterias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Formulario/frmCursos.aspx" Text="Cursos" Value="Cursos"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Formulario/frmComisiones.aspx" Text="Comisiones" Value="Comisiones"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticSelectedStyle BackColor="#5D7B9D" />
+                    </asp:Menu>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">

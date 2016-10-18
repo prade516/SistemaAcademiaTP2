@@ -1,15 +1,18 @@
 ﻿body {
-     background-color:GrayText;
+     background-color:white;
 }
-#Cabecera{
-    height:85px;
-    background-color:#DCBE97;
-    color:white;
-    border:0px dashed #a64e06;
-    box-shadow:0px 0px 10px #000;
-    position:relative;
-    z-index:2;
-    border-radius:20px 20px 20px 20px;
+#Cabecera {
+    height: 30px;
+    background-color: white;
+    /*color: red;*/
+    border: 30px;
+    border-color: black;
+    border-image:fill;
+    box-shadow: 0px 0px 10px black;
+    /*position: relative;
+    z-index: 2;*/
+    /*background-image: url('../../image/Sysacad.jpg');*/
+    /*border-radius:20px 20px 20px 20px;*/
 }
 #contenidoCabecera{
    
@@ -22,7 +25,7 @@
 }
 #barrahorizontal{
     height:40px;
-    background-color:#808080;
+    background-color:azure;
     border-radius:10px 10px 10px 10px;
     box-shadow:10px 10px 10px 10px #000 inset;
     text-align:center;
@@ -38,8 +41,8 @@
     display:inline-block;
     padding:10.75px;
     cursor:pointer;
-    background-color:#a64e06;
-    color:white;
+    background-color:azure;
+    color:aquamarine;
     border-radius:10px 10px 10px 10px;
     overflow: hidden;
     border:1px outset #a64e06;
@@ -49,11 +52,11 @@
 #barrahorizontal li > a {   
     padding:10px;
     text-align:center;
-    background-color:#a64e06;
+    background-color:azure;
     border:1px outset #a64e06;
      box-shadow:0px 0px 10px #000 inset;
      text-decoration:none;   
-     color:white;
+     color:azure;
      height:30px;
 }
 #logotipo{
@@ -80,38 +83,51 @@
     box-shadow:0px 0px 10px #000 inset;
     border-radius:10px 10px 10px 10px;
 }
-#columnaiz,#columnader{
+#columnaiz{
     float:left;
     width:20%;
     min-height:500px;
+    background-color:azure;
+    border-right: 5px solid white;
+  /*border-top-width: 6px;
+  border-left-width: 8px;*/
+}
+#columnader{
+    float:left;
+    width:20%;
+    min-height:500px;
+    background-color:azure;
+    border-left: 5px solid white;
+  /*border-top-width: 6px;
+  border-left-width: 8px;*/
 }
 #menuContextual {
     list-style-type:none;
     padding:0;
     margin:10px 0;
     text-decoration:none;    
-    color:white;
+    color:azure;
 }
 #menuContextual > li{
     padding:10px;
     text-align:center;
-    background-color:#a64e06;
+    background-color:azure;
     border:1px outset #a64e06;
-     box-shadow:0px 0px 10px #000 inset;
+     /*box-shadow:0px 0px 10px #000 inset;*/
      text-decoration:none;   
 }
 #menuContextual > li>a{
   
      text-decoration:none; 
-     color:white;  
+     color:azure;  
 }
 
 #columnacentro{
     float:left;
     width:60%;
     min-height:500px;
-    background-color:white;
-    box-shadow:0px 0px 10px inset;
+    background-color:azure;
+    /*box-shadow:0px 0px 10px inset;*/
   
 }
 #pie{
@@ -141,9 +157,9 @@
     font-family:Segoe UI;
     font-size:13px;
     font-weight:bold;
-    border:1px solid #ccc;
+    /*border:1px solid #ccc;*/
     background-position:335px 5px;
-    border-radius:8px;
+    /*border-radius:8px;*/
    width: 150px;
     margin: 3px auto;
     padding:2px;

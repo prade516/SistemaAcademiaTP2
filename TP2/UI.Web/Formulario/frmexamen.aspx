@@ -3,7 +3,7 @@
      <asp:Panel ID="gridPanel" runat="server">
         <link href="../CSS/datagridview.css" rel="stylesheet" />
         <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
-            AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="50" >
+            AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="50" OnSelectedIndexChanged="gridview_SelectedIndexChanged" >
             <AlternatingRowStyle CssClass="alt" />
             <Columns>
                 <asp:BoundField HeaderText="Año" DataField="Anio_especialidad"></asp:BoundField >

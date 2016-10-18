@@ -58,7 +58,7 @@
             <asp:TextBox ID="txtdireccion" runat="server" CssClass="cajatexto" placeholder="Direccion" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="txtE_mail" runat="server" CssClass="cajatexto" placeholder="E-mail" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="txttelefono" runat="server" CssClass="cajatexto" placeholder="Telefono" Enabled="false"></asp:TextBox>
-            <asp:TextBox ID="fecha_nacimiento" runat="server" CssClass="cajatexto" placeholder="Fecha nacimiento" Enabled="true"></asp:TextBox>
+            <asp:TextBox ID="fecha_nacimiento" ClientIDMode="Static" runat="server" CssClass="cajatexto" placeholder="Fecha nacimiento" Enabled="true"></asp:TextBox>
 
             <%--<input type="text" id="prueba" class="form-control" />--%>
             <%--<img src="../image/calender.png" />--%>
@@ -79,7 +79,7 @@
         <div class="container">
     <div class="row">
         <div class='col-sm-6'>
-            <input type='text' class="cajatexto1" id='datetimepicker4'/>
+            <input type='text'  class="cajatexto1" ClientIDMode="Static" runat="server" id='datetimepicker4'/>
         </div>
         <script type="text/javascript">
             $(function () {
@@ -101,18 +101,6 @@
     <br />
     <br />
     <br />
-<%--<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <input type='text' class="form-control"" id='datetimepicker4' />
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker4').datetimepicker();
-            });
-        </script>
-    </div>
-</div>--%>
     <div>
         <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false" OnClick="btncancelar_Click"></asp:Button>
         <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false" OnClick="btnaceptar_Click"></asp:Button>

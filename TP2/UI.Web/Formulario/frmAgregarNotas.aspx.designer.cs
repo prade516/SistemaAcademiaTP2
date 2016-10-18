@@ -10,24 +10,33 @@
 namespace UI.Web.Formulario {
     
     
-    public partial class Inscripcion {
+    public partial class frmAgregarNotas {
         
         /// <summary>
-        /// Control Menu1.
+        /// Control estiloPanal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
+        protected global::System.Web.UI.WebControls.Panel estiloPanal;
         
         /// <summary>
-        /// Control Contenidoprincipal.
+        /// Control txtdesc_materia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Contenidoprincipal;
+        protected global::System.Web.UI.WebControls.TextBox txtdesc_materia;
+        
+        /// <summary>
+        /// Control txtnota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtnota;
     }
 }

@@ -5,22 +5,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-     
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Academia</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
-       
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
     <form id="bodyForm" runat="server">
+        <div class="auto-style1">
         <%--<link href="CSS/cssmenu.css" rel="stylesheet" />--%>
         <%--<asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>--%>
         <%--<asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />--%>
-      
+        <img src="../image/images.jpg" style="height: 23px; width: 75px; float: left;" />Sistema de Gestiónde Alumnos en Internet
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Universidad Tecnologia Nacional
+        </div>
         <div id="Cabecera">
+             <h2>&nbsp;&nbsp;&nbsp; SYSACAD </h2>
             <div id="contenidoCabecera">
-                <div id="barrahorizontal">
+               
+                &nbsp;<%--<img src="../image/Sysacad.jpg" style="height: 32px; width: 200px" />--%><%--<div id="barrahorizontal">
                     <ul>
                         <li id="centralbarhor">
                             <asp:LinkButton ID="LinkInicio" runat="server" PostBackUrl="~/Formulario/Home.aspx">Inicio</asp:LinkButton>
@@ -31,28 +40,27 @@
                         </li>
 
                     </ul>
-                </div>
-                <div id="titulo">
-                    <%--<h1>Sistema Academia</h1>--%>
+                </div>--%><div id="titulo">
                 </div>
             </div>
         </div>
-        <div id="bajo">
+        <%--<div id="bajo">--%>
             <div id="columnaiz">
 
                 <asp:ContentPlaceHolder ID="Contenidomenucontextual" runat="server">
+                  
                 </asp:ContentPlaceHolder>
             </div>
             <div id="columnacentro">
                 <asp:ContentPlaceHolder ID="Contenidoprincipal" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-            <div id="columnader">
-            </div>
-            <div id="pie">
+          <%--  <div id="columnader">
+            </div>--%>
+           <%-- <div id="pie">
                 <span>Sistema academia trabajo final</span>
-            </div>
-        </div>
+            </div>--%>
+        <%--</div>--%>
         <div>
         </div>
 

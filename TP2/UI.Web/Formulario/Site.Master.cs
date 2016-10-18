@@ -28,25 +28,26 @@ namespace UI.Web
 
             if (Acceso == "1")
             {
-                LinkCarrera.Visible = true;
-                LinkConsulta.Visible = true;
-                LinkInicio.Visible = true;
-                LinkPersona.Visible = true;
+                //LinkCarrera.Visible = true;
+                //LinkConsulta.Visible = true;
+                //LinkInicio.Visible = true;
+                //LinkPersona.Visible = true;
             }
             else if (Acceso == "2")
             {
-                LinkCarrera.Visible = false;
-                LinkConsulta.Visible = true;
-                LinkInicio.Visible = true;
-                LinkPersona.Visible = false;
+                //LinkCarrera.Visible = false;
+                //LinkConsulta.Visible = true;
+                //LinkInicio.Visible = true;
+                //LinkPersona.Visible = false;
             }
             else
             {
-                LinkCarrera.Visible = false;
-                LinkConsulta.Visible = true;
-                LinkInicio.Visible = true;
-                LinkPersona.Visible = false; 
+                //LinkCarrera.Visible = false;
+                //LinkConsulta.Visible = true;
+                //LinkInicio.Visible = true;
+                //LinkPersona.Visible = false; 
             }
         }
+
     }
 }

@@ -163,7 +163,7 @@ namespace UI.Web.Administrador
                         pers.Direccion =this.txtdireccion.Text;
                         pers.Email = this.txtE_mail.Text;
                         pers.Telefono = this.txttelefono.Text;
-                        pers.Fecha_Nac = Convert.ToDateTime(this.fecha_nacimiento.Text);
+                        pers.Fecha_Nac = Convert.ToDateTime(this.datetimepicker4.Value);
                         pers.Legajo = Convert.ToInt32(this.TxtLegajo.Text);
                         pers.Tipo_Persona = this.cblTipo_persona.SelectedValue;                       
                         pers.Id_Plan = (Convert.ToInt32(this.cblPlan.SelectedValue));
