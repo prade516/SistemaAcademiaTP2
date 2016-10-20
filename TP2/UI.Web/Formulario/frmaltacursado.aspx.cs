@@ -46,7 +46,7 @@ namespace UI.Web.Formulario
             //int id_alu = Convert.ToInt32((Convert.ToString(this.gridview.SelectedRow.Cells[0].Text)).ToString());
             int id_cur = Convert.ToInt32((Convert.ToString(this.gridview.SelectedRow.Cells[0].Text)).ToString());
             int nota = 0;
-            string inscripto = "Inscribir a cursar";
+            string inscripto = "Inscripto a cursado";
             int idCodPer = (int)(Session["CodPersona"]);
 
             AlumnoInscripciones alu = new AlumnoInscripciones();

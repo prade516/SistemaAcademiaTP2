@@ -27,7 +27,10 @@ namespace Business.Logic
        {
            return PersonaData.GetAll();
        }
-
+       public List<_Personas> GetAllProfesor()
+       {
+           return PersonaData.GetAllProfesor();
+       }
        public List<_Personas> GetByPersona(int legajo)
        {
            return PersonaData.GetByPersona(legajo);

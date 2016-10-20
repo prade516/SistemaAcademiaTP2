@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="UI.Web.Site1" MasterPageFile="" %>
 
 <!DOCTYPE html>
 
@@ -22,11 +22,44 @@
         <%--<link href="CSS/cssmenu.css" rel="stylesheet" />--%>
         <%--<asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource"></asp:Menu>--%>
         <%--<asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />--%>
-        <img src="../image/images.jpg" style="height: 23px; width: 75px; float: left;" />Sistema de Gestiónde Alumnos en Internet
+        <img src="../image/images.jpg" style="height: 14px; width: 75px; float: left;" />Sistema de Gestiónde Alumnos en Internet
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Universidad Tecnologia Nacional
         </div>
         <div id="Cabecera">
-             <h2>&nbsp;&nbsp;&nbsp; SYSACAD </h2>
+            <asp:Menu ID="Menu1" runat="server" BackColor="#1e0000" DynamicHorizontalOffset="6" Font-Names="Arial" Font-Size="Small" ForeColor="#a5d6f3" Orientation="Horizontal" StaticSubMenuIndent="10px" >
+                <DynamicHoverStyle BackColor="#1e0000" ForeColor="#a5d6f3" />
+                <DynamicMenuItemStyle HorizontalPadding="10px" VerticalPadding="10px" />
+                <DynamicMenuStyle BackColor="#000" />
+                <DynamicSelectedStyle BackColor="#000" />
+                <Items >
+                    <asp:MenuItem Text="Inicio" Value="Inicio"></asp:MenuItem>
+                    <asp:MenuItem Text="Gestion Persona" Value="Gestion Persona">
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmpersonas.aspx" Text="Administrador" Value="Administrador"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmprofesor.aspx" Text="Profesor" Value="Profesor"></asp:MenuItem>
+                        <asp:MenuItem Text="Alumno" Value="Alumno" NavigateUrl="~/Formulario/frmalumnos.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Inscripcion" Value="Inscripcion">
+                        <asp:MenuItem Text="Examen" Value="Examen"></asp:MenuItem>
+                        <asp:MenuItem Text="Cursar" Value="Cursar"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Consultar" Value="Consultar">
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmVer_Materia_Aprobada.aspx" Text="Materia Aprobada" Value="Materia Aprobada"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="Carrera" Value="Carrera">
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmMaterias.aspx" Text="Materias" Value="Materias"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmPlanes.aspx" Text="Plan" Value="Plan"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmEspecialidades.aspx" Text="Especialidad" Value="Especialidad"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmCursos.aspx" Text="Curso" Value="Curso"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Formulario/frmComisiones.aspx" Text="Comision" Value="Comision"></asp:MenuItem>
+                    </asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#1e0000" ForeColor="#a5d6f3" />
+                <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="7px"/>
+                <StaticSelectedStyle BackColor="#1e0000" />
+            </asp:Menu>
+
+             <%--<h2>&nbsp;&nbsp;&nbsp; SYSACAD </h2>--%>
+
             <div id="contenidoCabecera">
                
                 &nbsp;<%--<img src="../image/Sysacad.jpg" style="height: 32px; width: 200px" />--%><%--<div id="barrahorizontal">

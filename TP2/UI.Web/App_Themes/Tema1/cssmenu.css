@@ -3,16 +3,22 @@
 }
 #Cabecera {
     height: 30px;
-    background-color: white;
+    background-color: #1e0000;
     /*color: red;*/
-    border: 30px;
-    border-color: black;
-    border-image:fill;
-    box-shadow: 0px 0px 10px black;
+    /*text-align:right;*/
+    border: solid 1px;
+    /*margin:7px;*/
+    /*padding:15px;*/
+    /*border-color: black;*/
+    /*border-image:fill;*/
+    /*box-shadow: 0px 0px 10px black;*/
     /*position: relative;
     z-index: 2;*/
     /*background-image: url('../../image/Sysacad.jpg');*/
     /*border-radius:20px 20px 20px 20px;*/
+}
+.menu{
+    text-align:right;
 }
 #contenidoCabecera{
    
@@ -83,21 +89,12 @@
     box-shadow:0px 0px 10px #000 inset;
     border-radius:10px 10px 10px 10px;
 }
-#columnaiz{
+#columnaiz,#columnader{
     float:left;
     width:20%;
     min-height:500px;
-    background-color:azure;
+    background-color:white;
     border-right: 5px solid white;
-  /*border-top-width: 6px;
-  border-left-width: 8px;*/
-}
-#columnader{
-    float:left;
-    width:20%;
-    min-height:500px;
-    background-color:azure;
-    border-left: 5px solid white;
   /*border-top-width: 6px;
   border-left-width: 8px;*/
 }
@@ -125,7 +122,7 @@
 #columnacentro{
     float:left;
     width:60%;
-    min-height:500px;
+    /*min-height:500px;*/
     background-color:azure;
     /*box-shadow:0px 0px 10px inset;*/
   

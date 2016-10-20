@@ -74,6 +74,57 @@ namespace Data.Database
            return personas;
 
        }
+
+       public List<_Personas> GetAllProfesor()
+       {
+           List<_Personas> personas = new List<_Personas>();
+
+           try
+           {
+
+               //this.OpenConnection();
+               this.OpenConnection();
+               int opc;
+               SqlCommand cmdPersonas = new SqlCommand("select * from personas", SqlConn);
+               SqlDataReader drpersonas = cmdPersonas.ExecuteReader();
+
+               while (drpersonas.Read())
+               {
+                  _Personas per = new _Personas();
+                  opc = (int)drpersonas["tipo_persona"];
+                if (opc == 2)
+                  {
+                      per.Codigo = (int)drpersonas["id_persona"];
+                      per.Nombre = (string)drpersonas["nombre"];
+                      per.Apellido = (string)drpersonas["apellido"];
+                      per.Direccion = (string)drpersonas["direccion"];
+                      per.Email = (string)drpersonas["email"];
+                      per.Telefono = (string)drpersonas["telefono"];
+                      per.Fecha_Nac = (DateTime)drpersonas["fecha_nac"];
+                      per.Legajo = (int)drpersonas["legajo"];
+                      per.Id_Plan = (int)drpersonas["id_plan"];
+                      per.Sexo = (string)drpersonas["sexo"];
+                      personas.Add(per);
+                      per.Tipo_Persona = Convert.ToString(gestion.Profesor);
+                  }
+                  
+                 
+
+               }
+               drpersonas.Close();
+           }
+           catch (Exception ex)
+           {
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
+           }
+           finally
+           {
+               this.CloseConnection();
+           }
+           return personas;
+
+       }
+
        public List<_Personas> GetByPersona(int Txtbuscado)
        {
            List<_Personas> Lista = new List<_Personas>();

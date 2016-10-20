@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
-    <asp:Menu ID="Menu1" runat="server" CssClass="cajatexto">
+    <%--<asp:Menu ID="Menu1" runat="server" CssClass="cajatexto" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#7C6F57" StaticSubMenuIndent="10px">
                         <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
                         <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <DynamicMenuStyle BackColor="#F7F6F3" />
@@ -33,7 +33,7 @@
                         <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
                         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <StaticSelectedStyle BackColor="#5D7B9D" />
-                    </asp:Menu>
+                    </asp:Menu>--%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
     <h1>Bienvenido al Sistema academico</h1>

@@ -1,12 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/personas.master" AutoEventWireup="true" CodeBehind="frmpersonas.aspx.cs" Inherits="UI.Web.Administrador.frmInscripcion" %>
-
-
-<asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
-     
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/personas.master" AutoEventWireup="true" CodeBehind="frmprofesor.aspx.cs" Inherits="UI.Web.Formulario.frmprofesor" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
      <link href="../JsDataPicker/bootstrap.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/font-awesome.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/prettify-1.0.css"rel="stylesheet" />
-    <%--<link href="../JsDataPicker/base.css"rel="stylesheet" />--%>
+    <link href="../JsDataPicker/base.css"rel="stylesheet" />
     <link href="../JsDataPicker/bootstrap-datetimepicker.css"rel="stylesheet" />
 
   
@@ -18,14 +15,21 @@
     <script src="../JsDataPicker/moment-with-locales.js"></script>
     <script src="../JsDataPicker/bootstrap-datetimepicker.min.js"></script>
     
-       
-    <asp:Panel runat="server" >
+        <script type="text/javascript">
+            <%--$(document).ready(function () {
+                $('#<%=fecha_nacimiento.ClientID%>').datetimepicker();
+                $('#prueba').datetimepicker();
+
+        });--%>
+
+    </script>
+    <asp:Panel runat="server">
         <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Legajo"></asp:TextBox>
-        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1" OnClick="btnbuscar_Click"></asp:Button>
+        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1"></asp:Button>
     </asp:Panel>
     <link href="../CSS/datagridview.css" rel="stylesheet" />
      <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
-        AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="80" OnSelectedIndexChanged="gridview_SelectedIndexChanged"> 
+        AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="80"> 
         <Columns>
             <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -62,7 +66,7 @@
                 <asp:ListItem>Profesor</asp:ListItem>
                 <asp:ListItem>Alumno</asp:ListItem>
             </asp:DropDownList>
-            <asp:DropDownList ID="cblPlan" runat="server" CssClass="cajatexto1" Enabled="false" OnSelectedIndexChanged="cblPlan_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="cblPlan" runat="server" CssClass="cajatexto1" Enabled="false" ></asp:DropDownList>
             <asp:DropDownList ID="CblSexo" runat="server" CssClass="cajatexto1" Enabled="false">
                 <asp:ListItem>Elegir Sexo</asp:ListItem>
                 <asp:ListItem>M</asp:ListItem>
@@ -95,11 +99,11 @@
     <br />
     <br />
     <div>
-        <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false" OnClick="btncancelar_Click"></asp:Button>
-        <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false" OnClick="btnaceptar_Click"></asp:Button>
-        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button" Visible="false" OnClick="btnEliminar_Click"></asp:Button>
-        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" Visible="false" OnClick="btnEditar_Click"></asp:Button>
-        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click"></asp:Button>
+        <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false" ></asp:Button>
+        <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false" OnClick="btnaceptar_Click" ></asp:Button>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button" Visible="false" OnClick="btnEliminar_Click" ></asp:Button>
+        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" Visible="false" OnClick="btnEditar_Click" ></asp:Button>
+        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click1" ></asp:Button>
     </div>
     <br />
     <br />
@@ -121,5 +125,4 @@
         <br />
     </div>
     
-
 </asp:Content>

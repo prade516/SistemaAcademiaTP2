@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenidomenucontextual" runat="server">
      <ul id="menuContextual">
-        <asp:Menu ID="Menu1" runat="server" CssClass="cajatexto">
+        <%--<asp:Menu ID="Menu1" runat="server" CssClass="cajatexto">
                         <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
                         <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <DynamicMenuStyle BackColor="#F7F6F3" />
@@ -16,7 +16,7 @@
                                 <asp:MenuItem Text="Alumno" Value="Alumno"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Inscripcion" Value="Inscripcion">
-                                <asp:MenuItem Text="Examen" Value="Examen"></asp:MenuItem>
+                                <asp:MenuItem Text="Examen" Value="Examen" NavigateUrl="~/Formulario/frmcursar.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Cursar" Value="Cursar"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Consultar" Value="Consultar">
@@ -34,7 +34,7 @@
                         <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
                         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <StaticSelectedStyle BackColor="#5D7B9D" />
-                    </asp:Menu>
+                    </asp:Menu>--%>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
