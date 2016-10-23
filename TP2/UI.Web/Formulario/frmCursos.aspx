@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/frmcarrera.master" AutoEventWireup="true" CodeBehind="frmCursos.aspx.cs" Inherits="UI.Web.Formulario.frmCursos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmCursos.aspx.cs" Inherits="UI.Web.Formulario.frmCursos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
     <%--  <link href="../CSS/bootstrap.min.css" rel="stylesheet" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/frmcarrera.master" AutoEventWireup="true" CodeBehind="frmListamateria.aspx.cs" Inherits="UI.Web.Formulario.frmplanlista" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmListamateria.aspx.cs" Inherits="UI.Web.Formulario.frmplanlista" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
       <asp:Panel runat="server">

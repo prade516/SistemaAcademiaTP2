@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/personas.master" AutoEventWireup="true" CodeBehind="frmpersonas.aspx.cs" Inherits="UI.Web.Administrador.frmInscripcion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmpersonas.aspx.cs" Inherits="UI.Web.Administrador.frmInscripcion" %>
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
@@ -31,13 +31,13 @@
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
             <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
             <asp:BoundField HeaderText="Direccion" DataField="Direccion" />
-            <asp:BoundField HeaderText="E-Mail" DataField="Email" />
-            <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
-            <asp:BoundField HeaderText="Fecha Nac" DataField="Fecha_Nac" />
-            <asp:BoundField HeaderText="Legajo" DataField="Legajo" />
-            <asp:BoundField HeaderText="Acesso" DataField="Tipo_Persona" />
-            <asp:BoundField HeaderText="Codigo Plan" DataField="Id_Plan" />
-            <asp:BoundField HeaderText="Sexo" DataField="Sexo" />
+            <asp:BoundField HeaderText="E-Mail" DataField="Email" Visible="false"/>
+            <asp:BoundField HeaderText="Telefono" DataField="Telefono" Visible="false" />
+            <asp:BoundField HeaderText="Fecha Nac" DataField="Fecha_Nac" Visible="false"/>
+            <asp:BoundField HeaderText="Legajo" DataField="Legajo" Visible="false"/>
+            <asp:BoundField HeaderText="Acesso" DataField="Tipo_Persona" Visible="false" />
+            <asp:BoundField HeaderText="Codigo Plan" DataField="Id_Plan" Visible="false"/>
+            <asp:BoundField HeaderText="Sexo" DataField="Sexo" Visible="false"/>
             <asp:CommandField HeaderText="Seleccionar" SelectText="Selecionar" ShowSelectButton="True" />
         </Columns>
     </asp:GridView>

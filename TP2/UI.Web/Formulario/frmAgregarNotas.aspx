@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Inscripcion.master" AutoEventWireup="true" CodeBehind="frmAgregarNotas.aspx.cs" Inherits="UI.Web.Formulario.frmAgregarNotas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmAgregarNotas.aspx.cs" Inherits="UI.Web.Formulario.frmAgregarNotas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
      <center>
         <asp:Panel ID="estiloPanal" Visible="true" runat="server">

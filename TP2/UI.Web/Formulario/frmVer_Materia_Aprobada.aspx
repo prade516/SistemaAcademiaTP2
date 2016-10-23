@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/frmconsultar.master" AutoEventWireup="true" CodeBehind="frmVer_Materia_Aprobada.aspx.cs" Inherits="UI.Web.Formulario.frmVer_Materia_Aprobada" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmVer_Materia_Aprobada.aspx.cs" Inherits="UI.Web.Formulario.frmVer_Materia_Aprobada" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
    <asp:Panel ID="gridPanel" runat="server">
        <link href="../CSS/datagridview.css" rel="stylesheet" />

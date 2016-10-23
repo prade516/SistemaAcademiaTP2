@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/personas.master" AutoEventWireup="true" CodeBehind="frmprofesor.aspx.cs" Inherits="UI.Web.Formulario.frmprofesor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmprofesor.aspx.cs" Inherits="UI.Web.Formulario.frmprofesor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
      <link href="../JsDataPicker/bootstrap.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/font-awesome.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/prettify-1.0.css"rel="stylesheet" />
-    <link href="../JsDataPicker/base.css"rel="stylesheet" />
+    <%--<link href="../JsDataPicker/base.css"rel="stylesheet" />--%>
     <link href="../JsDataPicker/bootstrap-datetimepicker.css"rel="stylesheet" />
 
   

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Inscripcion.master" AutoEventWireup="true" CodeBehind="frmcursar.aspx.cs" Inherits="UI.Web.Formulario.frmcursar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmcursar.aspx.cs" Inherits="UI.Web.Formulario.frmcursar" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
      <asp:Panel ID="gridPanel" runat="server">

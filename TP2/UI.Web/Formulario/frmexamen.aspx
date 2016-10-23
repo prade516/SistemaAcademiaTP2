@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Inscripcion.master" AutoEventWireup="true" CodeBehind="frmexamen.aspx.cs" Inherits="UI.Web.Formulario.frmexamen" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmexamen.aspx.cs" Inherits="UI.Web.Formulario.frmexamen" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
      <asp:Panel ID="gridPanel" runat="server">
         <link href="../CSS/datagridview.css" rel="stylesheet" />
