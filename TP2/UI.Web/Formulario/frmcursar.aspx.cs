@@ -41,11 +41,42 @@ namespace UI.Web.Formulario
             get { return _logic; }
             set { _logic = value; }
         }
+       
+        //private void LoadGrid()
+        //{
+        //    int id = (int)(Session["ID"]);
+        //    GridView datos = new GridView();
+        //    datos.DataSource = Logic.GetByGetByDevolverEstadoMateria(id);
+        //    datos.DataBind();
+        //    //this.gridview.DataSource = Logic.GetAll();
+        //    //gridview.Columns[2].Visible = false;
+        //    //this.gridview.DataBind();
+        //}
+
+
         private void LoadGrid()
         {
-            this.gridview.DataSource = Logic.GetAll();
-            //gridview.Columns[2].Visible = false;
-            this.gridview.DataBind();
+            int id = (int)(Session["CodPersona"]);
+            GridView datos = new GridView();
+            //datos.DataSource = Logic.GetByGetByDevolverEstadoMateria(id);
+
+            //object compara  = (datos.DataSource = Logic.GetByGetByDevolverEstadoMateria(id));
+            //datos.DataBind();
+            //foreach (GridViewRow row in compara)
+            //{
+            //    if (row.Cells[2].Text == "Inscribir a cursar")
+            //    {
+            //        this.gridview.DataSource = Logic.GetAll();
+            //        //gridview.Columns[2].Visible = false;
+            //        this.gridview.DataBind();
+            //    }
+            //}
+            //string compara=(datos.Rows[2]).ToString() ;
+            //if (compara== "Inscribir a cursar")
+            //{
+               
+            //}
+            
         }
 
         private void Habilitar(bool valor)

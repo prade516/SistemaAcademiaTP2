@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmpersonas.aspx.cs" Inherits="UI.Web.Administrador.frmInscripcion" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.Master" AutoEventWireup="true" CodeBehind="frmprofesores.aspx.cs" Inherits="UI.Web.Formulario.frmprofesores" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Contenidoprincipal" runat="server">
-     
      <link href="../JsDataPicker/bootstrap.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/font-awesome.min.css"rel="stylesheet" />
     <link href="../JsDataPicker/prettify-1.0.css"rel="stylesheet" />
@@ -21,11 +19,11 @@
        
     <asp:Panel runat="server" >
         <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Legajo"></asp:TextBox>
-        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1" OnClick="btnbuscar_Click"></asp:Button>
+        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1"></asp:Button>
     </asp:Panel>
     <link href="../CSS/datagridview.css" rel="stylesheet" />
      <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
-        AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="80" OnSelectedIndexChanged="gridview_SelectedIndexChanged"> 
+        AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="20"> 
         <Columns>
             <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -52,11 +50,17 @@
             <asp:TextBox ID="txtE_mail" runat="server" CssClass="cajatexto" placeholder="E-mail" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="txttelefono" runat="server" CssClass="cajatexto" placeholder="Telefono" Enabled="false"></asp:TextBox>
             <asp:TextBox ID="fecha_nacimiento" ClientIDMode="Static" runat="server" CssClass="cajatexto" placeholder="Fecha nacimiento" Enabled="true"></asp:TextBox>
-             <asp:TextBox ID="fec" runat="server" CssClass="cajatexto" placeholder="E-mail" Visible="false"></asp:TextBox>
+
             <%--<input type="text" id="prueba" class="form-control" />--%>
             <%--<img src="../image/calender.png" />--%>
             <asp:TextBox ID="TxtLegajo" runat="server" CssClass="cajatexto" placeholder="Legajo" Enabled="false"></asp:TextBox>
-            <asp:DropDownList ID="cblPlan" runat="server" CssClass="cajatexto1" Enabled="false" OnSelectedIndexChanged="cblPlan_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList ID="cblTipo_persona" runat="server" CssClass="cajatexto1" Enabled="false">
+                <asp:ListItem>Elegir Categoria</asp:ListItem>
+                <asp:ListItem>Administrador</asp:ListItem>
+                <asp:ListItem>Profesor</asp:ListItem>
+                <asp:ListItem>Alumno</asp:ListItem>
+            </asp:DropDownList>
+            <asp:DropDownList ID="cblPlan" runat="server" CssClass="cajatexto1" Enabled="false"></asp:DropDownList>
             <asp:DropDownList ID="CblSexo" runat="server" CssClass="cajatexto1" Enabled="false">
                 <asp:ListItem>Elegir Sexo</asp:ListItem>
                 <asp:ListItem>M</asp:ListItem>
@@ -81,11 +85,11 @@
     <br />
    
     <div>
-        <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false" OnClick="btncancelar_Click"></asp:Button>
-        <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false" OnClick="btnaceptar_Click"></asp:Button>
-        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button" Visible="false" OnClick="btnEliminar_Click"></asp:Button>
-        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" Visible="false" OnClick="btnEditar_Click"></asp:Button>
-        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button" OnClick="btnNuevo_Click"></asp:Button>
+        <asp:Button ID="btncancelar" runat="server" Text="Cancelar" CssClass="button" Visible="false"></asp:Button>
+        <asp:Button ID="btnaceptar" runat="server" Text="Aceptar" CssClass="button" ValidationGroup="alta" Visible="false"></asp:Button>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="button" Visible="false"></asp:Button>
+        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="button" Visible="false"></asp:Button>
+        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="button"></asp:Button>
     </div>
     <br />
     <br />
@@ -99,11 +103,12 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Debe ingresar la Direccion" ForeColor="Red" ValidationGroup="alta" ControlToValidate="txtdireccion"></asp:RequiredFieldValidator><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Debe ingresar un Correo correcto" ForeColor="Red" ValidationGroup="alta" ControlToValidate="txtE_mail"></asp:RequiredFieldValidator><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Debe ingresar el telefono" ForeColor="Red" ValidationGroup="alta" ControlToValidate="txttelefono"></asp:RequiredFieldValidator><br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Debe ingresar la fecha de Nacimiento" ForeColor="Red" ValidationGroup="alta" ControlToValidate="fecha_nacimiento"></asp:RequiredFieldValidator><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Debe ingresar el Legajo" ForeColor="Red" ValidationGroup="alta" ControlToValidate="TxtLegajo"></asp:RequiredFieldValidator><br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Debe ingresar el tipo de Persona" ForeColor="Red" ValidationGroup="alta" ControlToValidate="cblTipo_persona"></asp:RequiredFieldValidator><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="Debe elegir el Plan" ForeColor="Red" ValidationGroup="alta" ControlToValidate="cblPlan"></asp:RequiredFieldValidator><br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Ingresa un e_mail corecto como ese ejemplo&lt;d@.com&gt;" ForeColor="Red" ValidationGroup="alta" ControlToValidate="txtE_mail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         <br />
     </div>
     
-
 </asp:Content>

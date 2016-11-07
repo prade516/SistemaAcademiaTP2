@@ -38,7 +38,6 @@ namespace UI.Web.Formulario
                 Session.Add("codigo", idusuario);
                 Session.Add("Nombre", nombre);
                 Session.Add("Apellido", apellido);
-                Session.Add("Acesso", acesso);
                 Session.Add("Tipo", tipo);
                 Session.Add("CodPersona", idpersona);
 
@@ -46,5 +45,6 @@ namespace UI.Web.Formulario
                 
             }
         }
+
     }
 }

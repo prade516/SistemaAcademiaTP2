@@ -135,7 +135,7 @@ namespace UI.Desktop
         public void Listar()
         {
             PersonaLogic ul = new PersonaLogic();
-            this.dataListado.DataSource = ul.GetAll();
+            this.dataListado.DataSource = ul.GetAllAdministrador();
             this.Ocultarcolumna();
             lblTotal.Text = "Total de registro;" + Convert.ToString(dataListado.Rows.Count);
             cbldEspecialidad.Visible = false;

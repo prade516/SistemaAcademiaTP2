@@ -12,6 +12,7 @@
                 <asp:BoundField HeaderText="Materia" DataField="Desc_Materia"></asp:BoundField >
                 <asp:BoundField HeaderText="Plan" DataField="Plan"></asp:BoundField >
                 <asp:CommandField HeaderText="Inscripcion" SelectText="Inscribir" ShowSelectButton="True"></asp:CommandField>
+                <asp:CommandField  DeleteText="Elimar" ShowDeleteButton="false"></asp:CommandField>
             </Columns>
             
         </asp:GridView>

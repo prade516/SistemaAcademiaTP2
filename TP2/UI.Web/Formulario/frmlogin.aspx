@@ -25,6 +25,7 @@
                  <asp:Button ID="btnlogin" runat="server" Text="Aceptar"  CssClass="login_btn" OnClick="btnlogin_Click"></asp:Button>
                   <br /><br />
                 <asp:Label ID="msglabel" runat="server" Text="El usuario o la contraseña incorrecta" CssClass="login_lbl" Visible="false"></asp:Label>
+                
             </div>
         </div>
         </center>

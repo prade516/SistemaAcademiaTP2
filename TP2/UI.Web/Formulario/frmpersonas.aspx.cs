@@ -28,7 +28,7 @@ namespace UI.Web.Administrador
         }
         private void LoadGrid()
         {
-            this.gridview.DataSource = Logic.GetAll();
+            this.gridview.DataSource = Logic.GetAllAdministrador();
             //gridview.Columns[2].Visible = false;
             this.gridview.DataBind();
         }
@@ -57,7 +57,6 @@ namespace UI.Web.Administrador
             this.txttelefono.Enabled = valor;
             this.cblPlan.Enabled = valor;
             this.CblSexo.Enabled = valor;
-            this.cblTipo_persona.Enabled = valor;
             this.btnEditar.Visible = false;
             this.btnaceptar.Visible = valor;
             this.btnNuevo.Enabled = !valor;
@@ -102,7 +101,6 @@ namespace UI.Web.Administrador
             this.txttelefono.Text = string.Empty;
             this.fecha_nacimiento.Text = string.Empty;
             this.TxtLegajo.Text = string.Empty;
-            this.cblTipo_persona.Items.Insert(0, new ListItem("Elegir Categoria", "0"));
             cblPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
             this.CblSexo.Items.Insert(0, new ListItem("Elegir Sexo", "0"));
         }
@@ -117,7 +115,6 @@ namespace UI.Web.Administrador
             this.txttelefono.Enabled = valor;
             this.fecha_nacimiento.Enabled = valor;
             this.TxtLegajo.Enabled = valor;
-            this.cblTipo_persona.Items.Insert(0, new ListItem("Elegir Categoria", "0"));
             cblPlan.Items.Insert(0, new ListItem("Seleccione un Plan", "0"));
             this.CblSexo.Items.Insert(0, new ListItem("Elegir Sexo", "0"));
             this.btnaceptar.Visible = valor;
@@ -152,7 +149,7 @@ namespace UI.Web.Administrador
                 }
                 if (registar)
                 {
-                    if (cblPlan.SelectedItem.Text == "Seleccione un Plan" && CblSexo.SelectedItem.Text=="Elegir Sexo" && cblTipo_persona.SelectedItem.Text=="Elegir Categoria")
+                    if (cblPlan.SelectedItem.Text == "Seleccione un Plan" && CblSexo.SelectedItem.Text=="Elegir Sexo")
                     {
                         msgError.Text = "Falta Seleccionar las opciones";
                     }
@@ -163,9 +160,9 @@ namespace UI.Web.Administrador
                         pers.Direccion =this.txtdireccion.Text;
                         pers.Email = this.txtE_mail.Text;
                         pers.Telefono = this.txttelefono.Text;
-                        pers.Fecha_Nac = Convert.ToDateTime(this.datetimepicker4.Value);
+                        pers.Fecha_Nac = Convert.ToDateTime( datetimepicker4.Value);
                         pers.Legajo = Convert.ToInt32(this.TxtLegajo.Text);
-                        pers.Tipo_Persona = this.cblTipo_persona.SelectedValue;                       
+                        pers.Tipo_Persona = "Administrador";                       
                         pers.Id_Plan = (Convert.ToInt32(this.cblPlan.SelectedValue));
                         pers.Sexo = this.CblSexo.SelectedValue;
                         pers.Estado = BusinessEntity.Estados.Nuevo;
@@ -193,7 +190,6 @@ namespace UI.Web.Administrador
                 pers.Telefono = this.txttelefono.Text;
                 pers.Fecha_Nac = Convert.ToDateTime(this.fecha_nacimiento.Text);
                 pers.Legajo = Convert.ToInt32(this.TxtLegajo.Text);
-                pers.Tipo_Persona = this.cblTipo_persona.SelectedValue;
                 pers.Id_Plan = (Convert.ToInt32(this.cblPlan.SelectedValue));
                 pers.Sexo = this.CblSexo.SelectedValue;
                 pers.Estado = BusinessEntity.Estados.Modificar;
@@ -251,7 +247,6 @@ namespace UI.Web.Administrador
             this.txttelefono.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[5].Text)).ToString();
             this.fecha_nacimiento.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[6].Text)).ToString();
             this.TxtLegajo.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[7].Text)).ToString();
-            this.cblTipo_persona.SelectedItem.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[8].Text)).ToString();
             this.cblPlan.SelectedItem.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[9].Text)).ToString();
             this.CblSexo.SelectedItem.Text = (Convert.ToString(this.gridview.SelectedRow.Cells[10].Text)).ToString();
 

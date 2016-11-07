@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Data.Database.Properties {
+namespace UI.Web.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,8 +26,8 @@ namespace Data.Database.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ENZOJEREMIAS\\MYFAMILYEUGENE;Initial Catalog=Sistema_Academico;Persist" +
-            " Security Info=True;User ID=sa;Password=516euge94324590")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ENZOJEREMIAS-PC\\JEREMIAS;Initial Catalog=tp2_net;Persist Security Inf" +
+            "o=True;User ID=sa;Password=516euge94324590")]
         public string cnn {
             get {
                 return ((string)(this["cnn"]));

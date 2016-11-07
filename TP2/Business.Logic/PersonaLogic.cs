@@ -23,13 +23,17 @@ namespace Business.Logic
        {
            PersonaData = new Data.Database.Personas();
        }
-       public List<_Personas> GetAll()
+       public List<_Personas> GetAllAdministrador()
        {
-           return PersonaData.GetAll();
+           return PersonaData.GetAllAdministrador();
        }
        public List<_Personas> GetAllProfesor()
        {
            return PersonaData.GetAllProfesor();
+       }
+       public List<_Personas> GetAllAlumno()
+       {
+           return PersonaData.GetAllAlumno();
        }
        public List<_Personas> GetByPersona(int legajo)
        {

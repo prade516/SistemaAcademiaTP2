@@ -12,8 +12,7 @@ namespace UI.Web.Formulario
 {
     public partial class frmMaterias : System.Web.UI.Page
     {  
-      private bool Isnuevo=false;
-      private bool IsEditar = false;
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -187,9 +186,7 @@ namespace UI.Web.Formulario
         protected void Editar()
         {
             if (!this.txtidmateria.Text.Equals(""))
-            {
-                this.IsEditar = true;
-                this.Isnuevo = false;
+            {                
                 this.Habilitar(true);
                 this.btnEliminar.Visible = false;
             }

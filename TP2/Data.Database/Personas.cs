@@ -20,7 +20,7 @@ namespace Data.Database
            Profesor,
            Alumno
        }
-       public List<_Personas> GetAll()
+       public List<_Personas> GetAllAdministrador()
        {
            List<_Personas> personas = new List<_Personas>();
           
@@ -35,30 +35,24 @@ namespace Data.Database
                while (drpersonas.Read())
                {
                    _Personas per = new _Personas();
-                   per.Codigo = (int)drpersonas["id_persona"];
-                   per.Nombre = (string)drpersonas["nombre"];
-                   per.Apellido = (string)drpersonas["apellido"];
-                   per.Direccion = (string)drpersonas["direccion"];
-                   per.Email = (string)drpersonas["email"];
-                   per.Telefono = (string)drpersonas["telefono"];
-                   per.Fecha_Nac = (DateTime)drpersonas["fecha_nac"];
-                   per.Legajo = (int)drpersonas["legajo"];
                    opc = (int)drpersonas["tipo_persona"];
-                   if (opc == 1) 
+                   if (opc==1)
                    {
+                       per.Codigo = (int)drpersonas["id_persona"];
+                       per.Nombre = (string)drpersonas["nombre"];
+                       per.Apellido = (string)drpersonas["apellido"];
+                       per.Direccion = (string)drpersonas["direccion"];
+                       per.Email = (string)drpersonas["email"];
+                       per.Telefono = (string)drpersonas["telefono"];
+                       per.Fecha_Nac = (DateTime)drpersonas["fecha_nac"];
+                       per.Legajo = (int)drpersonas["legajo"];
                        per.Tipo_Persona = Convert.ToString(gestion.Administrador);
+                       per.Id_Plan = (int)drpersonas["id_plan"];
+                       per.Sexo = (string)drpersonas["sexo"];
+                       personas.Add(per);
                    }
-                   else if (opc==2)
-                   {
-                       per.Tipo_Persona = Convert.ToString(gestion.Profesor);
-                   }
-                   else 
-                   {
-                       per.Tipo_Persona = Convert.ToString(gestion.Alumno);
-                   }
-                   per.Id_Plan = (int)drpersonas["id_plan"];
-                   per.Sexo = (string)drpersonas["sexo"];
-                   personas.Add(per);
+                  
+                   
                    
                }
                drpersonas.Close();
@@ -104,11 +98,60 @@ namespace Data.Database
                       per.Legajo = (int)drpersonas["legajo"];
                       per.Id_Plan = (int)drpersonas["id_plan"];
                       per.Sexo = (string)drpersonas["sexo"];
-                      personas.Add(per);
                       per.Tipo_Persona = Convert.ToString(gestion.Profesor);
+                      personas.Add(per);
+                      
                   }
                   
                  
+
+               }
+               drpersonas.Close();
+           }
+           catch (Exception ex)
+           {
+               Exception ExcepcionManejada = new Exception("No se Econtrar la lista", ex);
+           }
+           finally
+           {
+               this.CloseConnection();
+           }
+           return personas;
+
+       }
+
+       public List<_Personas> GetAllAlumno()
+       {
+           List<_Personas> personas = new List<_Personas>();           
+           try
+           {
+
+               //this.OpenConnection();
+               this.OpenConnection();
+               int opc;
+               SqlCommand cmdPersonas = new SqlCommand("select * from personas", SqlConn);
+               SqlDataReader drpersonas = cmdPersonas.ExecuteReader();
+               while (drpersonas.Read())
+               {
+                   _Personas per = new _Personas();
+                   opc = (int)drpersonas["tipo_persona"];
+                   if (opc == 3)
+                   {
+                       per.Codigo = (int)drpersonas["id_persona"];
+                       per.Nombre = (string)drpersonas["nombre"];
+                       per.Apellido = (string)drpersonas["apellido"];
+                       per.Direccion = (string)drpersonas["direccion"];
+                       per.Email = (string)drpersonas["email"];
+                       per.Telefono = (string)drpersonas["telefono"];
+                       per.Fecha_Nac = (DateTime)drpersonas["fecha_nac"];
+                       per.Legajo = (int)drpersonas["legajo"];
+                       per.Tipo_Persona = Convert.ToString(gestion.Alumno);
+                       per.Id_Plan = (int)drpersonas["id_plan"];
+                       per.Sexo = (string)drpersonas["sexo"];
+                       personas.Add(per);
+                   }
+
+
 
                }
                drpersonas.Close();

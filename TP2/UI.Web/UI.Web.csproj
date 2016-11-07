@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ED6918C-7AC1-4D46-89DC-4F7C1F87A71D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI.Web</RootNamespace>
+    <AssemblyName>UI.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\bootstrap-chosen.css" />
+    <Content Include="CSS\bootstrap-datetimepicker-standalone.css" />
+    <Content Include="CSS\bootstrap-datetimepicker.css" />
+    <Content Include="CSS\bootstrap-datetimepicker.min.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\calendar-blue.css" />
+    <Content Include="CSS\jquery-ui.css" />
+    <Content Include="Formulario\frmAgregarNotas.aspx" />
+    <Content Include="Formulario\frmaltacursado.aspx" />
+    <Content Include="Formulario\frmalumno.aspx" />
+    <Content Include="Formulario\frmcarreraprincipal.aspx" />
+    <Content Include="Formulario\frmComisiones.aspx" />
+    <Content Include="Formulario\frmconsultaprincipal.aspx" />
+    <Content Include="Formulario\frmCorrelativa_cursar.aspx" />
+    <Content Include="Formulario\frmCorrelativa_rendir.aspx" />
+    <Content Include="Formulario\frmcursar.aspx" />
+    <Content Include="Formulario\frmCursos.aspx" />
+    <Content Include="Formulario\frmEspecialidades.aspx" />
+    <Content Include="Formulario\frmexamen.aspx" />
+    <Content Include="Formulario\frmHistoria_Academica.aspx" />
+    <Content Include="Formulario\frmInscripcionprincipal.aspx" />
+    <Content Include="Formulario\frmMaterias.aspx" />
+    <Content Include="Formulario\frmpersonaprincipal.aspx" />
+    <Content Include="Formulario\frmpersonas.aspx" />
+    <Content Include="Formulario\frmPlanes.aspx" />
+    <Content Include="Formulario\frmListamateria.aspx" />
+    <Content Include="Formulario\frmListaPersona.aspx" />
+    <Content Include="App_Themes\Tema1\cssmenu.css" />
+    <Content Include="CSS\csslogin.css" />
+    <Content Include="CSS\datagridview.css" />
+    <Content Include="Formulario\frmprofesor.aspx" />
+    <Content Include="Formulario\frmprofesores.aspx" />
+    <Content Include="Formulario\frmVer_Materia_Aprobada.aspx" />
+    <Content Include="Formulario\Home.aspx" />
+    <Content Include="Formulario\frmlogin.aspx" />
+    <Content Include="image\calender.png" />
+    <Content Include="image\grd_head.png" />
+    <Content Include="image\home-icon-hi.png" />
+    <Content Include="image\images.jpg" />
+    <Content Include="image\key_v.png" />
+    <Content Include="image\logo-utn1.jpg" />
+    <Content Include="image\man.png" />
+    <Content Include="image\sistema-academico.png" />
+    <Content Include="Formulario\Site.Master" />
+    <Content Include="Formulario\personas.master" />
+    <Content Include="Formulario\Inscripcion.master" />
+    <Content Include="Formulario\frmconsultar.master" />
+    <Content Include="Formulario\frmcarrera.master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DataSetplan.xsc">
+      <DependentUpon>DataSetplan.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DataSetplan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetplan.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DataSetplan.xss">
+      <DependentUpon>DataSetplan.xsd</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="image\Sysacad.jpg" />
+    <Content Include="image\Syssa.png" />
+    <Content Include="JsDataPicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="JsDataPicker\calendar-en.min.js" />
+    <None Include="JsDataPicker\jquery-1.4.1-vsdoc.js" />
+    <Content Include="JsDataPicker\jquery-1.4.1.js" />
+    <Content Include="JsDataPicker\jquery-1.4.1.min.js" />
+    <Content Include="JsDataPicker\jquery.dynDateTime.min.js" />
+    <Content Include="JS\bootstrap.min.js" />
+    <Content Include="JS\chosen.jquery.js" />
+    <Content Include="JS\html5shiv.min.js" />
+    <Content Include="JS\jquery-1.11.3.js" />
+    <Content Include="JS\jquery-1.8.0.js" />
+    <Content Include="JS\jquery-ui.js" />
+    <Content Include="JS\jquery-ui.min.js" />
+    <Content Include="JS\jquery.min.js" />
+    <Content Include="JS\jquery.min1.js" />
+    <Content Include="JS\respond.min.js" />
+    <Content Include="Reportes\frmreportePlan.aspx" />
+    <Content Include="Reportes\frmreportescurso.aspx" />
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Formulario\Usuarios.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formulario\frmAgregarNotas.aspx.cs">
+      <DependentUpon>frmAgregarNotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmAgregarNotas.aspx.designer.cs">
+      <DependentUpon>frmAgregarNotas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmaltacursado.aspx.cs">
+      <DependentUpon>frmaltacursado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmaltacursado.aspx.designer.cs">
+      <DependentUpon>frmaltacursado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmalumno.aspx.cs">
+      <DependentUpon>frmalumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmalumno.aspx.designer.cs">
+      <DependentUpon>frmalumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmcarrera.master.cs">
+      <DependentUpon>frmcarrera.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmcarrera.master.designer.cs">
+      <DependentUpon>frmcarrera.master</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmcarreraprincipal.aspx.cs">
+      <DependentUpon>frmcarreraprincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmcarreraprincipal.aspx.designer.cs">
+      <DependentUpon>frmcarreraprincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmComisiones.aspx.cs">
+      <DependentUpon>frmComisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmComisiones.aspx.designer.cs">
+      <DependentUpon>frmComisiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmconsultaprincipal.aspx.cs">
+      <DependentUpon>frmconsultaprincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmconsultaprincipal.aspx.designer.cs">
+      <DependentUpon>frmconsultaprincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmconsultar.master.cs">
+      <DependentUpon>frmconsultar.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmconsultar.master.designer.cs">
+      <DependentUpon>frmconsultar.master</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmCorrelativa_cursar.aspx.cs">
+      <DependentUpon>frmCorrelativa_cursar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmCorrelativa_cursar.aspx.designer.cs">
+      <DependentUpon>frmCorrelativa_cursar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmCorrelativa_rendir.aspx.cs">
+      <DependentUpon>frmCorrelativa_rendir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmCorrelativa_rendir.aspx.designer.cs">
+      <DependentUpon>frmCorrelativa_rendir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmcursar.aspx.cs">
+      <DependentUpon>frmcursar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmcursar.aspx.designer.cs">
+      <DependentUpon>frmcursar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmCursos.aspx.cs">
+      <DependentUpon>frmCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmCursos.aspx.designer.cs">
+      <DependentUpon>frmCursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmEspecialidades.aspx.cs">
+      <DependentUpon>frmEspecialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmEspecialidades.aspx.designer.cs">
+      <DependentUpon>frmEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmexamen.aspx.cs">
+      <DependentUpon>frmexamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmexamen.aspx.designer.cs">
+      <DependentUpon>frmexamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmHistoria_Academica.aspx.cs">
+      <DependentUpon>frmHistoria_Academica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmHistoria_Academica.aspx.designer.cs">
+      <DependentUpon>frmHistoria_Academica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmInscripcionprincipal.aspx.cs">
+      <DependentUpon>frmInscripcionprincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmInscripcionprincipal.aspx.designer.cs">
+      <DependentUpon>frmInscripcionprincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmMaterias.aspx.cs">
+      <DependentUpon>frmMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmMaterias.aspx.designer.cs">
+      <DependentUpon>frmMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmpersonaprincipal.aspx.cs">
+      <DependentUpon>frmpersonaprincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmpersonaprincipal.aspx.designer.cs">
+      <DependentUpon>frmpersonaprincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmPlanes.aspx.cs">
+      <DependentUpon>frmPlanes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmPlanes.aspx.designer.cs">
+      <DependentUpon>frmPlanes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmListamateria.aspx.cs">
+      <DependentUpon>frmListamateria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmListamateria.aspx.designer.cs">
+      <DependentUpon>frmListamateria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmprofesor.aspx.cs">
+      <DependentUpon>frmprofesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmprofesor.aspx.designer.cs">
+      <DependentUpon>frmprofesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmprofesores.aspx.cs">
+      <DependentUpon>frmprofesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmprofesores.aspx.designer.cs">
+      <DependentUpon>frmprofesores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmVer_Materia_Aprobada.aspx.cs">
+      <DependentUpon>frmVer_Materia_Aprobada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmVer_Materia_Aprobada.aspx.designer.cs">
+      <DependentUpon>frmVer_Materia_Aprobada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Inscripcion.master.cs">
+      <DependentUpon>Inscripcion.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\Inscripcion.master.designer.cs">
+      <DependentUpon>Inscripcion.master</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\personas.master.cs">
+      <DependentUpon>personas.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\personas.master.designer.cs">
+      <DependentUpon>personas.master</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmpersonas.aspx.cs">
+      <DependentUpon>frmpersonas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmpersonas.aspx.designer.cs">
+      <DependentUpon>frmpersonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmListaPersona.aspx.cs">
+      <DependentUpon>frmListaPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmListaPersona.aspx.designer.cs">
+      <DependentUpon>frmListaPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\frmlogin.aspx.cs">
+      <DependentUpon>frmlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\frmlogin.aspx.designer.cs">
+      <DependentUpon>frmlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formulario\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSetplan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetplan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmreportePlan.aspx.cs">
+      <DependentUpon>frmreportePlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmreportePlan.aspx.designer.cs">
+      <DependentUpon>frmreportePlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmreportescurso.aspx.cs">
+      <DependentUpon>frmreportescurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmreportescurso.aspx.designer.cs">
+      <DependentUpon>frmreportescurso.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
+      <Project>{7f7fedce-7e47-49ae-a682-6a621bd8550a}</Project>
+      <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
+      <Project>{bd7139e3-b3ee-48db-8040-57db9d1a5023}</Project>
+      <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
+      <Project>{18d1c50f-58e0-4d94-b05b-4a95a146e6bb}</Project>
+      <Name>Data.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\Reportcurso.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportPlan.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2995</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3570/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:3570/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
