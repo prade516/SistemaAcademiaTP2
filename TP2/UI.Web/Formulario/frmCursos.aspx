@@ -1,46 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmCursos.aspx.cs" Inherits="UI.Web.Formulario.frmCursos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
-    <%--  <link href="../CSS/bootstrap.min.css" rel="stylesheet" />
-    <link href="../CSS/bootstrap-chosen.css" rel="stylesheet" />
-    <script src="../JS/bootstrap.min.js"></script>
-
-    <script src="../JS/respond.min.js"></script>
-    <script src="../JS/html5shiv.min.js"></script>--%>
-
-    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
-   <%-- <script src="../JS/jquery-1.8.0.js"></script>
-    <script src="../JS/jquery-ui.js"></script>
-    <script src="../JS/jquery-ui.min.js"></script>
-    <script src="../JS/jquery.min.js"></script>
-    <script src="../JS/jquery.min1.js"></script>
-    <link href="../CSS/jquery-ui.css" rel="stylesheet" />
-    <script type="text/javascript">
-        $(function () {
-            $("#Txtcupo").autocomplete({
-                source: function (request, responde) {
-                    var param = { id_materia: $("Txtcupo").val() };
-                    $.ajax({
-                        url: "frmMaterias.aspx/Buscar",
-                        data: JSON.stringify(param),
-                        dataType: "json",
-                        type: "POST",
-                        contentType: "application/json:charset=utf-8",
-                        dataFilter: function (data) {
-                            response($.map(data.d, function (item) {
-                                return {
-                                    value:item
-                                }
-                            }))
-                        },
-                        error: function (XMLHttpRequest, textStatus, errorThrown) {
-                            alert(errorThrown);
-                        }                            
-                    })
-                }
-            });
-        });--%>
-    </script>
+   
     <asp:Panel runat="server">
         <asp:TextBox ID="txtbuscar" runat="server" CssClass="cajatexto" placeholder="Buscar por Comision"></asp:TextBox>
         <asp:Button ID="btnbuscar" runat="server" Text="Buscar" CssClass="button1"></asp:Button>
@@ -95,22 +56,4 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"  ErrorMessage="Debe Ingresar el cupo" ForeColor="Red" ValidationGroup="Controlar" ControlToValidate="Txtcupo"></asp:RequiredFieldValidator>
         
      </div>
-<%--        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <select class="chosen-select">
-                        <option>elegir</option>       
-                        </select>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        <script src="../JS/chosen.jquery.js"></script>
-        <script src="../JS/bootstrap.min.js"></script>
-        <script src="../JS/jquery.min.js"></script>
-        <script>
-            $('.chosen-select').chosen();
-        </script>--%>
 </asp:Content>

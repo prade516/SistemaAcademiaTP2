@@ -1,5 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Formulario/Site.master" AutoEventWireup="true" CodeBehind="frmAgregarNotas.aspx.cs" Inherits="UI.Web.Formulario.frmAgregarNotas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Contenidoprincipal" runat="server">
+     <asp:Panel ID="gridPanel" runat="server">
+        <link href="../CSS/datagridview.css" rel="stylesheet" />
+        <asp:GridView ID="gridview" runat="server" AutoGenerateColumns="False" CssClass="mGrid" PagerStyle-CssClass="pgr" GridLines="None"
+            AllowPaging="True" AlternatingRowStyle-CssClass="alt" PageSize="50" OnSelectedIndexChanged="gridview_SelectedIndexChanged">
+            <AlternatingRowStyle CssClass="alt" />
+            <Columns>
+                <asp:BoundField HeaderText="Codigo Inscripcion" DataField="IdInscripcion"></asp:BoundField >
+                <asp:BoundField HeaderText="Nombre" DataField="Nombre"></asp:BoundField >
+                <asp:BoundField HeaderText="Apellido" DataField="Apellido"></asp:BoundField >
+                <asp:BoundField HeaderText="Materia" DataField="Desc_Materia"></asp:BoundField >
+                <asp:CommandField HeaderText="Inscripcion" SelectText="Inscribir" ShowSelectButton="True"></asp:CommandField>
+                <asp:CommandField  DeleteText="Elimar" ShowDeleteButton="false"></asp:CommandField>
+            </Columns>
+            
+        </asp:GridView>
+
+    </asp:Panel>
      <center>
         <asp:Panel ID="estiloPanal" Visible="true" runat="server">
             <br />

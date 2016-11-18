@@ -43,6 +43,38 @@ namespace Data.Database
            }
            return pl;
        }
+
+       public List<Materias> GetAllMateriaAsignada(int idpersona)
+       {
+           List<Materias> lista = new List<Materias>();
+           try
+           {
+               this.OpenConnection();
+               SqlCommand cmddocentescursos = new SqlCommand("select mat.id_materia,mat.desc_materia  from personas per inner join planes pla on per.id_plan= pla.id_plan inner join materias mat on pla.id_plan= mat.id_plan where per.tipo_persona=2 and per.id_persona=@id_persona", SqlConn);
+               cmddocentescursos.Parameters.Add("@id_persona", SqlDbType.Int).Value = idpersona;
+               SqlDataReader drmateria = cmddocentescursos.ExecuteReader();
+               while (drmateria.Read())
+               {
+                   Materias docCurs = new Materias();
+                   //_Especialidades esp = new _Especialidades();
+                   docCurs.Id_Materia = (int)drmateria["id_materia"];
+                   docCurs.Desc_Materia = (string)drmateria["desc_materia"];
+
+                   lista.Add(docCurs);
+               }
+           }
+
+           catch (Exception ex)
+           {
+               Exception ExcepcionManejada = new Exception("No se Ecuentra la lista", ex);
+           }
+           finally
+           {
+               this.CloseConnection();
+           }
+           return lista;
+       }
+
        public List<Business.Entities.Materias> GetByMateria(string Tbuscado)
        {
            List<Materias> lista = new List<Materias>();

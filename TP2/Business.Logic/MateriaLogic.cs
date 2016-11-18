@@ -32,6 +32,10 @@ namespace Business.Logic
            return Materia.GetByMateria(desc_materia);
        }
 
+       public List<Materias> GetAllMateriaAsignada(int idpersona)
+       {
+           return Materia.GetAllMateriaAsignada(idpersona);
+       }
        public void Insertar(Materias mat)
        {
            Materia.Save(mat);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,13 @@ namespace UI.Web.Formulario
         {
 
         }
+        Alumnos_InscripcionesLogic _logic = new Alumnos_InscripcionesLogic();
+
+        public Alumnos_InscripcionesLogic Logic
+        {
+            get { return _logic; }
+            set { _logic = value; }
+        }
+       
     }
 }
