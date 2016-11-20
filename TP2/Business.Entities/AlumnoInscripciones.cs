@@ -20,6 +20,13 @@ namespace Business.Entities
         private string _Nombre;
         private string _Apellido;
         private string _Desc_Comision;
+        private string _Tipo;
+
+        public string Tipo
+        {
+            get { return _Tipo; }
+            set { _Tipo = value; }
+        }
 
         public string Desc_Comision
         {
@@ -90,7 +97,7 @@ namespace Business.Entities
         public AlumnoInscripciones()
         { 
         }
-        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo,string nombre,string apellido,string comision)
+        public AlumnoInscripciones(int id_inscripcion, int id_alumnos, int id_curso, string condicion, int nota, string plan, string materia, int anio,int cupo,string nombre,string apellido,string comision,string tipo)
         {
             this.IdInscripcion = id_inscripcion;
             this.IdAlumnos = id_alumnos;
@@ -104,6 +111,7 @@ namespace Business.Entities
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Desc_Comision = comision;
+            this.Tipo = tipo;
         }
     }
 }

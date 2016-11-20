@@ -45,15 +45,6 @@ namespace Business.Logic
        public void Update(Business.Entities.Usuario usur)
        {
            UsuarioData.Save(usur);
-       }
-
-      public static DataTable Login(string usuario,string password)
-      {
-          Usuario usr = new Usuario();
-          UsuarioAdapter usradap = new   UsuarioAdapter();
-          usr.Nombre_Usuario = usuario;
-          usr.Clave = password;
-          return usradap.Login(usr);
-      }
+       }     
     }
 }

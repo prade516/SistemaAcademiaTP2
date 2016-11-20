@@ -10,15 +10,15 @@
 namespace UI.Web.Formulario {
     
     
-    public partial class Inscripcion {
+    public partial class frmelgircomexamen {
         
         /// <summary>
-        /// Control Contenidoprincipal.
+        /// Control gridview.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Contenidoprincipal;
+        protected global::System.Web.UI.WebControls.GridView gridview;
     }
 }

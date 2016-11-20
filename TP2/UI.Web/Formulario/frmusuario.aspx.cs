@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web.Administrador
 {
-    public partial class frmad : System.Web.UI.MasterPage
+    public partial class frmmaterias : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
